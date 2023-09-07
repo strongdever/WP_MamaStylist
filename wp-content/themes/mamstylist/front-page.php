@@ -291,7 +291,7 @@ get_header();
                 <h1 class="main-title">男の子のママ応援団</h1>
                 <ul class="cheering-part spslider">
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -303,7 +303,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -315,7 +315,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -327,7 +327,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>

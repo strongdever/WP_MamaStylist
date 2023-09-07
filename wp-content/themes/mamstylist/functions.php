@@ -175,4 +175,128 @@ remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
 remove_action('wp_head', 'feed_links_extra', 3);
 
+
+function theme_admin_assets() {
+    wp_enqueue_script( 'csv-uploader', T_DIRE_URI . '/admin/script.js', array( 'jquery' ) );
+}
+
+// add_action('admin_enqueue_scripts', 'theme_admin_assets');
+
+function custom_term_radio_checklist( $args ) {
+    if ( ! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'product' || $args['taxonomy'] === 'category' ) {
+        if ( empty( $args['walker'] ) || is_a( $args['walker'], 'Walker' ) ) { 
+            if ( ! class_exists( 'WPSE_139269_Walker_Category_Radio_Checklist' ) ) {
+                class WPSE_139269_Walker_Category_Radio_Checklist extends Walker_Category_Checklist {
+                    function walk( $elements, $max_depth, ...$args ) {
+                        $output = parent::walk( $elements, $max_depth, ...$args );
+                        $output = str_replace(
+                            array( 'type="checkbox"', "type='checkbox'" ),
+                            array( 'type="radio"', "type='radio'" ),
+                            $output
+                        );
+
+                        return $output;
+                    }
+                }
+            }
+
+            $args['walker'] = new WPSE_139269_Walker_Category_Radio_Checklist;
+        }
+    }
+
+    return $args;
+}
+
+add_filter( 'wp_terms_checklist_args', 'custom_term_radio_checklist' );
+
+function theme_custom_setup() {
+    add_theme_support( 'post-thumbnails' ); 
+    add_image_size( "thumbnail", 150, 100, true );
+    add_image_size( "case-thumbnail", 96, 96, true );
+    add_image_size( "medium", 480, 320, true );
+    set_post_thumbnail_size( 480, 320, true );
+    add_editor_style('assets/css/reset.css');
+    add_editor_style('assets/css/common.css');
+    add_editor_style('assets/css/style.css');
+    add_theme_support( 'automatic-feed-links' );
+}
+
+add_action( 'after_setup_theme', 'theme_custom_setup' );
+
+//------remove autop------{
+add_filter('tiny_mce_before_init', 'disable_wpautop');
+function disable_wpautop($init) {
+    $init['wpautop'] = false;
+    return $init;
+}
+
+define( 'WPCF7_AUTOP', false );
+
+function disable_wp_auto_p( $content ) {
+    if ( is_singular( 'page' ) ) {
+      remove_filter( 'the_content', 'wpautop' );
+    }
+    remove_filter( 'the_excerpt', 'wpautop' );
+    return $content;
+}
+
+add_filter( 'the_content', 'disable_wp_auto_p', 0 );
+
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
+function custom_tinymce_config( $init ) {
+    $init['wpautop'] = false;
+    $init['apply_source_formatting'] = true;
+    $init['forced_root_block'] = false;
+    $init['force_br_newlines'] = true;
+    $init['force_p_newlines'] = false;
+    $init['convert_newlines_to_brs'] = true;
+    return $init;
+}
+add_filter( 'tiny_mce_before_init', 'custom_tinymce_config' );
+//<------remove autop------}
+
+function custom_excerpt_length($length) {
+    return 120; // Change this number to set your desired character limit
+}
+add_filter('excerpt_length', 'custom_excerpt_length');
+
+function custom_excerpt_more($more) {
+    return '...'; // Replace this string with your desired ellipsis
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
+//hide the content editor of the interview post
+add_action( 'init', function() {
+    remove_post_type_support( 'interview', 'editor' );
+}, 99);
+
+add_action( 'init', function() {
+    remove_post_type_support( 'case', 'editor' );
+}, 99);
+
+function catch_that_image() {
+    global $post, $posts;
+    $first_img = '';
+    ob_start();
+    ob_end_clean();
+    $output = preg_match_all('/<img.+?src=[\'"]([^\'"]+)[\'"].*?>/i', $post->post_content, $matches);
+    $first_img = $matches[1][0];
+  
+    if(empty($first_img)) {
+      $first_img = T_DIRE_URI . "/assets/img/noimage.png";
+    }
+    return $first_img;
+}
+
+//add css style to the admin dashboard
+// function custom_dashboard_css() {
+//   wp_enqueue_style( 'custom-dashboard-css', T_DIRE_URI.'/assets/css/admin-dashboard.css' );
+// }
+// add_action( 'admin_enqueue_scripts', 'custom_dashboard_css' );
+
+
 ?>

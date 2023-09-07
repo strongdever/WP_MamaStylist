@@ -14,7 +14,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="<?= esc_url(home_url('/company')); ?>">
+                            <a>
                                 <span>運営会社</span>
                             </a>
                         </li>

@@ -13,7 +13,7 @@ get_header();
             <div class="nav-status">
                 <a href="<?= esc_url(home_url('/')); ?>">トップ </a>
                 <i class="fa fa-angle-right"></i>
-                <h4>詳細検索</h4>
+                <h4>男の子のママ応援団</h4>
             </div>
         </section>
 
@@ -33,7 +33,7 @@ get_header();
                 </ul>
                 <ul class="cheering-part">
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -45,7 +45,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -57,7 +57,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -69,7 +69,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -81,7 +81,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
@@ -93,7 +93,7 @@ get_header();
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="<?php echo HOME . 'blog'; ?>">
                             <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
                             <div class="text-wrapper">
                                 <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>

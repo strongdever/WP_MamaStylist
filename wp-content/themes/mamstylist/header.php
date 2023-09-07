@@ -64,7 +64,7 @@
             <nav class="header-nav">
                 <ul class="nav-menu">
                     <li>
-                        <a href="<?= esc_url(home_url('/aboutus')); ?>" class="menu-link active">
+                        <a href="<?= esc_url(home_url('/aboutus')); ?>" class="menu-link">
                             <span>ママはスタイリストとは</span>
                         </a>
                     </li>

@@ -108,7 +108,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -120,7 +120,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -132,7 +132,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -144,7 +144,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -156,7 +156,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -168,7 +168,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -180,7 +180,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -192,7 +192,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -204,7 +204,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -216,7 +216,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -228,7 +228,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                         <li>
@@ -240,7 +240,7 @@ get_header();
                                         ¥10,000
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達</h4>
+                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
                             </a>
                         </li>
                     </ul>
