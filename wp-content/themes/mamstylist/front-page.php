@@ -30,256 +30,358 @@ get_header();
                         <img src="<?php echo T_DIRE_URI; ?>/assets/img/stars.png">
                         <h2 class="sub-title">中学生男子の服</h2>
                     </div>
+                    <?php
+                        $args = [
+                            'post_type' => 'product',
+                            'post_status' => 'publish',
+                            'paged' => $paged,
+                            'posts_per_page' => 3,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'slug',
+                                    'terms' => 'middleschool'
+                                ),
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'slug',
+                                    'terms' => 'recommended'
+                                ),
+                            ),
+                        ];
+                        
+                        $product_query = new WP_Query( $args );
+                    ?>
+                    <?php if($product_query->have_posts()) : ?>
                     <ul class="product-list">
+                        <?php while($product_query->have_posts()) : $product_query->the_post(); ?>
                         <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
+                            <a href="<?php the_permalink(); ?>" class="product">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
+                                    <?php
+                                    $product_id = get_the_ID(); // Get the current product ID or specify the product ID
+
+                                    // Get the product object
+                                    $product = wc_get_product($product_id);
+
+                                    // Check if the product has variations
+                                    if ($product->is_type('variable')) {
+                                        // Get all variations
+                                        $variations = $product->get_available_variations();
+                                        $variation_id = $variations[0]['variation_id'];
+                                        $variation_product = wc_get_product($variation_id);
+                                        $price = $variation_product->get_price();
+                                        // Loop through each variation
+                                        // foreach ($variations as $variation) {
+                                        //     $variation_id = $variation['variation_id']; // Get the variation ID
+
+                                        //     // Get the variation object
+                                        //     $variation_product = wc_get_product($variation_id);
+
+                                        //     // Get the price
+                                        //     $price = $variation_product->get_price();
+
+                                        //     // Output the price
+                                        //     var_export($price);
+                                        // }
+                                    }
+                                    ?>
                                     <h3 class="price">
-                                        ¥10,000
+                                    ¥<?php echo $price; ?>
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
                             </a>
                         </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
+                        <?php endwhile; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
-                <div class="highschool">
-                    <h1 class="main-title">おすすめのスタイル</h1>
+                <div class="hightschool">
                     <div class="sub-text">
                         <img src="<?php echo T_DIRE_URI; ?>/assets/img/stars.png">
                         <h2 class="sub-title">高校生男子の服</h2>
                     </div>
+                    <?php
+                        $args = [
+                            'post_type' => 'product',
+                            'post_status' => 'publish',
+                            'paged' => $paged,
+                            'posts_per_page' => 3,
+                            'orderby' => 'date',
+                            'order' => 'DESC',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'slug',
+                                    'terms' => 'highschool'
+                                ),
+                                array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'slug',
+                                    'terms' => 'recommended'
+                                ),
+                            ),
+                        ];
+                        
+                        $product_query = new WP_Query( $args );
+                    ?>
+                    <?php if($product_query->have_posts()) : ?>
                     <ul class="product-list">
+                        <?php while($product_query->have_posts()) : $product_query->the_post(); ?>
                         <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
+                            <a href="<?php the_permalink(); ?>" class="product">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
+                                    <?php
+                                    $product_id = get_the_ID(); // Get the current product ID or specify the product ID
+
+                                    // Get the product object
+                                    $product = wc_get_product($product_id);
+
+                                    // Check if the product has variations
+                                    if ($product->is_type('variable')) {
+                                        // Get all variations
+                                        $variations = $product->get_available_variations();
+                                        // var_export($variations[0]['variation_id']);
+                                        $variation_id = $variations[0]['variation_id'];
+                                        $variation_product = wc_get_product($variation_id);
+                                        $price = $variation_product->get_price();
+                                    }
+                                    ?>
                                     <h3 class="price">
-                                        ¥10,000
+                                    ¥<?php echo $price; ?>
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
                             </a>
                         </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
+                        <?php endwhile; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
 
+        <?php
+        $product_cats = get_terms( array(
+            'taxonomy'       => 'product_cat',
+            'hide_empty'     => false,
+        ) );
+        ?>
         <section class="situation-choose">
             <div class="container">
                 <h1 class="main-title">シチュエーションから選ぶ</h1>
                 <ul class="product-in-situation">
+                <?php
+                if($product_cats) :
+                    foreach($product_cats as $product_cat) :
+                        $parent_cat = get_term($product_cat->parent);
+                        $cat_slug = $product_cat->slug;
+                        $cat_name = $product_cat->name;
+                        if($parent_cat->slug == "situation") :
+                    $args = [
+                        'post_type' => 'product',
+                        'post_status' => 'publish',
+                        'paged' => $paged,
+                        'posts_per_page' => 1,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'product_cat',
+                                'field' => 'slug',
+                                'terms' => $cat_slug,
+                            ),
+                        ),
+                    ];
+                    
+                    $product_query = new WP_Query( $args );
+                ?>
+                    <?php if($product_query) :?>
+                        <?php while( $product_query->have_posts() ) : $product_query->the_post(); ?>
                     <li>
-                        <a href="<?= esc_url(home_url('/detail')); ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0002.png">
-                            <div class="thumb-screen"></div>
-                            <h3 class="situation">男友達と遊びに行くとき</h3>
+                        <a href="<?= esc_url(home_url('/product/?situation=' . $cat_slug)); ?>">
+                            <?php if( has_post_thumbnail() ): ?>
+                            <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                            <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
+                            <h3 class="situation"><?php echo $cat_name; ?></h3>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?= esc_url(home_url('/detail')); ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0002.png">
-                            <div class="thumb-screen"></div>
-                            <h3 class="situation">男友達と遊びに行くとき</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= esc_url(home_url('/detail')); ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0002.png">
-                            <div class="thumb-screen"></div>
-                            <h3 class="situation">男友達と遊びに行くとき</h3>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= esc_url(home_url('/detail')); ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0002.png">
-                            <div class="thumb-screen"></div>
-                            <h3 class="situation">男友達と遊びに行くとき</h3>
-                        </a>
-                    </li>
+                    <?php endwhile; ?>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
             </div>
         </section>
 
+        <?php
+        $product_cats = get_terms( array(
+            'taxonomy'       => 'product_cat',
+            'orderby'        => 'ID',
+            'order'          => 'ASC',
+            'hide_empty'     => false
+        ) );
+        ?>
         <section class="choosing-section">
             <div class="container">
                 <div class="type-list like-products">
+                    <?php if( $product_cats ) : ?>
                     <h1 class="main-title">好みのジャンルから選ぶ</h1>
                     <ul class="cat-list">
+                    <?php
+                        foreach($product_cats as $product_cat) :
+                            $parent_cat = get_term($product_cat->parent);
+                            $cat_slug = $product_cat->slug;
+                            $cat_name = $product_cat->name;
+                            if($parent_cat->slug == "genre") :
+                    ?>
                         <li>
-                            <a class="cat-item"><span>綺麗めカジュアル系</span></a>
+                            <a class="cat-item" href="<?= esc_url(home_url('/product/?genre=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
                         </li>
-                        <li>
-                            <a class="cat-item"><span>モード系</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>ストリート系</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>キャラクター系</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>韓国風男子系</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>ナチュラル系</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>アメカジ系</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>アウトドア系</span></a>
-                        </li>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
                 <div class="price-list like-products">
+                    <?php if( $product_cats ) : ?>
                     <h1 class="main-title">コーディネート一式の<br class="sp">価格から選ぶ</h1>
                     <ul class="cat-list">
+                    <?php
+                        foreach($product_cats as $product_cat) :
+                            $parent_cat = get_term($product_cat->parent);
+                            $cat_slug = $product_cat->slug;
+                            $cat_name = $product_cat->name;
+                            if($parent_cat->slug == "setprice") :
+                    ?>
                         <li>
-                            <a class="cat-item"><span>～¥4,999</span></a>
+                            <a class="cat-item" href="<?= esc_url(home_url('/product/?setprice=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
                         </li>
-                        <li>
-                            <a class="cat-item"><span>¥5,000～¥9,999</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>¥10,000〜¥14,999</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>¥15,000〜¥20,000</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>¥20,000〜¥29,999</span></a>
-                        </li>
-                        <li>
-                            <a class="cat-item"><span>¥30,000〜</span></a>
-                        </li>
+                        <?php endif; ?>
+                        <?php endforeach; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
+                <?php
+                    $args = [
+                        'post_type' => 'product',
+                        'post_status' => 'publish',
+                        'paged' => $paged,
+                        'posts_per_page' => 5,
+                        'meta_key' => 'popularity_ranking',
+                        'orderby' => 'meta_value_num',
+                        'order' => 'DESC',
+                    ];
+                    
+                    $product_query = new WP_Query( $args );
+                ?>
                 <div class="popular-product">
+                    <?php if( $product_query ) : ?>
                     <h1 class="main-title">人気のコーディネート<br class="sp">ランキング</h1>
                     <ul class="product-list">
+                        <?php $i = 1; ?>
+                        <?php while($product_query->have_posts()) : $product_query->the_post(); ?>
                         <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
+                            <a href="<?php the_permalink(); ?>" class="product">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
+                                    <?php
+                                    $product_id = get_the_ID(); // Get the current product ID or specify the product ID
+
+                                    // Get the product object
+                                    $product = wc_get_product($product_id);
+
+                                    // Check if the product has variations
+                                    if ($product->is_type('variable')) {
+                                        // Get all variations
+                                        $variations = $product->get_available_variations();
+                                        $variation_id = $variations[0]['variation_id'];
+                                        $variation_product = wc_get_product($variation_id);
+                                        $price = $variation_product->get_price();
+                                    }
+                                    ?>
                                     <h3 class="price">
-                                        ¥10,000
+                                    ¥<?php echo $price; ?>
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
                             </a>
-                            <div class="mark order1">1</div>
+                            <div class="mark order<?php echo $i; ?>"><?php echo $i; ?></div>
                         </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                            <div class="mark order2">2</div>
-                        </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                            <div class="mark order3">3</div>
-                        </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                            <div class="mark order4">4</div>
-                        </li>
-                        <li>
-                            <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                            <div class="mark order5">5</div>
-                        </li>
+                        <?php $i++; ?>
+                        <?php endwhile; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
             
+        <?php
+            $args = [
+                'post_type' => 'blog',
+                'post_status' => 'publish',
+                'paged' => $paged,
+                'posts_per_page' => 12,
+                'orderby' => 'date',
+                'order' => 'DESC',
+            ];
+            
+            $blog_query = new WP_Query( $args );
+        ?>
+        <?php if( $blog_query ) : ?>
         <section class="cheering-section">
             <div class="container">
                 <div class="header">
@@ -290,122 +392,107 @@ get_header();
                 </div>
                 <h1 class="main-title">男の子のママ応援団</h1>
                 <ul class="cheering-part spslider">
+                    <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
                     <li>
-                        <a href="<?php echo HOME . 'blog'; ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
                             <div class="text-wrapper">
-                                <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
+                                <h3 class="title"><?php the_title(); ?></h3>
                                 <div class="last-text">
-                                    <div class="method">着回し術</div>
-                                    <div class="date">2023年5月15日</div>
+                                    <?php
+                                    $post_cats = get_the_terms(get_the_ID(), 'blog-category');
+                                    if( $post_cats ) :
+                                        foreach($post_cats as $post_cat) :
+                                    ?>
+                                    <div class="method"><?php echo $post_cat->name; ?></div>
+                                    <?php endforeach;
+                                    endif; ?>
+                                    <div class="date"><?php the_time('Y.m.d'); ?></div>
                                 </div>
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?php echo HOME . 'blog'; ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
-                            <div class="text-wrapper">
-                                <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
-                                <div class="last-text">
-                                    <div class="method">着回し術</div>
-                                    <div class="date">2023年5月15日</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo HOME . 'blog'; ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
-                            <div class="text-wrapper">
-                                <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
-                                <div class="last-text">
-                                    <div class="method">着回し術</div>
-                                    <div class="date">2023年5月15日</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo HOME . 'blog'; ?>">
-                            <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/cheering0001.png" alt="">
-                            <div class="text-wrapper">
-                                <h3 class="title">あっという間に大きくなる体もこれで大丈夫!</h3>
-                                <div class="last-text">
-                                    <div class="method">着回し術</div>
-                                    <div class="date">2023年5月15日</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                    <?php endwhile; ?>
                 </ul>
             </div>
-        </section> 
+        </section>
+        <?php endif; ?>
 
         <section class="latest-section">
             <h1 class="main-title">最近チェックした<br class="sp">コーディネート</h1>
+            <?php
+                $recently_viewed = isset($_COOKIE['recently_viewed']) ? $_COOKIE['recently_viewed'] : '';
+                $recently_viewed = explode(',', $recently_viewed);
+                $recently_viewed = array_filter($recently_viewed);
+                if (!empty($recently_viewed)) {
+                    $args = array(
+                        'post_type' => 'product',
+                        'post__in' => $recently_viewed,
+                        'orderby' => 'post__in',
+                        'posts_per_page' => 5,
+                    );
+                    $products = new WP_Query($args);
+            
+                    if ($products->have_posts()) :
+            ?>
             <ul class="product-list">
+                <?php while($products->have_posts()) : $products->the_post(); ?>
                 <li>
-                    <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                        <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
+                    <a href="<?php the_permalink(); ?>" class="product">
+                    <?php if( has_post_thumbnail() ): ?>
+                        <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                    <?php else: ?>
+                        <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                    <?php endif; ?>
                         <div class="price-wrap">
                             <div class="pre-text">全部で</div>
+                            <?php
+                            $product_id = get_the_ID(); // Get the current product ID or specify the product ID
+
+                            // Get the product object
+                            $product = wc_get_product($product_id);
+
+                            // Check if the product has variations
+                            if ($product->is_type('variable')) {
+                                // Get all variations
+                                $variations = $product->get_available_variations();
+                                $variation_id = $variations[0]['variation_id'];
+                                $variation_product = wc_get_product($variation_id);
+                                $price = $variation_product->get_price();
+                            }
+                            ?>
                             <h3 class="price">
-                                ¥10,000
+                            ¥<?php echo $price; ?>
                             </h3>
                         </div>
-                        <h4 class="product-cat">男友達と遊びに行くとき</h4>
+                        <?php
+                        $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                        if( $product_cats ) :
+                            foreach($product_cats as $product_cat) :
+                                $parent_term = get_term( $product_cat->parent );
+                                if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                        ?>
+                        <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                        <?php endif; ?>
+                        <?php endforeach;
+                        endif; ?>
                     </a>
                 </li>
-                <li>
-                    <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                        <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                        <div class="price-wrap">
-                            <div class="pre-text">全部で</div>
-                            <h3 class="price">
-                                ¥10,000
-                            </h3>
-                        </div>
-                        <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                        <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                        <div class="price-wrap">
-                            <div class="pre-text">全部で</div>
-                            <h3 class="price">
-                                ¥10,000
-                            </h3>
-                        </div>
-                        <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                        <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                        <div class="price-wrap">
-                            <div class="pre-text">全部で</div>
-                            <h3 class="price">
-                                ¥10,000
-                            </h3>
-                        </div>
-                        <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= esc_url(home_url('/detail')); ?>" class="product">
-                        <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                        <div class="price-wrap">
-                            <div class="pre-text">全部で</div>
-                            <h3 class="price">
-                                ¥10,000
-                            </h3>
-                        </div>
-                        <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                    </a>
-                </li>
+                <?php endwhile; ?>
             </ul>
+            <?php endif; ?>
+            <?php
+            }
+            else {
+            ?>
+            <span class='noitem'><?php echo "最近閲覧した商品はありません。"; ?></span>
+            <?php
+            }
+            ?>
         </section>
     </main><!-- #front-page -->
 <?php

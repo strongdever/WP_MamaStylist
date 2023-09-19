@@ -38,12 +38,12 @@ get_header();
                     </div>
                     <ul class="btns">
                         <li>
-                            <a class="btn" href="<?php esc_url(home_url('/middleschool')); ?>">
+                            <a class="btn" href="<?= esc_url(home_url('/middleschool')); ?>">
                                 中学生男子の服はこちら<i class="fa fa-angle-right bounce"></i>
                             </a>
                         </li>
                         <li>
-                            <a class="btn" href="<?php esc_url(home_url('/highschool')); ?>">
+                            <a class="btn" href="<?= esc_url(home_url('/highschool')); ?>">
                                 高校生男子の服はこちら<i class="fa fa-angle-right bounce"></i>
                             </a>
                         </li>

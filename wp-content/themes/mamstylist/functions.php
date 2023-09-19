@@ -292,6 +292,86 @@ function catch_that_image() {
     return $first_img;
 }
 
+// Define the popularity_ranking key
+function custom_product_popularity_ranking_key() {
+    return 'popularity_ranking';
+}
+add_filter('custom_product_popularity_ranking_key', 'custom_product_popularity_ranking_key');
+
+// Update popularity ranking based on sales
+function update_product_popularity_ranking_bysales($order_id) {
+    $order = wc_get_order($order_id);
+    $items = $order->get_items();
+
+    foreach ($items as $item) {
+        $product_id = $item->get_product_id();
+        $ranking_value = (int) get_post_meta($product_id, 'popularity_ranking', true);
+        $ranking_value += 2;
+        update_post_meta($product_id, 'popularity_ranking', $ranking_value);
+    }
+}
+add_action('woocommerce_order_status_completed', 'update_product_popularity_ranking_bysales');
+
+// Update popularity ranking based on product views
+function update_product_popularity_ranking_byviews() {
+    if (is_singular('product')) {
+        $product_id = get_the_ID();
+        $ranking_value = (int) get_post_meta($product_id, 'popularity_ranking', true);
+        $ranking_value += 3;
+        update_post_meta($product_id, 'popularity_ranking', $ranking_value);
+    }
+
+    // Store recently visited product IDs in a cookie
+    if (is_singular('product')) {
+        $product_id = get_the_ID();
+        $recently_viewed = isset($_COOKIE['recently_viewed']) ? $_COOKIE['recently_viewed'] : '';
+        $recently_viewed = explode(',', $recently_viewed);
+        $recently_viewed = array_filter($recently_viewed);
+        $recently_viewed = array_diff($recently_viewed, array($product_id));
+        array_unshift($recently_viewed, $product_id);
+        $recently_viewed = array_slice($recently_viewed, 0, 5);
+        setcookie('recently_viewed', implode(',', $recently_viewed), time() + 3600, '/');
+    }
+}
+add_action('template_redirect', 'update_product_popularity_ranking_byviews');
+
+
+//pagination
+function custom_pagination($total_pages, $current_page = 1, $total_counts = 0) {
+    global $wp_query;
+
+    $big = 99999999; // set a big number for the links
+
+    $paginate_links = paginate_links(array(
+        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+        'format' => '?paged=%#%',
+        'current' => max(1, $current_page),
+        'total' => $total_pages,
+        'type' => 'array',
+        'prev_text' => __('<i class="fa fa-angle-left bounce"></i>'),
+        'next_text' => __('<i class="fa fa-angle-right bounce"></i>'),
+        'show_all' => true,
+        'end_size' => 3,
+        'mid_size' => 3
+    ));
+
+    $first_number = $total_counts == 0 ? 0 : ($current_page - 1) * 4 + 1;
+    $secode_number = ($current_page * 4) > $total_counts ? $total_counts : ($current_page * 4);
+?>
+    
+    <div class="pager">
+        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>>該当公開件数<span class="pager__num--point ui-tx-point"><?php echo $total_counts; ?>件</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
+        <?php if ($paginate_links) : ?>
+            <ul class="pager__wrap">
+                <?php foreach ($paginate_links as $link) : ?>
+                    <li class="pager__bt"><?php echo $link; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+<?php
+}
+
 //add css style to the admin dashboard
 // function custom_dashboard_css() {
 //   wp_enqueue_style( 'custom-dashboard-css', T_DIRE_URI.'/assets/css/admin-dashboard.css' );

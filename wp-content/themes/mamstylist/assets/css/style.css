@@ -1577,6 +1577,11 @@ header.header {
   .product .thumb {
     position: relative;
     width: 100%;
+    aspect-ratio: 250 / 365 !important;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
   }
 
   .product .price-wrap {
@@ -1674,6 +1679,27 @@ header.header {
     position: relative;
   }
 
+  .situation-choose .product-in-situation li a {
+    display: block;
+  }
+
+  .situation-choose .product-in-situation li a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 100;
+    border-radius: 12px;
+  }
+
+  .situation-choose .product-in-situation li a:hover::before {
+    opacity: 0;
+  }
+
   @media only screen and (max-width: 768px) {
     .situation-choose .product-in-situation {
       -ms-grid-columns: (minmax(0px, 1fr))[3];
@@ -1685,40 +1711,39 @@ header.header {
   .situation-choose .product-in-situation li .thumb {
     position: relative;
     width: 100%;
-    border-radius: 1.2rem;
+    border-radius: 12px;
+    aspect-ratio: 260 / 285;
+    -o-object-fit: cover;
+    object-fit: cover;
   }
 
   .situation-choose .product-in-situation li .situation {
-    width: -webkit-fit-content;
-      width: -moz-fit-content;
-        width: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: 100%;
     position: absolute;
+    top: 0;
     text-wrap: nowrap;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     font-family: "DNP ShueiMGoStd";
     font-weight: 800;
     font-size: 2.0rem;
     color: #fff;
     line-height: 2.4rem;
+    z-index: 200;
   }
 
   @media print, screen and (max-width: 1440px) {
     .situation-choose .product-in-situation li .situation {
       font-size: 1.6rem;
     }
-  }
-
-  .situation-choose .product-in-situation li .thumb-screen {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    top: 0;
-    left: 0;
-    border-radius: 1.2rem;
-    opacity: 0.4;
   }
 
   .choosing-section {
@@ -1923,6 +1948,10 @@ header.header {
     border-radius: 0.8rem;
   }
 
+  .cheering-part li:hover {
+    opacity: 0.8;
+  }
+
   #front-page .cheering-part li {
     margin: 0 1.6rem;
   }
@@ -1936,14 +1965,22 @@ header.header {
   .cheering-part li a .thumb {
     position: relative;
     width: 100%;
+    height: auto;
     border-radius: 0.8rem 0.8rem 0 0;
   }  
 
   .cheering-part li a .text-wrapper {
     position: relative;
-    padding: 1.4rem 0.8rem;
+    padding: 2.4rem 2.0rem;
   }
 
+  @media only screen and (max-width:768px) {
+    .cheering-part li a .text-wrapper {
+      position: relative;
+      padding: 1.4rem 0.8rem;
+    }
+  }
+  
   .cheering-part li a .title {
     position: relative;
     margin: 0 0 1.2rem 0;
@@ -1973,7 +2010,7 @@ header.header {
       padding: 0.4rem 2.4rem !important;
     }
     .cheering-part li a .text-wrapper {
-      padding: 1.6rem 0rem;
+      padding: 1.4rem 0.8rem;
     }
   }
 
@@ -2052,11 +2089,24 @@ header.header {
     grid-column-gap: 3.2rem; 
   }
 
+  .latest-section .noitem {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+    font-size: 2.4rem;
+  }
+
   @media only screen and (max-width: 768px) {
     .latest-section .product-list {
       -ms-grid-columns: (minmax(0px, 1fr))[1];
       grid-template-columns: repeat(1, minmax(0px, 1fr)) !important;
       grid-row-gap: 3.2rem; 
+    }
+
+    .latest-section .noitem {
+      font-size: 1.8rem;
     }
   }
 
@@ -3119,6 +3169,9 @@ header.header {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   width: 100%;
+  aspect-ratio: 520 / 760;
+  -o-object-fit: cover;
+    object-fit: cover;
 }
 
 .product-detail .photos .pickup .picker-next,
@@ -3299,10 +3352,6 @@ header.header {
     width: 37.5rem;
     height: 37.5rem;
   }
-}
-
-.detail-section .detail-wraper {
-  margin-bottom: 9.6rem;
 }
 
 .detail-section .sub-text.mobile {
@@ -3530,36 +3579,31 @@ header.header {
   margin-bottom: 4rem;
 }
 
-.detail-section .detail-wraper .social-items {
+.detail-section .detail-wraper .social-items .addtoany_shortcode {
   display: -webkit-box;
     display: -ms-flexbox;
       display: flex;
-  -webkit-box-align: center;
-    -ms-flex-align: center;
-      align-items: center;
-  -webkit-box-pack: left;
-    -ms-flex-pack: left;
-      justify-content: left;
+  -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
-.detail-section .detail-wraper .social-items li {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-right: 1.6rem;
+.detail-section .detail-wraper .social-items .addtoany_shortcode:before {
+  top: -3.2rem;
+  position: absolute;
+  white-space: nowrap;
+  content: 'このコーディネートをシェア';
 }
 
-.detail-section .detail-wraper .social-items li .social-item {
-  position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-.detail-section .detail-wraper .social-items li .social-item img {
-  width: 3.2rem;
-  height: 3.2rem;
+@media only screen and (max-width:768px) {
+  .detail-section .detail-wraper .social-items .addtoany_shortcode:before {
+    top: -3.2rem;
+    position: absolute;
+    white-space: nowrap;
+    content: 'このコーディネートをシェア';
+    left: -2.8rem;
+  }
 }
 
 .detail-section .sub-title {
@@ -3569,6 +3613,7 @@ header.header {
   margin-bottom: 4rem;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 9.6rem;
 }
 
 .detail-section .product-list {
@@ -3650,6 +3695,10 @@ header.header {
   font-style: normal;
   font-weight: 600;
   line-height: 1.4rem; /* 87.5% */
+}
+
+.cheering-page .cats-list li a:hover {
+  opacity: 0.8;
 }
 
 @media only screen and (max-width: 768px) {
@@ -4059,4 +4108,92 @@ input[type=checkbox]:before {
   line-height: 24px;
   letter-spacing: 0.96px;
   margin: 0;
+}
+
+.addtoany_shortcode .a2a_dd {
+  display: none;
+}
+
+.woocommerce-image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.scaled-image {
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.scaled-image:hover,
+.scaled-image.is-mouse-over {
+  transform: scale(1.8);
+}
+
+.pager {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
+      align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.pager .pager__num {
+  color: #333;
+  font-family: "DNP ShueiMGoStd";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 100% */
+}
+
+@media only screen and (max-width:768px) {
+  .pager .pager__num {
+    font-size: 1.5rem;
+  }
+}
+
+.pager .pager__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 1.6rem;
+    -moz-column-gap: 1.6rem;
+      column-gap: 1.6rem;
+}
+
+.pager .pager__wrap .page-numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 4px;
+  width: 2.8rem;
+  height: 3.2rem;
+  color: #333;
+  background-color: #fff;
+  font-family: "DNP ShueiMGoStd";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 14px; /* 100% */
+}
+
+.pager .pager__wrap .page-numbers.current {
+  text-decoration: underline;
+}
+
+.pager .pager__wrap .prev,
+.pager .pager__wrap .next {
+  color: #fff;
+  background-color: #40C2BF;
 }

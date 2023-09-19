@@ -261,7 +261,7 @@
                     settings: {
                         infinite: true,
                         slidesToShow: 1,
-                        slidesToScroll: 1,
+                        // slidesToScroll: 1,
                         arrows: true,
                         dots: false,
                         centerMode: true,
@@ -272,5 +272,28 @@
             ]
         });
     }
+
+    $('.woocommerce-image-container').mousemove(function(event) {
+        var containerWidth = $(this).width();
+        var containerHeight = $(this).height();
+    
+        // Calculate mouse position relative to the container
+        var mouseX = event.pageX - $(this).offset().left;
+        var mouseY = event.pageY - $(this).offset().top;
+    
+        // Calculate the percentage of mouse position within the container
+        var percentX = (mouseX / containerWidth) * 100;
+        var percentY = (mouseY / containerHeight) * 100;
+    
+        // Update the image transform origin based on the mouse position
+        $(this).find('.scaled-image').css('transform-origin', percentX + '% ' + percentY + '%');
+      });
+    
+      // Add mouseenter and mouseleave event handlers to the image container
+      $('.woocommerce-image-container').mouseenter(function() {
+        $(this).find('.scaled-image').addClass('is-mouse-over');
+      }).mouseleave(function() {
+        $(this).find('.scaled-image').removeClass('is-mouse-over');
+      });
 
 })(jQuery);

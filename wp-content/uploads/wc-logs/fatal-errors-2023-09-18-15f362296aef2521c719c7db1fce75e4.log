@@ -1,0 +1,58 @@
+2023-09-18T01:41:04+00:00 CRITICAL syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 278
+
+2023-09-18T02:44:29+00:00 CRITICAL Uncaught Error: Value of type null is not callable in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php:284
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 284
+
+2023-09-18T02:44:56+00:00 CRITICAL Uncaught Error: Value of type null is not callable in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php:284
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 284
+
+2023-09-18T10:18:02+00:00 CRITICAL Cannot redeclare update_product_popularity_ranking() (previously declared in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:302) in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 316
+
+2023-09-18T12:53:02+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on bool in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php:461
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 461
+
+2023-09-18T12:53:05+00:00 CRITICAL Uncaught Error: Call to a member function is_type() on bool in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php:461
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 461
+
+2023-09-18T13:21:00+00:00 CRITICAL Uncaught TypeError: array_map(): Argument #2 ($array) must be of type array, string given in E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php:2202
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(2202): array_map('absint', '177')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3800): WP_Query->get_posts()
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3932): WP_Query->query(Array)
+#3 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php(438): WP_Query->__construct(Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#5 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#6 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#7 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php on line 2202
+
+2023-09-18T13:36:01+00:00 CRITICAL syntax error, unexpected token "echo", expecting ":" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 490
+
+2023-09-18T13:36:17+00:00 CRITICAL syntax error, unexpected token "{", expecting ":" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 489
+
+2023-09-18T13:36:34+00:00 CRITICAL syntax error, unexpected token "else" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 448
+
+2023-09-18T13:37:04+00:00 CRITICAL syntax error, unexpected token "else" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 489
+
+2023-09-18T13:37:24+00:00 CRITICAL Unmatched '}' in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\front-page.php on line 494
+

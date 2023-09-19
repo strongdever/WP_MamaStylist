@@ -41,21 +41,21 @@
     $('.picker img').on('click', pickupImage);
 
     // lightbox
-    const $lightbox = $('#lightbox');
-    const $lightboxImage = $('#lightbox img');
-    const $lightboxSource = $('.photos .pickup img, img.lightbox');
+    // const $lightbox = $('#lightbox');
+    // const $lightboxImage = $('#lightbox img');
+    // const $lightboxSource = $('.photos .pickup img, img.lightbox');
 
-    $lightboxSource.on('click', function () {
-        const $this = $(this);
+    // $lightboxSource.on('click', function () {
+    //     const $this = $(this);
 
-        $('body').css({ 'overflow-y': 'hidden' });
-        $lightboxImage.css({ opacity: 0.0 }).prop('src', $this.prop('src')).prop('srcset', $this.prop('srcset'));
-        $lightbox.css({ display: 'flex' });
-        $lightboxImage.css({ opacity: 1.0 });
-    });
-    $lightbox.on('click', function () {
-        $('body').css({ 'overflow-y': 'scroll' });
-        $lightbox.css({ display: 'none' });
-        $lightboxImage.css({ opacity: 0.0 });
-    });
+    //     $('body').css({ 'overflow-y': 'hidden' });
+    //     $lightboxImage.css({ opacity: 0.0 }).prop('src', $this.prop('src')).prop('srcset', $this.prop('srcset'));
+    //     $lightbox.css({ display: 'flex' });
+    //     $lightboxImage.css({ opacity: 1.0 });
+    // });
+    // $lightbox.on('click', function () {
+    //     $('body').css({ 'overflow-y': 'scroll' });
+    //     $lightbox.css({ display: 'none' });
+    //     $lightboxImage.css({ opacity: 0.0 });
+    // });
 })(jQuery);

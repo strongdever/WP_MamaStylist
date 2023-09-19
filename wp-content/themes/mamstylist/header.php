@@ -79,7 +79,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= esc_url(home_url('/party')); ?>" class="menu-link">
+                        <a href="<?= esc_url(home_url('/blog')); ?>" class="menu-link">
                             <span>男の子ママ応援団</span>
                         </a>
                     </li>
@@ -144,7 +144,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?= esc_url(home_url('/party')); ?>" class="menu-link">
+                    <a href="<?= esc_url(home_url('/blog')); ?>" class="menu-link">
                         <span>男の子ママ応援団</span>
                     </a>
                 </li>

@@ -1,0 +1,36 @@
+2023-09-14T16:34:36+00:00 CRITICAL syntax error, unexpected token "endif" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\archive-blog.php on line 150
+
+2023-09-14T17:11:35+00:00 CRITICAL syntax error, unexpected token ";", expecting "(" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php on line 88
+
+2023-09-14T17:15:12+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_term() in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php:84
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php on line 84
+
+2023-09-14T17:19:57+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_term() in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php:84
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php on line 84
+
+2023-09-14T17:21:32+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_term() in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php:84
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php on line 84
+
+2023-09-14T17:22:03+00:00 CRITICAL Uncaught Error: Call to undefined function get_the_term() in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php:84
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-blog.php on line 84
+
