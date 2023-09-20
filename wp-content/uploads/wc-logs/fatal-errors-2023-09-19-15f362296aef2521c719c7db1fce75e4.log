@@ -1,0 +1,116 @@
+2023-09-19T02:37:47+00:00 CRITICAL syntax error, unexpected variable "$first_number" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 103
+
+2023-09-19T02:37:59+00:00 CRITICAL syntax error, unexpected variable "$first_number" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 103
+
+2023-09-19T02:38:40+00:00 CRITICAL syntax error, unexpected variable "$first_number" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 103
+
+2023-09-19T02:40:18+00:00 CRITICAL syntax error, unexpected variable "$first_number" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 103
+
+2023-09-19T02:40:34+00:00 CRITICAL syntax error, unexpected variable "$secode_number" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 104
+
+2023-09-19T13:09:06+00:00 CRITICAL syntax error, unexpected double-quoted string "middleschool", expecting variable in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 344
+
+2023-09-19T13:13:19+00:00 CRITICAL syntax error, unexpected token "}" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 357
+
+2023-09-19T13:14:09+00:00 CRITICAL syntax error, unexpected token "}" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 357
+
+2023-09-19T13:14:23+00:00 CRITICAL syntax error, unexpected token "=>" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 359
+
+2023-09-19T13:14:31+00:00 CRITICAL syntax error, unexpected token "=>" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 359
+
+2023-09-19T13:17:36+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function update_price_meta_key(), 0 passed in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 61 and exactly 1 expected in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:344
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php(61): update_price_meta_key()
+#1 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#3 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#4 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 344
+
+2023-09-19T13:18:34+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function update_price_meta_key(), 0 passed in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 61 and exactly 1 expected in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:344
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php(61): update_price_meta_key()
+#1 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#3 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#4 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 344
+
+2023-09-19T13:19:27+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function update_price_meta_key(), 0 passed in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 61 and exactly 1 expected in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:344
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php(61): update_price_meta_key()
+#1 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#3 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#4 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 344
+
+2023-09-19T13:19:46+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function update_price_meta_key(), 0 passed in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php on line 61 and exactly 1 expected in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:344
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php(61): update_price_meta_key()
+#1 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#3 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#4 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 344
+
+2023-09-19T14:06:44+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php:90
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 90
+
+2023-09-19T14:07:10+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php:90
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 90
+
+2023-09-19T14:08:07+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php:90
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 90
+
+2023-09-19T14:12:31+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php:90
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 90
+
+2023-09-19T14:13:26+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php:90
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 90
+
+2023-09-19T14:13:56+00:00 CRITICAL Uncaught Error: Object of class WP_Term could not be converted to string in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php:90
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 90
+
+2023-09-19T16:07:06+00:00 CRITICAL syntax error, unexpected single-quoted string "&cat[", expecting ":" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 239
+
+2023-09-19T16:41:51+00:00 CRITICAL syntax error, unexpected token "endforeach", expecting "elseif" or "else" or "endif" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 243
+
+2023-09-19T16:42:14+00:00 CRITICAL syntax error, unexpected token "endif", expecting end of file in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 239
+
+2023-09-19T18:25:57+00:00 CRITICAL syntax error, unexpected token "(", expecting variable or "{" or "$" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 265
+
+2023-09-19T18:26:29+00:00 CRITICAL syntax error, unexpected token "(", expecting variable or "{" or "$" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 265
+
+2023-09-19T18:28:08+00:00 CRITICAL syntax error, unexpected token "(", expecting variable or "{" or "$" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 264
+

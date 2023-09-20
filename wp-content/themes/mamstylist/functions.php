@@ -72,6 +72,13 @@ error_reporting(0);
 
 flush_rewrite_rules();
 
+add_filter('query_vars', function($vars) {
+	$vars[] = 'sortby';
+    $vars[] = 'search_key';
+    $vars[] = 'middleschool';
+    $vars[] = 'highschool';
+	return $vars;
+});
 
 // 固定ページとMW WP Formでビジュアルモードを使用しない
 function stop_rich_editor($editor) {
@@ -312,18 +319,18 @@ function update_product_popularity_ranking_bysales($order_id) {
 }
 add_action('woocommerce_order_status_completed', 'update_product_popularity_ranking_bysales');
 
-// Update popularity ranking based on product views
+
 function update_product_popularity_ranking_byviews() {
+    $product_id = get_the_ID();
+    // Update popularity ranking based on product views
     if (is_singular('product')) {
-        $product_id = get_the_ID();
         $ranking_value = (int) get_post_meta($product_id, 'popularity_ranking', true);
-        $ranking_value += 3;
+        $ranking_value += 1;
         update_post_meta($product_id, 'popularity_ranking', $ranking_value);
     }
 
     // Store recently visited product IDs in a cookie
     if (is_singular('product')) {
-        $product_id = get_the_ID();
         $recently_viewed = isset($_COOKIE['recently_viewed']) ? $_COOKIE['recently_viewed'] : '';
         $recently_viewed = explode(',', $recently_viewed);
         $recently_viewed = array_filter($recently_viewed);
@@ -332,9 +339,41 @@ function update_product_popularity_ranking_byviews() {
         $recently_viewed = array_slice($recently_viewed, 0, 5);
         setcookie('recently_viewed', implode(',', $recently_viewed), time() + 3600, '/');
     }
+
 }
 add_action('template_redirect', 'update_product_popularity_ranking_byviews');
 
+//Update the price meta key
+function update_price_meta_key($cat_slug) {
+    $args = [
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ];
+    $tax_query = [];
+    if($cat_slug) {
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => $cat_slug,
+        ];
+    }
+    if(!empty($tax_query)) {
+        $args['tax_query'] = $tax_query;
+    }
+    $product_query = new WP_Query( $args );
+    if($product_query->have_posts()) {
+        while($product_query->have_posts()) : $product_query->the_post();
+            $product_id = get_the_ID();
+            $product = wc_get_product($product_id);
+            $variations = $product->get_available_variations();
+            $variation_id = $variations[0]['variation_id'];
+            $variation_product = wc_get_product($variation_id);
+            $price = $variation_product->get_price();
+            update_post_meta( $product_id, 'price', $price );
+        endwhile;
+    }
+}
 
 //pagination
 function custom_pagination($total_pages, $current_page = 1, $total_counts = 0) {
@@ -355,20 +394,18 @@ function custom_pagination($total_pages, $current_page = 1, $total_counts = 0) {
         'mid_size' => 3
     ));
 
-    $first_number = $total_counts == 0 ? 0 : ($current_page - 1) * 4 + 1;
-    $secode_number = ($current_page * 4) > $total_counts ? $total_counts : ($current_page * 4);
+    
 ?>
     
+    <?php if ($paginate_links) : ?>
     <div class="pager">
-        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>>該当公開件数<span class="pager__num--point ui-tx-point"><?php echo $total_counts; ?>件</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
-        <?php if ($paginate_links) : ?>
-            <ul class="pager__wrap">
-                <?php foreach ($paginate_links as $link) : ?>
-                    <li class="pager__bt"><?php echo $link; ?></li>
-                <?php endforeach; ?>
-            </ul>
-        <?php endif; ?>
+        <ul class="pager__wrap">
+            <?php foreach ($paginate_links as $link) : ?>
+                <li class="pager__bt"><?php echo $link; ?></li>
+            <?php endforeach; ?>
+        </ul>
     </div>
+    <?php endif; ?>
 <?php
 }
 

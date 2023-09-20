@@ -6,10 +6,13 @@
  */
 
 get_header();
+
+$paged = get_query_var('paged') ? get_query_var('paged') : 1;
+$sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
 ?>
 	<main id="page-activity">
 
-    <section class="status-bar">
+        <section class="status-bar">
             <div class="nav-status">
                 <a href="<?= esc_url(home_url('/')); ?>">トップ </a>
                 <i class="fa fa-angle-right"></i>
@@ -17,16 +20,84 @@ get_header();
             </div>
         </section>
 
-        <section class="middleschool students-product">
+        <?php
+            $number_per_page = 24;
+            if(empty($sortby) || $sortby == 'popularity') {
+                $args = [
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'paged' => $paged,
+                    'posts_per_page' => $number_per_page,
+                    'meta_key' => 'popularity_ranking',
+                    'orderby' => 'meta_value_num',
+                    'order' => 'DESC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field' => 'slug',
+                            'terms' => 'highschool'
+                        ),
+                    ),
+                ];
+            }
+            else if($sortby == 'newly') {
+                $args = [
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'paged' => $paged,
+                    'posts_per_page' => $number_per_page,
+                    'orderby'        => 'date',
+                    'order' => 'DESC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field' => 'slug',
+                            'terms' => 'highschool'
+                        ),
+                    ),
+                ];
+            }
+            else if($sortby == 'price') {
+                update_price_meta_key('highschool');
+                $args = [
+                    'post_type' => 'product',
+                    'post_status' => 'publish',
+                    'paged' => $paged,
+                    'posts_per_page' => $number_per_page,
+                    'orderby'        => 'meta_value_num',
+                    'meta_key'       => 'price',
+                    'order' => 'ASC',
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'product_cat',
+                            'field' => 'slug',
+                            'terms' => 'highschool'
+                        ),
+                    ),
+                ];
+            }
+            $product_query = new WP_Query( $args );
+        ?>
+        <section class="highschool students-product">
             <div class="container">
                 <h2 class="sub-title">
-                高校生男子の服
+                    高校生男子の服
                 </h2>
+                <!-- <div class="search-part">
+                    <div class="search-bar">
+                        <div class="input-box">
+                            <input type="text" name="keyboard" placeholder="シチュエーションから選ぶ">
+                            <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i>
+                        </div>
+                        <button type="button"><i class="fas fa-search" style="color: #ffffff;"></i></button>
+                    </div>
+                    <div class="search-label">詳細検索</div>
+                </div> -->
                 <div class="search-wrapper">
                     <div class=search-result>
-                        <span>12</span>件見つかりました
+                        <span><?php echo $product_query->found_posts; ?></span>&nbsp;件見つかりました
                     </div>
-                    <div class="search-keywords">
+                    <!-- <div class="search-keywords">
                         <div class="label">選択中の条件</div>
                         <div class="keywords-list">
                             <a class="keyword" href="">中学生男子
@@ -40,11 +111,11 @@ get_header();
                                 </svg>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="products">
-                    <div class="sortby">
+                    <!-- <div class="sortby">
                         <ul class="sortby-tabs">
                             <li>
                                 <a class="sortby-item" href="">
@@ -62,177 +133,88 @@ get_header();
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
+                    
                     <div class="pagination">
-                        <div class="display-number">50件中  1-20件表示</div>
-                        <ul class="pagination-bar">
-                            <li>
-                                <a class="before" href=""><i class="fa fa-angle-left bounce"></i></a>
-                            </li>
-                            <li>
-                                <a class="page-num active" href="">1</a>
-                            </li>
-                            <li>
-                                <a class="page-num" href="">2</a>
-                            </li>
-                            <li>
-                                <a class="page-num" href="">3</a>
-                            </li>
-                            <li>
-                                <a class="next" href=""><i class="fa fa-angle-right bounce"></i></a>
-                            </li>
-                        </ul>
+                        <?php
+                        $total_counts = $product_query->found_posts;
+                        $current_page = $paged;
+                        $first_number = $total_counts == 0 ? 0 : ($current_page - 1) * $number_per_page + 1;
+                        $secode_number = ($current_page * $number_per_page) > $total_counts ? $total_counts : ($current_page * $number_per_page);
+                        ?>
+                        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>>該当公開件数<span class="pager__num--point ui-tx-point"><?php echo $total_counts; ?>件</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
+
+                        <!-- <div class="display-number">50件中  1-20件表示</div> -->
+                        <select name="sortby" id="sortby" class="mid-produc-sort">
+                            <option value="popularity" <?php echo $sortby=="popularity" ? "selected" : ""; ?>>人気順</option>
+                            <option value="price" <?php echo $sortby=="price" ? "selected" : ""; ?>>価格の安い順</option>
+                            <option value="newly" <?php echo $sortby=="newly" ? "selected" : ""; ?>>新着順</option>
+                        </select>
+                        <?php custom_pagination($product_query->max_num_pages, $paged, $product_query->found_posts); ?>
                     </div>
+                    
+                    <?php if($product_query->have_posts()) : ?>
                     <ul class="product-list">
+                    <?php while($product_query->have_posts()) : $product_query->the_post(); ?>
                         <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
+                            <a href="<?php the_permalink(); ?>" class="product">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
+                                    <?php
+                                    $product_id = get_the_ID(); // Get the current product ID or specify the product ID
+
+                                    // Get the product object
+                                    $product = wc_get_product($product_id);
+
+                                    // Check if the product has variations
+                                    if ($product->is_type('variable')) {
+                                        // Get all variations
+                                        $variations = $product->get_available_variations();
+                                        // var_export($variations[0]['variation_id']);
+                                        $variation_id = $variations[0]['variation_id'];
+                                        $variation_product = wc_get_product($variation_id);
+                                        $price = $variation_product->get_price();
+                                    }
+                                    ?>
                                     <h3 class="price">
-                                        ¥10,000
+                                    ¥<?php echo $price; ?>
                                     </h3>
                                 </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
                             </a>
                         </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="product" href="">
-                                <img class="thumb" src="<?php echo T_DIRE_URI; ?>/assets/img/products/product0001.png">
-                                <div class="price-wrap">
-                                    <div class="pre-text">全部で</div>
-                                    <h3 class="price">
-                                        ¥10,000
-                                    </h3>
-                                </div>
-                                <h4 class="product-cat">男友達と遊びに行くとき</h4>
-                            </a>
-                        </li>
+                        <?php endwhile; ?>
                     </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
-
+    <script type="text/javascript">
+        $(document).ready(function() {
+        // Attach a change` event handler to the select element with id "mySelect"
+            $("#sortby").change(function() {
+                // Get the selected value
+                var selectedValue = $(this).val();
+                window.location.href = "<?php echo HOME . 'highschool'; ?>" + "?sortby=" + selectedValue;
+            });
+        });
+    </script>
     </main><!-- #page-activity -->
 <?php
 get_footer();
+?>

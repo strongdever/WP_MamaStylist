@@ -88,10 +88,10 @@
             <div class="search-social">
                 <div class="search-bar ">
                     <div class="input-box">
-                        <input type="text" name="keyboard" placeholder="キーワード検索">
+                        <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key">
                         <!-- <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i> -->
                     </div>
-                    <button type="button"><i class="fas fa-search" style="color: #ffffff;"></i></button>
+                    <button type="button" class="btn-search"><i class="fas fa-search" style="color: #ffffff;"></i></button>
                     <a href="<?= esc_url(home_url('/search')); ?>" class="goto-search">詳細検索</a>
                 </div>
                 <div class="social">

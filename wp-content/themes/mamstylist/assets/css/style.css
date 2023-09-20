@@ -1387,6 +1387,10 @@ header.header {
     text-align: left;
   }
 
+  .search-bar .goto-search:hover {
+    opacity: 0.8;
+  }
+
   .search-bar {
     display: -webkit-flex;
       display: -ms-flexbox;
@@ -2458,9 +2462,14 @@ header.header {
     -webkit-column-gap: 1.2rem;
     -moz-column-gap: 1.2rem;
     column-gap: 1.2rem;
+    -webkit-row-gap: 1.2rem;
+    -moz-row-gap: 1.2rem;
+    row-gap: 1.2rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 
-  .search-keywords .keywords-list .keyword {
+  .search-keywords .keywords-list .btn-keyword {
     height: 4rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2482,9 +2491,12 @@ header.header {
     line-height: 15px; /* 100% */
     padding: 0 1.6rem;
     background-color: #FFF;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
 
-  .search-keywords .keywords-list .keyword svg {
+  .search-keywords .keywords-list .btn-keyword svg {
     margin-left: 1rem;
   }
 
@@ -2585,19 +2597,30 @@ header.header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-      -ms-flex-align: center;
-        align-items: center;
-    justify-content: space-between;
+    
   }
 
-  .students-product .pagination .display-number {
-    color: #333;
-    font-family: "DNP ShueiMGoStd";
-    font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.6rem; /* 100% */
+  @media only screen and (min-width:768px) {
+    .students-product .pagination {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+        align-items: center;
+      -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+          justify-content: space-between;
+    }
+  }
+
+  @media only screen and (max-width:768px) {
+    .students-product .pagination {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-row-gap: 1.2rem;
+      -moz-row-gap: 1.2rem;
+      row-gap: 1.2rem;
+    }
   }
 
   .students-product .pagination .mid-produc-sort {
@@ -2605,7 +2628,6 @@ header.header {
     height: 4.4rem;
     display: block;
     margin-left: auto;
-    margin-right: 3.2rem;
     border-radius: 4px;
     border: 1px solid #9D9D9D;
     color: #333;
@@ -2616,86 +2638,90 @@ header.header {
     line-height: 15px; /* 93.75% */
   }
 
-  .students-product .pagination .pagination-bar {
-    display: -webkit-box;
-      display: -ms-flexbox;
-        display: flex;
-    -webkit-box-align: center;
-      -ms-flex-align: center;
-        align-items: center;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .students-product .pagination .pagination-bar {
-      display: none;
+  @media only screen and (max-width:768px) {
+    .students-product .pagination .mid-produc-sort {
+      height: 4.0rem;
+      margin-left: 0;
+      margin-right: auto;
     }
   }
 
-  .students-product .pagination .pagination-bar li {
-    position: relative;
-    margin-left: 1.6rem;
+  .pager {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: 3.2rem;
+    -webkit-box-align: center;
+      -ms-flex-align: center;
+        align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
-  .students-product .pagination .pagination-bar li a {
-    position: relative;
-    width: 2.8rem;
-    height: 3.2rem;
+  @media only screen and (max-width:768px) {
+    .pager {
+      margin: 0 auto;
+    }
+  }
+  
+  .pager .pager__num {
+    color: #333;
+    font-family: "DNP ShueiMGoStd";
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 100% */
+  }
+  
+  @media only screen and (max-width:768px) {
+    .pager .pager__num {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .pager .pager__wrap {
     display: -webkit-box;
-      display: -ms-flexbox;
-        display: flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 1.6rem;
+      -moz-column-gap: 1.6rem;
+        column-gap: 1.6rem;
+  }
+  
+  .pager .pager__wrap .page-numbers {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-
-  .students-product .pagination .pagination-bar li a.page-num {
+    border-radius: 4px;
+    width: 2.8rem;
+    height: 3.2rem;
     color: #333;
+    background-color: #fff;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 1.4rem /* 100% */
+    line-height: 14px; /* 100% */
   }
-
-  .students-product .pagination .pagination-bar li a.before,
-  .students-product .pagination .pagination-bar li a.next {
-    color: #000000;
-    font-size: 1.4rem;
+  
+  .pager .pager__wrap .page-numbers.current {
+    text-decoration: underline;
   }
-
-  .students-product .pagination .pagination-bar li a.active {
-    background-color: #40C2BF;
-    border-radius: 0.4rem;
+  
+  .pager .pager__wrap .prev,
+  .pager .pager__wrap .next {
     color: #fff;
-  }
-
-  .students-product .pagination.mobile {
-    display: none;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .students-product .pagination.mobile {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-        -ms-flex-align: center;
-          align-items: center;
-      justify-content: center;
-    }
-
-    .students-product .pagination.mobile .pagination-bar {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-    }
-
-    .students-product .pagination.mobile .display-number {
-      display: none;
-    }
+    background-color: #40C2BF;
   }
 
   .students-product .product-list {
@@ -4129,71 +4155,3 @@ input[type=checkbox]:before {
   transform: scale(1.8);
 }
 
-.pager {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-    -ms-flex-align: center;
-      align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.pager .pager__num {
-  color: #333;
-  font-family: "DNP ShueiMGoStd";
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16px; /* 100% */
-}
-
-@media only screen and (max-width:768px) {
-  .pager .pager__num {
-    font-size: 1.5rem;
-  }
-}
-
-.pager .pager__wrap {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-column-gap: 1.6rem;
-    -moz-column-gap: 1.6rem;
-      column-gap: 1.6rem;
-}
-
-.pager .pager__wrap .page-numbers {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 4px;
-  width: 2.8rem;
-  height: 3.2rem;
-  color: #333;
-  background-color: #fff;
-  font-family: "DNP ShueiMGoStd";
-  font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 14px; /* 100% */
-}
-
-.pager .pager__wrap .page-numbers.current {
-  text-decoration: underline;
-}
-
-.pager .pager__wrap .prev,
-.pager .pager__wrap .next {
-  color: #fff;
-  background-color: #40C2BF;
-}

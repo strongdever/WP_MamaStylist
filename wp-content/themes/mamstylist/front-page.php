@@ -14,10 +14,10 @@ get_header();
             </figure>
             <div class="search-bar">
                 <div class="input-box">
-                    <input type="text" name="keyboard" placeholder="キーワード検索">
+                    <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key">
                     <!-- <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i> -->
                 </div>
-                <button type="button"><i class="fas fa-search" style="color: #ffffff;"></i></button>
+                <button type="button" class="btn-search"><i class="fas fa-search" style="color: #ffffff;"></i></button>
                 <a href="<?= esc_url(home_url('/search')); ?>" class="goto-search">詳細検索</a>
             </div>
         </section>
@@ -166,7 +166,6 @@ get_header();
                                     if ($product->is_type('variable')) {
                                         // Get all variations
                                         $variations = $product->get_available_variations();
-                                        // var_export($variations[0]['variation_id']);
                                         $variation_id = $variations[0]['variation_id'];
                                         $variation_product = wc_get_product($variation_id);
                                         $price = $variation_product->get_price();
@@ -234,7 +233,7 @@ get_header();
                     <?php if($product_query) :?>
                         <?php while( $product_query->have_posts() ) : $product_query->the_post(); ?>
                     <li>
-                        <a href="<?= esc_url(home_url('/product/?situation=' . $cat_slug)); ?>">
+                        <a href="<?= esc_url(home_url('/product/?situation[0]=' . $cat_slug)); ?>">
                             <?php if( has_post_thumbnail() ): ?>
                             <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
                             <?php else: ?>
@@ -274,7 +273,7 @@ get_header();
                             if($parent_cat->slug == "genre") :
                     ?>
                         <li>
-                            <a class="cat-item" href="<?= esc_url(home_url('/product/?genre=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
+                            <a class="cat-item" href="<?= esc_url(home_url('/product/?genre[0]=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
                         </li>
                         <?php endif; ?>
                         <?php endforeach; ?>
@@ -293,7 +292,7 @@ get_header();
                             if($parent_cat->slug == "setprice") :
                     ?>
                         <li>
-                            <a class="cat-item" href="<?= esc_url(home_url('/product/?setprice=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
+                            <a class="cat-item" href="<?= esc_url(home_url('/product/?price[0]=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
                         </li>
                         <?php endif; ?>
                         <?php endforeach; ?>
@@ -495,6 +494,16 @@ get_header();
             ?>
         </section>
     </main><!-- #front-page -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+        // Attach a change` event handler to the select element with id "mySelect"
+            $(".btn-search").click(function() {
+                var search_key = $('.search-key').val();
+                var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
+                window.location.href = url;
+            })
+        })
+    </script>
 <?php
 get_footer();
 ?>
