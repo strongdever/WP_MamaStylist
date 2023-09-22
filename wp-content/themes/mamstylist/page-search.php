@@ -1,12 +1,11 @@
 <?php
 /**
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Gramercy-Village
+ * Template Name: Search Page
  */
-
+if (!defined('ABSPATH')) exit;
 get_header();
-
+?>
+<?php
 $args = [
     'post_type' => 'product',
     'post_status' => 'publish',
@@ -370,15 +369,12 @@ $total_post = $product_query->found_posts;
                     success: function(response) {
                         // Handle the response
                         post_number = response.data['total_counts'];
-                        console.log(post_number);
                         $('.btn.search span').text(post_number);
                     },
-                    error: function(error) {
-                        console.log('failed!!!!!!!');
-                    }
                 });
             }
         });
     </script>
 <?php
 get_footer();
+?>
