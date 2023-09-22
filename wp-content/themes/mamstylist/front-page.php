@@ -14,10 +14,10 @@ get_header();
             </figure>
             <div class="search-bar">
                 <div class="input-box">
-                    <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key">
+                    <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key-front">
                     <!-- <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i> -->
                 </div>
-                <button type="button" class="btn-search"><i class="fas fa-search" style="color: #ffffff;"></i></button>
+                <button type="button" class="btn-search-front"><i class="fas fa-search" style="color: #ffffff;"></i></button>
                 <a href="<?= esc_url(home_url('/search')); ?>" class="goto-search">詳細検索</a>
             </div>
         </section>
@@ -289,7 +289,7 @@ get_header();
                             $parent_cat = get_term($product_cat->parent);
                             $cat_slug = $product_cat->slug;
                             $cat_name = $product_cat->name;
-                            if($parent_cat->slug == "setprice") :
+                            if($parent_cat->slug == "price") :
                     ?>
                         <li>
                             <a class="cat-item" href="<?= esc_url(home_url('/product/?price[0]=' . $cat_slug)); ?>"><span><?php echo $cat_name; ?></span></a>
@@ -494,16 +494,7 @@ get_header();
             ?>
         </section>
     </main><!-- #front-page -->
-    <script type="text/javascript">
-        $(document).ready(function() {
-        // Attach a change` event handler to the select element with id "mySelect"
-            $(".btn-search").click(function() {
-                var search_key = $('.search-key').val();
-                var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
-                window.location.href = url;
-            })
-        })
-    </script>
+    
 <?php
 get_footer();
 ?>

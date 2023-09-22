@@ -167,6 +167,8 @@ function mamstylist_scripts() {
 		wp_enqueue_script('slick', get_template_directory_uri() . '/assets/js/slick.min.js', [], '1.0', 'all');
 		wp_enqueue_script('commonjs', get_template_directory_uri() . '/assets/js/common.js', [], '1.0', 'all');
         wp_enqueue_script('custom', get_template_directory_uri() . '/assets/js/custom.js', [], '1.0', 'all');
+        wp_enqueue_script( 'ajax-script', get_template_directory_uri() . '/page-search.php', array( 'jquery' ), '1.0', true );
+        wp_localize_script( 'ajax-script', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
 	}
 }
 add_action('wp_enqueue_scripts', 'mamstylist_scripts');
@@ -408,6 +410,87 @@ function custom_pagination($total_pages, $current_page = 1, $total_counts = 0) {
     <?php endif; ?>
 <?php
 }
+
+//Ajax request for the number of the posts on the search page.
+
+function handle_ajax_request() {
+    // Retrieve the data
+    $data = $_POST['my_data'];
+    
+    // Access the individual values
+    $middleschool = $data['middleschool'];
+    $highschool = $data['highschool'];
+    $situation_params = $data['situation'];
+    $genre_params = $data['genre'];
+    $price_params = $data['price'];
+    $args = [
+        'post_type' => 'product',
+        'post_status' => 'publish',
+        'paged' => $paged,
+        'posts_per_page' => 3,
+        'orderby' => 'date',
+        'order' => 'DESC',
+    ];
+    
+    $tax_query = [];
+    
+    if($middleschool) {
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => 'middleschool',
+        ];
+    }
+    
+    if($highschool) {
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => 'highschool',
+        ];
+    }
+    
+    if($situation_params) {
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => $situation_params,
+        ];
+    }
+
+    if($genre_params) {
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => $genre_params,
+        ];
+    }
+    
+    if($price_params) {
+        $tax_query[] = [
+            'taxonomy' => 'product_cat',
+            'field' => 'slug',
+            'terms' => $price_params,
+        ];
+    }
+    
+    if(!empty($tax_query)) {
+        $args['tax_query'] = $tax_query;
+    }
+    $product_query  = new WP_Query( $args );
+    
+    $total_counts = $product_query->found_posts;
+    
+    $response = array(
+        'total_counts' => $total_counts,
+        'message' => 'Data received and processed successfully!',
+    );
+    // echo "sdgsgsergrstg";
+    wp_send_json_success( $response );
+    wp_die();
+}
+add_action( 'wp_ajax_my_ajax_action', 'handle_ajax_request' );
+add_action( 'wp_ajax_nopriv_my_ajax_action', 'handle_ajax_request' );
 
 //add css style to the admin dashboard
 // function custom_dashboard_css() {

@@ -29,5 +29,22 @@
 	<?php wp_footer(); ?>
 
 	<div id="lightbox"><img></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+        // Attach a change` event handler to the select element with id "mySelect"
+            $(".btn-search-header").click(function() {
+                var search_key = $('.search-key-header').val();
+                var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
+                window.location.href = url;
+            })
+
+            $(".btn-search-front").click(function() {
+                var search_key = $('.search-key-front').val();
+                var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
+                window.location.href = url;
+            })
+        })
+    </script>
 </body>
 </html>

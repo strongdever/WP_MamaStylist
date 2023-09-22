@@ -1,0 +1,74 @@
+2023-09-22T00:54:21+00:00 CRITICAL Cannot use [] for reading in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 423
+
+2023-09-22T01:02:49+00:00 CRITICAL Uncaught TypeError: preg_match(): Argument #2 ($subject) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\formatting.php:1604
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(1604): preg_match('/[\\x80-\\xff]/', Array)
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(2219): remove_accents(Array)
+#2 [internal function]: sanitize_title(Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-term-query.php(561): array_map('sanitize_title', Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-term-query.php(308): WP_Term_Query->get_terms()
+#5 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(644): WP_Term_Query->query(Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(567): WP_Tax_Query->transform_query(Array, 'term_id')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(395): WP_Tax_Query->clean_query(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(325): WP_Tax_Query->get_sql_for_clause(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(275): WP_Tax_Query->get_sql_for_query(Array)
+#10 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(251): WP_Tax_Query->get_sql_clauses()
+#11 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(2247): WP_Tax_Query->get_sql('wp_posts', 'ID')
+#12 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3800): WP_Query->get_posts()
+#13 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3932): WP_Query->query(Array)
+#14 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php(481): WP_Query->__construct(Array)
+#15 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): handle_ajax_request('')
+#16 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#17 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#18 E:\xampp\htdocs\mamastylist\wp-admin\admin-ajax.php(188): do_action('wp_ajax_my_ajax...')
+#19 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-includes\formatting.php on line 1604
+
+2023-09-22T01:04:31+00:00 CRITICAL Uncaught TypeError: preg_match(): Argument #2 ($subject) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\formatting.php:1604
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(1604): preg_match('/[\\x80-\\xff]/', Array)
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(2219): remove_accents(Array)
+#2 [internal function]: sanitize_title(Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-term-query.php(561): array_map('sanitize_title', Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-term-query.php(308): WP_Term_Query->get_terms()
+#5 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(644): WP_Term_Query->query(Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(567): WP_Tax_Query->transform_query(Array, 'term_id')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(395): WP_Tax_Query->clean_query(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(325): WP_Tax_Query->get_sql_for_clause(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(275): WP_Tax_Query->get_sql_for_query(Array)
+#10 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(251): WP_Tax_Query->get_sql_clauses()
+#11 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(2247): WP_Tax_Query->get_sql('wp_posts', 'ID')
+#12 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3800): WP_Query->get_posts()
+#13 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3932): WP_Query->query(Array)
+#14 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php(481): WP_Query->__construct(Array)
+#15 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): handle_ajax_request('')
+#16 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#17 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#18 E:\xampp\htdocs\mamastylist\wp-admin\admin-ajax.php(188): do_action('wp_ajax_my_ajax...')
+#19 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-includes\formatting.php on line 1604
+
+2023-09-22T01:04:40+00:00 CRITICAL Uncaught TypeError: preg_match(): Argument #2 ($subject) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\formatting.php:1604
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(1604): preg_match('/[\\x80-\\xff]/', Array)
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(2219): remove_accents(Array)
+#2 [internal function]: sanitize_title(Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-term-query.php(561): array_map('sanitize_title', Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-term-query.php(308): WP_Term_Query->get_terms()
+#5 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(644): WP_Term_Query->query(Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(567): WP_Tax_Query->transform_query(Array, 'term_id')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(395): WP_Tax_Query->clean_query(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(325): WP_Tax_Query->get_sql_for_clause(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(275): WP_Tax_Query->get_sql_for_query(Array)
+#10 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-tax-query.php(251): WP_Tax_Query->get_sql_clauses()
+#11 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(2247): WP_Tax_Query->get_sql('wp_posts', 'ID')
+#12 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3800): WP_Query->get_posts()
+#13 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-query.php(3932): WP_Query->query(Array)
+#14 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php(481): WP_Query->__construct(Array)
+#15 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): handle_ajax_request('')
+#16 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(334): WP_Hook->apply_filters('', Array)
+#17 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#18 E:\xampp\htdocs\mamastylist\wp-admin\admin-ajax.php(188): do_action('wp_ajax_my_ajax...')
+#19 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-includes\formatting.php on line 1604
+

@@ -12,7 +12,6 @@ $sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
 $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
 $middleschool = get_query_var('middleschool') ? get_query_var('middleschool') : '';
 $highschool = get_query_var('highschool') ? get_query_var('highschool') : '';
-// $cats_arry = get_query_var('cat') ? get_query_var('cat') : '';
 if (isset($_GET['situation'])) {
     $situation_params = $_GET['situation'];
 }
@@ -22,6 +21,7 @@ if (isset($_GET['genre'])) {
 if (isset($_GET['price'])) {
     $price_params = $_GET['price'];
 }
+
 ?>
 	<main id="page-activity">
 
@@ -125,16 +125,6 @@ if (isset($_GET['price'])) {
                 <h2 class="sub-title">
                     中学生男子の服
                 </h2>
-                <!-- <div class="search-part">
-                    <div class="search-bar">
-                        <div class="input-box">
-                            <input type="text" name="keyboard" placeholder="シチュエーションから選ぶ">
-                            <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i>
-                        </div>
-                        <button type="button"><i class="fas fa-search" style="color: #ffffff;"></i></button>
-                    </div>
-                    <div class="search-label">詳細検索</div>
-                </div> -->
                 <div class="search-wrapper">
                     <div class=search-result>
                         <span><?php echo $product_query->found_posts; ?></span>&nbsp;件見つかりました
@@ -377,7 +367,6 @@ if (isset($_GET['price'])) {
             });
 
             $(".btn-keyword").click(function() {
-                $(this).hide();
                 var url = "<?php echo HOME . 'product'; ?>?";
                 <?php if($sortby) : ?>
                 url += 'sortby=<?php echo $sortby; ?>';
@@ -398,7 +387,7 @@ if (isset($_GET['price'])) {
 
                 if($(this).attr("data-value") != 'middleschool') {
                     <?php if($middleschool) : 
-                        if($sortby) {
+                        if($sortby || $search_key) {
                         ?>
                     url += '&middleschool=1';
                     <?php
@@ -412,7 +401,7 @@ if (isset($_GET['price'])) {
 
                 if($(this).attr("data-value") != 'highschool') {
                     <?php if($highschool) : 
-                        if($sortby) {
+                        if($sortby || $search_key || $middleschool) {
                         ?>
                     url += '&highschool=1';
                     <?php
@@ -432,7 +421,7 @@ if (isset($_GET['price'])) {
                     if('<?php echo $situation_slug; ?>' != $(this).attr("data-value") ) {
                     <?php
                         if( $i == 0 ) {
-                            if( $sortby || $search_key ) {
+                            if( $sortby || $search_key || $middleschool || $highschool ) {
                     ?>
                     url = url + '&situation[0]=' + '<?php echo $situation_slug; ?>';
                     <?php
@@ -462,7 +451,7 @@ if (isset($_GET['price'])) {
                     if('<?php echo $genre_slug; ?>' != $(this).attr("data-value") ) {
                     <?php
                         if( $i == 0 ) {
-                            if( $sortby || $search_key || $situation_params ) {
+                            if( $sortby || $search_key || $middleschool || $highschool || $situation_params ) {
                     ?>
                     url = url + '&genre[0]=' + '<?php echo $genre_slug; ?>';
                     <?php
@@ -492,7 +481,7 @@ if (isset($_GET['price'])) {
                     if('<?php echo $price_slug; ?>' != $(this).attr("data-value") ) {
                     <?php
                         if( $i == 0 ) {
-                            if( $sortby || $search_key || $situation_params || $genre_params ) {
+                            if( $sortby || $search_key || $middleschool || $highschool || $situation_params || $genre_params ) {
                     ?>
                     url = url + '&price[0]=' + '<?php echo $price_slug; ?>';
                     <?php
