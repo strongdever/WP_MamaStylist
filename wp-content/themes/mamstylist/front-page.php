@@ -78,7 +78,7 @@ get_header();
                                         $variations = $product->get_available_variations();
                                         $variation_id = $variations[0]['variation_id'];
                                         $variation_product = wc_get_product($variation_id);
-                                        $price = $variation_product->get_price();
+                                        $price = number_format($variation_product->get_price());
                                         // Loop through each variation
                                         // foreach ($variations as $variation) {
                                         //     $variation_id = $variation['variation_id']; // Get the variation ID
@@ -168,7 +168,7 @@ get_header();
                                         $variations = $product->get_available_variations();
                                         $variation_id = $variations[0]['variation_id'];
                                         $variation_product = wc_get_product($variation_id);
-                                        $price = $variation_product->get_price();
+                                        $price = number_format($variation_product->get_price());
                                     }
                                     ?>
                                     <h3 class="price">
@@ -339,7 +339,7 @@ get_header();
                                         $variations = $product->get_available_variations();
                                         $variation_id = $variations[0]['variation_id'];
                                         $variation_product = wc_get_product($variation_id);
-                                        $price = $variation_product->get_price();
+                                        $price = number_format($variation_product->get_price());
                                     }
                                     ?>
                                     <h3 class="price">
@@ -383,13 +383,13 @@ get_header();
         <?php if( $blog_query ) : ?>
         <section class="cheering-section">
             <div class="container">
+                <h1 class="main-title">男の子のママ応援団</h1>
                 <div class="header">
                     <h3 class="desc">
                         男の子ママ必見のお役立ち情報について発信中！
                         <img src="<?php echo T_DIRE_URI; ?>/assets/img/stars.png" alt="星">
                     </h3>
                 </div>
-                <h1 class="main-title">男の子のママ応援団</h1>
                 <ul class="cheering-part spslider">
                     <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
                     <li>
@@ -422,76 +422,78 @@ get_header();
         <?php endif; ?>
 
         <section class="latest-section">
-            <h1 class="main-title">最近チェックした<br class="sp">コーディネート</h1>
-            <?php
-                $recently_viewed = isset($_COOKIE['recently_viewed']) ? $_COOKIE['recently_viewed'] : '';
-                $recently_viewed = explode(',', $recently_viewed);
-                $recently_viewed = array_filter($recently_viewed);
-                if (!empty($recently_viewed)) {
-                    $args = array(
-                        'post_type' => 'product',
-                        'post__in' => $recently_viewed,
-                        'orderby' => 'post__in',
-                        'posts_per_page' => 5,
-                    );
-                    $products = new WP_Query($args);
-            
-                    if ($products->have_posts()) :
-            ?>
-            <ul class="product-list">
-                <?php while($products->have_posts()) : $products->the_post(); ?>
-                <li>
-                    <a href="<?php the_permalink(); ?>" class="product">
-                    <?php if( has_post_thumbnail() ): ?>
-                        <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
-                    <?php else: ?>
-                        <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
-                    <?php endif; ?>
-                        <div class="price-wrap">
-                            <div class="pre-text">全部で</div>
-                            <?php
-                            $product_id = get_the_ID(); // Get the current product ID or specify the product ID
-
-                            // Get the product object
-                            $product = wc_get_product($product_id);
-
-                            // Check if the product has variations
-                            if ($product->is_type('variable')) {
-                                // Get all variations
-                                $variations = $product->get_available_variations();
-                                $variation_id = $variations[0]['variation_id'];
-                                $variation_product = wc_get_product($variation_id);
-                                $price = $variation_product->get_price();
-                            }
-                            ?>
-                            <h3 class="price">
-                            ¥<?php echo $price; ?>
-                            </h3>
-                        </div>
-                        <?php
-                        $product_cats = get_the_terms(get_the_ID(), 'product_cat');
-                        if( $product_cats ) :
-                            foreach($product_cats as $product_cat) :
-                                $parent_term = get_term( $product_cat->parent );
-                                if( $parent_term->name == 'シチュエーションから選ぶ' ) :
-                        ?>
-                        <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+            <div class="container">
+                <h1 class="main-title">最近チェックした<br class="sp">コーディネート</h1>
+                <?php
+                    $recently_viewed = isset($_COOKIE['recently_viewed']) ? $_COOKIE['recently_viewed'] : '';
+                    $recently_viewed = explode(',', $recently_viewed);
+                    $recently_viewed = array_filter($recently_viewed);
+                    if (!empty($recently_viewed)) {
+                        $args = array(
+                            'post_type' => 'product',
+                            'post__in' => $recently_viewed,
+                            'orderby' => 'post__in',
+                            'posts_per_page' => 5,
+                        );
+                        $products = new WP_Query($args);
+                
+                        if ($products->have_posts()) :
+                ?>
+                <ul class="product-list">
+                    <?php while($products->have_posts()) : $products->the_post(); ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>" class="product">
+                        <?php if( has_post_thumbnail() ): ?>
+                            <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                        <?php else: ?>
+                            <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
                         <?php endif; ?>
-                        <?php endforeach;
-                        endif; ?>
-                    </a>
-                </li>
-                <?php endwhile; ?>
-            </ul>
-            <?php endif; ?>
-            <?php
-            }
-            else {
-            ?>
-            <span class='noitem'><?php echo "最近閲覧した商品はありません。"; ?></span>
-            <?php
-            }
-            ?>
+                            <div class="price-wrap">
+                                <div class="pre-text">全部で</div>
+                                <?php
+                                $product_id = get_the_ID(); // Get the current product ID or specify the product ID
+
+                                // Get the product object
+                                $product = wc_get_product($product_id);
+
+                                // Check if the product has variations
+                                if ($product->is_type('variable')) {
+                                    // Get all variations
+                                    $variations = $product->get_available_variations();
+                                    $variation_id = $variations[0]['variation_id'];
+                                    $variation_product = wc_get_product($variation_id);
+                                    $price = number_format($variation_product->get_price());
+                                }
+                                ?>
+                                <h3 class="price">
+                                ¥<?php echo $price; ?>
+                                </h3>
+                            </div>
+                            <?php
+                            $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                            if( $product_cats ) :
+                                foreach($product_cats as $product_cat) :
+                                    $parent_term = get_term( $product_cat->parent );
+                                    if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                            ?>
+                            <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                            <?php endif; ?>
+                            <?php endforeach;
+                            endif; ?>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
+                <?php endif; ?>
+                <?php
+                }
+                else {
+                ?>
+                <span class='noitem'><?php echo "最近閲覧した商品はありません。"; ?></span>
+                <?php
+                }
+                ?>
+            </div>
         </section>
     </main><!-- #front-page -->
     

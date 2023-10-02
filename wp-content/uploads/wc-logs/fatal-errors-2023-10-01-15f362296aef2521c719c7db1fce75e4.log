@@ -1,0 +1,22 @@
+2023-10-01T11:08:01+00:00 CRITICAL syntax error, unexpected token "var" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 343
+
+2023-10-01T14:15:16+00:00 CRITICAL syntax error, unexpected token "foreach" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 51
+
+2023-10-01T14:16:02+00:00 CRITICAL syntax error, unexpected token "foreach" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 51
+
+2023-10-01T14:16:58+00:00 CRITICAL syntax error, unexpected variable "$meta_query" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 49
+
+2023-10-01T14:17:25+00:00 CRITICAL syntax error, unexpected variable "$meta_query" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 49
+
+2023-10-01T14:17:31+00:00 CRITICAL syntax error, unexpected variable "$meta_query" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 49
+
+2023-10-01T14:17:55+00:00 CRITICAL syntax error, unexpected variable "$meta_query" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 49
+
+2023-10-01T14:18:08+00:00 CRITICAL syntax error, unexpected variable "$meta_query" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 57
+
+2023-10-01T14:18:52+00:00 CRITICAL syntax error, unexpected variable "$meta_query" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 58
+
+2023-10-01T15:28:04+00:00 CRITICAL syntax error, unexpected token "endif", expecting end of file in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 395
+
+2023-10-01T15:28:29+00:00 CRITICAL syntax error, unexpected token "endif", expecting end of file in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 395
+

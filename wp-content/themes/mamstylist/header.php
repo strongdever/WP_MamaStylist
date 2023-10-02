@@ -8,7 +8,7 @@
  *
  * @package Gramercy-Village
  */
-
+$search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -54,7 +54,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-    <header class="header">
+    <header class="header scrolled">
         <h1 class="header-logo">
             <a href="<?= esc_url(home_url('/')); ?>">
                 <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.png" alt="">
@@ -79,6 +79,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="<?= esc_url(home_url('/special')); ?>" class="menu-link">
+                            <span>特集記事</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="<?= esc_url(home_url('/blog')); ?>" class="menu-link">
                             <span>男の子ママ応援団</span>
                         </a>
@@ -88,31 +93,44 @@
             <div class="search-social">
                 <div class="search-bar ">
                     <div class="input-box">
-                        <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key-header">
+                        <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key-header" value="<?php if($search_key) echo $search_key; ?>">
                         <!-- <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i> -->
                     </div>
                     <button type="button" class="btn-search-header"><i class="fas fa-search" style="color: #ffffff;"></i></button>
                     <a href="<?= esc_url(home_url('/search')); ?>" class="goto-search">詳細検索</a>
                 </div>
+                <?php
+                    $twitter_url = esc_attr(get_field('twitter', 'option'));
+                    $facebook_url = esc_attr(get_field('facebook', 'option'));
+                    $instagram_url = esc_attr(get_field('instagram', 'option'));
+                ?>
+                <?php if($twitter_url || $facebook_url || $instagram_url) : ?>
                 <div class="social">
                     <ul class="social-link">
+                        <?php if($twitter_url) : ?>
                         <li>
-                            <a class="social-twitter" href="">
+                            <a class="social-twitter" href="<?php echo $twitter_url; ?>">
                                 <img src="<?php echo T_DIRE_URI; ?>/assets/img/twitter.png">
                             </a>
                         </li>
+                        <?php endif; ?>
+                        <?php if($facebook_url) : ?>
                         <li>
-                            <a class="social-facebook" href="">
+                            <a class="social-facebook" href="<?php echo $facebook_url; ?>">
                                 <img src="<?php echo T_DIRE_URI; ?>/assets/img/facebook.png">
                             </a>
                         </li>
+                        <?php endif; ?>
+                        <?php if($instagram_url) : ?>
                         <li>
-                            <a class="social-twitter" href="">
+                            <a class="social-twitter" href="<?php echo $instagram_url; ?>">
                                 <img src="<?php echo T_DIRE_URI; ?>/assets/img/instagram.png">
                             </a>
                         </li>
+                        <?php endif; ?>
                     </ul>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -141,6 +159,11 @@
                 <li>
                     <a href="<?= esc_url(home_url('/highschool')); ?>" class="menu-link">
                         <span>高校生男子の服</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= esc_url(home_url('/special')); ?>" class="menu-link">
+                        <span>特集記事</span>
                     </a>
                 </li>
                 <li>

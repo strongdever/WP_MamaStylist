@@ -157,6 +157,7 @@ function mamstylist_scripts() {
 		wp_enqueue_style('c-reset', get_template_directory_uri() . '/assets/css/reset.css', [], '1.0', 'all');
 		wp_enqueue_style('c-common', get_template_directory_uri() . '/assets/css/common.css', [], '1.0', 'all');
         wp_enqueue_style('c-style', get_template_directory_uri() . '/assets/css/style.css', [], '1.0', 'all');
+        wp_enqueue_style('c-theme-style', get_template_directory_uri() . '/style.css', [], '1.0', 'all');
 		wp_enqueue_style('c-slick', T_DIRE_URI.'/assets/css/slick.min.css', [], '1.0', 'all');
 		wp_enqueue_style('c-slick-theme', T_DIRE_URI.'/assets/css/slick-theme.min.css', [], '1.0', 'all');
 
@@ -329,6 +330,21 @@ function update_product_popularity_ranking_byviews() {
         $ranking_value = (int) get_post_meta($product_id, 'popularity_ranking', true);
         $ranking_value += 1;
         update_post_meta($product_id, 'popularity_ranking', $ranking_value);
+
+        $product = get_post($product_id);
+        // var_export($product);
+        // exit;
+
+        if ($product) {
+            $product_title = $product->post_title;
+            $product_content = $product->post_content;
+        } else {
+            $product_title = "";
+            $product_content = "";
+        }
+        update_post_meta($product_id, 'product_title', $product_title);
+        update_post_meta($product_id, 'product_content', $product_content);
+
     }
 
     // Store recently visited product IDs in a cookie
@@ -498,5 +514,31 @@ add_action( 'wp_ajax_nopriv_my_ajax_action', 'handle_ajax_request' );
 // }
 // add_action( 'admin_enqueue_scripts', 'custom_dashboard_css' );
 
+//woocommerce product related product title and the menu title change
+add_filter(  'gettext',  'wps_translate_words_array'  );
+add_filter(  'ngettext',  'wps_translate_words_array'  );
+function wps_translate_words_array( $translated ) {
+     $words = array(
+                // 'word to translate' = > 'translation'
+               'Products' => 'コーディネートのポイント',
+            //    'All Products' => 'コーディネートのポイント一覧',
+               'Add New' => '新規追加',
+               'Edit product' => 'コーディネートのポイント編集',
+               'Description' => 'お支払いurl',
+     );
+     $translated = str_ireplace(  array_keys($words),  $words,  $translated );
+     return $translated;
+}
+
+function change_woocommerce_menu_name( $menu ) {
+    foreach ( $menu as $key => $item ) {
+        if ( $item[2] === 'edit.php?post_type=product' ) {
+            $menu[$key][0] = 'コーディネートのポイント';
+            break;
+        }
+    }
+    return $menu;
+}
+add_filter( 'add_menu_classes', 'change_woocommerce_menu_name' );
 
 ?>

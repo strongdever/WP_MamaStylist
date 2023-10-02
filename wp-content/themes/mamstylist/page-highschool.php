@@ -142,7 +142,7 @@ $sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
                         $first_number = $total_counts == 0 ? 0 : ($current_page - 1) * $number_per_page + 1;
                         $secode_number = ($current_page * $number_per_page) > $total_counts ? $total_counts : ($current_page * $number_per_page);
                         ?>
-                        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>>該当公開件数<span class="pager__num--point ui-tx-point"><?php echo $total_counts; ?>件</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
+                        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>><?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
 
                         <!-- <div class="display-number">50件中  1-20件表示</div> -->
                         <select name="sortby" id="sortby" class="mid-produc-sort">

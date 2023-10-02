@@ -32,9 +32,12 @@ $cat_slug = get_query_var('blog-category') ? get_query_var('blog-category') : ""
                 ?>
                 <?php if( $cats ) : ?>
                 <ul class="cats-list">
+                    <li>
+                        <a class="cat<?php echo $cat_slug ? '' : ' active'; ?>" href="<?php echo HOME; ?>/blog">全て</a>
+                    </li>
                     <?php foreach($cats as $cat) : ?>
                     <li>
-                        <a href="<?php echo get_term_link($cat); ?>" class="cat"><?php echo $cat->name; ?></a>
+                        <a class="cat<?php if($cat_slug == $cat->slug ){ echo ' active'; } else { echo ''; } ?>" href="<?php echo get_term_link($cat); ?>"><?php echo $cat->name; ?></a>
                     </li>
                     <?php endforeach; ?>
                 </ul>

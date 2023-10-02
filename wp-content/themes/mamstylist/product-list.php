@@ -10,6 +10,7 @@ get_header();
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
 $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
+$s_keys = explode(' ', $search_key);
 $middleschool = get_query_var('middleschool') ? get_query_var('middleschool') : '';
 $highschool = get_query_var('highschool') ? get_query_var('highschool') : '';
 if (isset($_GET['situation'])) {
@@ -39,13 +40,12 @@ if (isset($_GET['price'])) {
                 $args = [
                     'post_type' => 'product',
                     'post_status' => 'publish',
-                    'paged' => $paged,
                     'posts_per_page' => $number_per_page,
-                    's'              => $search_key,
                     'meta_key' => 'popularity_ranking',
                     'orderby' => 'meta_value_num',
                     'order' => 'DESC',
                 ];
+                
             }
             else if($sortby == 'newly') {
                 $args = [
@@ -53,7 +53,6 @@ if (isset($_GET['price'])) {
                     'post_status' => 'publish',
                     'paged' => $paged,
                     'posts_per_page' => $number_per_page,
-                    's'              => $search_key,
                     'orderby'        => 'date',
                     'order' => 'DESC',
                 ];
@@ -65,7 +64,6 @@ if (isset($_GET['price'])) {
                     'post_status' => 'publish',
                     'paged' => $paged,
                     'posts_per_page' => $number_per_page,
-                    's'              => $search_key,
                     'orderby'        => 'meta_value_num',
                     'meta_key'       => 'price',
                     'order' => 'ASC',
@@ -118,13 +116,33 @@ if (isset($_GET['price'])) {
                 $args['tax_query'] = $tax_query;
             }
 
+            //search keys
+            if($s_keys) {
+                $meta_query = [
+                    'relation' => 'OR',
+                ];
+                foreach( $s_keys as $s_key ) {
+                    $meta_query[] = array(
+                        'key'     => 'product_title', // Replace with the custom field key if needed
+                        'value'   => $s_key, // Replace with your search keywords
+                        'compare' => 'LIKE',
+                    );
+                    $meta_query[] = array(
+                        'key'     => 'product_content', // Replace with the custom field key if needed
+                        'value'   => $s_key, // Replace with your search keywords
+                        'compare' => 'LIKE',
+                    );
+                }
+                $args['meta_query'] = $meta_query;
+            }
+
             $product_query = new WP_Query( $args );
         ?>
         <section class="middleschool students-product">
             <div class="container">
-                <h2 class="sub-title">
+                <!-- <h2 class="sub-title">
                     中学生男子の服
-                </h2>
+                </h2> -->
                 <div class="search-wrapper">
                     <div class=search-result>
                         <span><?php echo $product_query->found_posts; ?></span>&nbsp;件見つかりました
@@ -133,14 +151,17 @@ if (isset($_GET['price'])) {
                     <div class="search-keywords">
                         <div class="label">選択中の条件</div>
                         <div class="keywords-list">
-                            <?php if($search_key) :
-                                ?>
-                            <button class="btn-keyword" data-value="search_key">
-                                <?php echo $search_key; ?>
+                            <?php if($search_key) : ?>
+                                <?php foreach ( $s_keys as $s_key ) : ?>
+                                    <?php if(trim($s_key)) : ?>
+                            <button class="btn-keyword" data-value="s_key" value="<?php echo $s_key; ?>">
+                                <?php echo $s_key; ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path d="M12 2.25C10.0716 2.25 8.18657 2.82183 6.58319 3.89317C4.97982 4.96451 3.73013 6.48726 2.99218 8.26884C2.25422 10.0504 2.06114 12.0108 2.43735 13.9021C2.81355 15.7934 3.74215 17.5307 5.10571 18.8943C6.46928 20.2579 8.20656 21.1865 10.0979 21.5627C11.9892 21.9389 13.9496 21.7458 15.7312 21.0078C17.5127 20.2699 19.0355 19.0202 20.1068 17.4168C21.1782 15.8134 21.75 13.9284 21.75 12C21.7473 9.41498 20.7192 6.93661 18.8913 5.10872C17.0634 3.28084 14.585 2.25273 12 2.25ZM15.5306 14.4694C15.6003 14.5391 15.6556 14.6218 15.6933 14.7128C15.731 14.8039 15.7504 14.9015 15.7504 15C15.7504 15.0985 15.731 15.1961 15.6933 15.2872C15.6556 15.3782 15.6003 15.4609 15.5306 15.5306C15.4609 15.6003 15.3782 15.6556 15.2872 15.6933C15.1961 15.731 15.0986 15.7504 15 15.7504C14.9015 15.7504 14.8039 15.731 14.7128 15.6933C14.6218 15.6556 14.5391 15.6003 14.4694 15.5306L12 13.0603L9.53063 15.5306C9.46095 15.6003 9.37822 15.6556 9.28718 15.6933C9.19613 15.731 9.09855 15.7504 9 15.7504C8.90146 15.7504 8.80388 15.731 8.71283 15.6933C8.62179 15.6556 8.53906 15.6003 8.46938 15.5306C8.3997 15.4609 8.34442 15.3782 8.30671 15.2872C8.269 15.1961 8.24959 15.0985 8.24959 15C8.24959 14.9015 8.269 14.8039 8.30671 14.7128C8.34442 14.6218 8.3997 14.5391 8.46938 14.4694L10.9397 12L8.46938 9.53063C8.32865 9.38989 8.24959 9.19902 8.24959 9C8.24959 8.80098 8.32865 8.61011 8.46938 8.46937C8.61011 8.32864 8.80098 8.24958 9 8.24958C9.19903 8.24958 9.3899 8.32864 9.53063 8.46937L12 10.9397L14.4694 8.46937C14.5391 8.39969 14.6218 8.34442 14.7128 8.3067C14.8039 8.26899 14.9015 8.24958 15 8.24958C15.0986 8.24958 15.1961 8.26899 15.2872 8.3067C15.3782 8.34442 15.4609 8.39969 15.5306 8.46937C15.6003 8.53906 15.6556 8.62178 15.6933 8.71283C15.731 8.80387 15.7504 8.90145 15.7504 9C15.7504 9.09855 15.731 9.19613 15.6933 9.28717C15.6556 9.37822 15.6003 9.46094 15.5306 9.53063L13.0603 12L15.5306 14.4694Z" fill="#F4983D"/>
                                 </svg>
                             </button>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                             <?php endif; ?>
 
                             <?php if($middleschool) : ?>
@@ -241,7 +262,7 @@ if (isset($_GET['price'])) {
                         $first_number = $total_counts == 0 ? 0 : ($current_page - 1) * $number_per_page + 1;
                         $secode_number = ($current_page * $number_per_page) > $total_counts ? $total_counts : ($current_page * $number_per_page);
                         ?>
-                        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>>該当公開件数<span class="pager__num--point ui-tx-point"><?php echo $total_counts; ?>件</span>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
+                        <p class="pager__num"<?php echo $paginate_links ? '' : ' style="margin-right: 0;"'; ?>><?php echo $first_number; ?>～<?php echo $secode_number; ?>件表示</p>
 
                         <!-- <div class="display-number">50件中  1-20件表示</div> -->
                         <select name="sortby" id="sortby" class="mid-produc-sort">
@@ -277,7 +298,7 @@ if (isset($_GET['price'])) {
                                         // var_export($variations[0]['variation_id']);
                                         $variation_id = $variations[0]['variation_id'];
                                         $variation_product = wc_get_product($variation_id);
-                                        $price = $variation_product->get_price();
+                                        $price = number_format($variation_product->get_price());
                                     }
                                     ?>
                                     <h3 class="price">
@@ -366,143 +387,165 @@ if (isset($_GET['price'])) {
                 window.location.href = url;
             });
 
+            var key_clicked = false;
             $(".btn-keyword").click(function() {
-                var url = "<?php echo HOME . 'product'; ?>?";
-                <?php if($sortby) : ?>
-                url += 'sortby=<?php echo $sortby; ?>';
-                <?php endif; ?>
-                if($(this).attr("data-value") != 'search_key') {
-                    <?php if($search_key) : 
-                        if($sortby) {
-                        ?>
-                    url += '&search_key=<?php echo $search_key; ?>';
+                if(!key_clicked) {
+                    $(this).remove();
+                    var url = "<?php echo HOME . 'product'; ?>?";
+                    <?php if($sortby) : ?>
+                    url += 'sortby=<?php echo $sortby; ?>';
+                    <?php endif; ?>
+                    
                     <?php
-                        } else {
+                    if($search_key) {
                     ?>
-                    url += '?search_key=<?php echo $search_key; ?>';
-                    <?php 
-                        }
-                    endif; ?>
-                }
-
-                if($(this).attr("data-value") != 'middleschool') {
-                    <?php if($middleschool) : 
-                        if($sortby || $search_key) {
-                        ?>
-                    url += '&middleschool=1';
+                        var search_value = '';
                     <?php
-                        } else {
+                        foreach( $s_keys as $s_key ) {
                     ?>
-                    url += '?middleschool=1';
-                    <?php 
-                        }
-                    endif; ?>
-                }
-
-                if($(this).attr("data-value") != 'highschool') {
-                    <?php if($highschool) : 
-                        if($sortby || $search_key || $middleschool) {
-                        ?>
-                    url += '&highschool=1';
-                    <?php
-                        } else {
-                    ?>
-                    url += '?highschool=1';
-                    <?php 
-                        }
-                    endif; ?>
-                }
-
-                <?php
-                if($situation_params) {
-                    $i = 0;
-                    foreach($situation_params as $situation_slug) :
-                    ?>
-                    if('<?php echo $situation_slug; ?>' != $(this).attr("data-value") ) {
-                    <?php
-                        if( $i == 0 ) {
-                            if( $sortby || $search_key || $middleschool || $highschool ) {
-                    ?>
-                    url = url + '&situation[0]=' + '<?php echo $situation_slug; ?>';
-                    <?php
-                            } else {
-                    ?>
-                    url = url + '?situation[0]=' + '<?php echo $situation_slug; ?>';
-                    <?php
+                            if('<?php echo $s_key; ?>' != $(this).val()) {
+                                search_value += '<?php echo $s_key; ?> ';
                             }
-                        } else {
-                    ?>
-                    url = url + '&situation[<?php echo $i; ?>]=<?php echo $situation_slug; ?>';
-                    <?php 
+                    <?php
                         }
-                    ?>
-                    }
-                    <?php 
-                    $i++;
-                    endforeach;
-                }
-                ?>
-
-                <?php
-                if($genre_params) {
-                    $i = 0;
-                    foreach($genre_params as $genre_slug) :
-                    ?>
-                    if('<?php echo $genre_slug; ?>' != $(this).attr("data-value") ) {
-                    <?php
-                        if( $i == 0 ) {
-                            if( $sortby || $search_key || $middleschool || $highschool || $situation_params ) {
-                    ?>
-                    url = url + '&genre[0]=' + '<?php echo $genre_slug; ?>';
-                    <?php
+                    ?>  
+                        if(search_value) {
+                            <?php
+                            if($sortby) {
+                            ?>
+                                url += '&search_key=' + search_value;
+                            <?php
                             } else {
-                    ?>
-                    url = url + '?genre[0]=' + '<?php echo $genre_slug; ?>';
-                    <?php
+                            ?>
+                                url += '?search_key=' + search_value;
+                            <?php
                             }
-                        } else {
-                    ?>
-                    url = url + '&genre[<?php echo $i; ?>]=<?php echo $genre_slug; ?>';
-                    <?php 
+                            ?>
                         }
-                    ?>
+                    <?php
                     }
-                    <?php 
-                    $i++;
-                    endforeach;
-                }
-                ?>
+                    ?>
 
-                <?php
-                if($price_params) {
-                    $i = 0;
-                    foreach($price_params as $price_slug) :
-                    ?>
-                    if('<?php echo $price_slug; ?>' != $(this).attr("data-value") ) {
-                    <?php
-                        if( $i == 0 ) {
-                            if( $sortby || $search_key || $middleschool || $highschool || $situation_params || $genre_params ) {
-                    ?>
-                    url = url + '&price[0]=' + '<?php echo $price_slug; ?>';
-                    <?php
+                    if($(this).attr("data-value") != 'middleschool') {
+                        <?php if($middleschool) : 
+                            if($sortby || $search_key) {
+                            ?>
+                        url += '&middleschool=1';
+                        <?php
                             } else {
-                    ?>
-                    url = url + '?price[0]=' + '<?php echo $price_slug; ?>';
-                    <?php
+                        ?>
+                        url += '?middleschool=1';
+                        <?php 
                             }
-                        } else {
-                    ?>
-                    url = url + '&price[<?php echo $i; ?>]=<?php echo $price_slug; ?>';
-                    <?php 
-                        }
-                    ?>
+                        endif; ?>
                     }
-                    <?php 
-                    $i++;
-                    endforeach;
+
+                    if($(this).attr("data-value") != 'highschool') {
+                        <?php if($highschool) : 
+                            if($sortby || $search_key || $middleschool) {
+                            ?>
+                        url += '&highschool=1';
+                        <?php
+                            } else {
+                        ?>
+                        url += '?highschool=1';
+                        <?php 
+                            }
+                        endif; ?>
+                    }
+
+                    <?php
+                    if($situation_params) {
+                        $i = 0;
+                        foreach($situation_params as $situation_slug) :
+                        ?>
+                        if('<?php echo $situation_slug; ?>' != $(this).attr("data-value") ) {
+                        <?php
+                            if( $i == 0 ) {
+                                if( $sortby || $search_key || $middleschool || $highschool ) {
+                        ?>
+                        url = url + '&situation[0]=' + '<?php echo $situation_slug; ?>';
+                        <?php
+                                } else {
+                        ?>
+                        url = url + '?situation[0]=' + '<?php echo $situation_slug; ?>';
+                        <?php
+                                }
+                            } else {
+                        ?>
+                        url = url + '&situation[<?php echo $i; ?>]=<?php echo $situation_slug; ?>';
+                        <?php 
+                            }
+                        ?>
+                        }
+                        <?php 
+                        $i++;
+                        endforeach;
+                    }
+                    ?>
+
+                    <?php
+                    if($genre_params) {
+                        $i = 0;
+                        foreach($genre_params as $genre_slug) :
+                        ?>
+                        if('<?php echo $genre_slug; ?>' != $(this).attr("data-value") ) {
+                        <?php
+                            if( $i == 0 ) {
+                                if( $sortby || $search_key || $middleschool || $highschool || $situation_params ) {
+                        ?>
+                        url = url + '&genre[0]=' + '<?php echo $genre_slug; ?>';
+                        <?php
+                                } else {
+                        ?>
+                        url = url + '?genre[0]=' + '<?php echo $genre_slug; ?>';
+                        <?php
+                                }
+                            } else {
+                        ?>
+                        url = url + '&genre[<?php echo $i; ?>]=<?php echo $genre_slug; ?>';
+                        <?php 
+                            }
+                        ?>
+                        }
+                        <?php 
+                        $i++;
+                        endforeach;
+                    }
+                    ?>
+
+                    <?php
+                    if($price_params) {
+                        $i = 0;
+                        foreach($price_params as $price_slug) :
+                        ?>
+                        if('<?php echo $price_slug; ?>' != $(this).attr("data-value") ) {
+                        <?php
+                            if( $i == 0 ) {
+                                if( $sortby || $search_key || $middleschool || $highschool || $situation_params || $genre_params ) {
+                        ?>
+                        url = url + '&price[0]=' + '<?php echo $price_slug; ?>';
+                        <?php
+                                } else {
+                        ?>
+                        url = url + '?price[0]=' + '<?php echo $price_slug; ?>';
+                        <?php
+                                }
+                            } else {
+                        ?>
+                        url = url + '&price[<?php echo $i; ?>]=<?php echo $price_slug; ?>';
+                        <?php 
+                            }
+                        ?>
+                        }
+                        <?php 
+                        $i++;
+                        endforeach;
+                    }
+                    ?>
+                    window.location.href = url;
                 }
-                ?>
-                window.location.href = url;  
+                key_clicked = true;
             })
         });
     </script>

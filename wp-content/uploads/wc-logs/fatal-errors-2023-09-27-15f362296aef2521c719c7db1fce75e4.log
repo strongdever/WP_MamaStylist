@@ -1,0 +1,24 @@
+2023-09-27T15:57:20+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:372
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php(61): update_price_meta_key('middleschool')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#3 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#4 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 372
+
+2023-09-27T15:58:35+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product_Simple::get_available_variations() in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:372
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\page-middleschool.php(61): update_price_meta_key('middleschool')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#3 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#4 {main}
+  thrown in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 372
+
+2023-09-27T17:53:53+00:00 CRITICAL syntax error, unexpected single-quoted string "compare", expecting ")" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 54
+
+2023-09-27T17:54:08+00:00 CRITICAL syntax error, unexpected single-quoted string "compare", expecting ")" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 54
+
+2023-09-27T17:54:17+00:00 CRITICAL syntax error, unexpected single-quoted string "compare", expecting ")" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\product-list.php on line 54
+

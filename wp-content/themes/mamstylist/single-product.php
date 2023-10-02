@@ -18,9 +18,9 @@ get_header();
                 <?php foreach($curr_cats as $curr_cat) : ?>
                     <?php
                     $parent_cat = get_term($curr_cat->parent);
-                    if($parent_cat->name == 'シチュエーションから選ぶ') :
+                    if($parent_cat->slug == 'situation') :
                     ?>
-                <a href="<?php echo get_term_link($curr_cat); ?>"><?php echo $curr_cat->name; ?></a>
+                <a href="<?php echo HOME; ?>product/?situation[0]=<?php echo $curr_cat->slug; ?>"><?php echo $curr_cat->name; ?></a>
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <i class="fa fa-angle-right"></i>
@@ -82,6 +82,7 @@ get_header();
                         $variation_id = $variations[0]['variation_id'];
                         $variation_product = wc_get_product($variation_id);
                         $total_price = $variation_product->get_price();
+                        $total_payment_url = esc_url($variation_product->get_description());
                         // Loop through each variation
                         $sum_price = 0;
                         $i = 0;
@@ -106,14 +107,14 @@ get_header();
                             <h2 class="sub-title"><?php the_title(); ?></h2>
                         </div>
                         <p class="save-text">
-                            単品購入より¥<?php echo ($total_price - $sum_price); ?>お得
+                            単品購入より¥<?php echo number_format(($total_price - $sum_price)); ?>お得
                         </p>
                         <div class="total-buy">
                             <div class="price-text">
-                                ¥<?php echo $total_price; ?>
+                                ¥<?php echo number_format($total_price); ?>
                                 <span>税込</span>
                             </div>
-                            <a class="btn" href="<?php echo wc_get_checkout_url(); ?>">
+                            <a class="btn" href="<?php echo $total_payment_url; ?>">
                                 買いに行く<i class="fa fa-angle-right bounce"></i>
                             </a>
                         </div>
@@ -135,8 +136,8 @@ get_header();
                             ?>
                                     <li>
                                         <div class="name"><?php echo $variation_product->get_variation_attributes()['attribute_clothes']; ?></div>
-                                        <div class="price">¥<?php echo $variation_product->get_price(); ?></div>
-                                        <a class="btn" href="">
+                                        <div class="price">¥<?php echo number_format($variation_product->get_price()); ?></div>
+                                        <a class="btn" href="<?php echo esc_url($variation_product->get_description()); ?>">
                                             買いに行く<i class="fa fa-angle-right bounce"></i>
                                         </a>
                                     </li>
@@ -146,30 +147,36 @@ get_header();
                             }
                             ?>
                             </ul>
-                            <ul class="cats-list">
-                            <?php foreach($curr_cats as $curr_cat) : ?>
+                            <div class="cats-wrapper">
+                                <h4 class="cats-label situation">シチュエーション</h4>
+                                <ul class="cats-list">
+                                <?php foreach($curr_cats as $curr_cat) : ?>
+                                    <?php
+                                    $parent_cat = get_term($curr_cat->parent);
+                                    if($parent_cat->slug == 'situation') :
+                                    ?>
+                                    <li class="cat-item">
+                                        <a href="<?php echo HOME; ?>product/?situation[0]=<?php echo $curr_cat->slug; ?>"><span><?php echo $curr_cat->name; ?></span></a>
+                                    </li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                </ul>
+                                <h4 class="cats-label genre">ジャンル</h4>
+                                <ul class="cats-list">
+                                <?php foreach($curr_cats as $curr_cat) : ?>
                                 <?php
-                                $parent_cat = get_term($curr_cat->parent);
-                                if($parent_cat->name == 'シチュエーションから選ぶ') :
-                                ?>
-                                <li class="cat-item">
-                                    <span><?php echo $curr_cat->name; ?></span>
-                                </li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                            <?php foreach($curr_cats as $curr_cat) : ?>
-                            <?php
-                                $parent_cat = get_term($curr_cat->parent);
-                                if($parent_cat->name == '好みのジャンルから選ぶ') :
-                                ?>
-                                <li class="cat-item">
-                                    <span><?php echo $curr_cat->name; ?></span>
-                                </li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                            </ul>
+                                    $parent_cat = get_term($curr_cat->parent);
+                                    if($parent_cat->slug == 'genre') :
+                                    ?>
+                                    <li class="cat-item">
+                                        <a href="<?php echo HOME; ?>product/?genre[0]=<?php echo $curr_cat->slug; ?>"><span><?php echo $curr_cat->name; ?></span></a>
+                                    </li>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="title">コーディネートのポイント</div>
+                        <!-- <div class="title">コーディネートのポイント</div>
                         <div class="desc-wraper">
                             <p class="desc">
                                 ストレッチが効いたデニムを使用した、程よくリラックスしたデニムブルゾンです。
@@ -186,6 +193,9 @@ get_header();
                             <p class="desc">
                                 <span>モデル身長：155cm<span></span>着用サイズ：160cm</span>
                             </p>
+                        </div> -->
+                        <div class="content-wrapper">
+                        <?php the_content(); ?>
                         </div>
                         <ul class="social-items">
                             <?php if (shortcode_exists('addtoany')) : ?>
@@ -201,7 +211,7 @@ get_header();
                         'post_status' => 'publish',
                         'post__not_in'      => array(get_the_ID()), // Exclude the current post
                         'paged' => $paged,
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 12,
                         'orderby' => 'post_date',
                         'order' => 'DESC',
                     ];
@@ -209,11 +219,30 @@ get_header();
                     $tax_query = [];
 
                     if( $curr_cats ) {
+                        $situation_cats = [];
+                        $genre_cats = [];
                         foreach($curr_cats as $curr_cat) {
+                            $parent_cat = get_term($curr_cat->parent);
+                            
+                            if($parent_cat->slug == 'situation') {
+                                $situation_cats[] =  $curr_cat->slug;
+                            }
+                            if($parent_cat->slug == 'genre') {
+                                $genre_cats[] =  $curr_cat->slug;
+                            }
+                        }
+                        if($situation_cats) {
                             $tax_query[] = [
                                 'taxonomy' => 'product_cat',
                                 'field' => 'slug',
-                                'terms' => $curr_cat->slug,
+                                'terms' => $situation_cats,
+                            ];
+                        }
+                        if($genre_cats) {
+                            $tax_query[] = [
+                                'taxonomy' => 'product_cat',
+                                'field' => 'slug',
+                                'terms' => $genre_cats,
                             ];
                         }
                     }
@@ -221,11 +250,10 @@ get_header();
                     if ( !empty($tax_query) ) {
                         $args['tax_query'] = $tax_query;
                     }
-
                     $product_query = new WP_Query( $args );
                 ?>
-                <?php if($product_query->have_posts()) : ?>
-                <h2 class="sub-title">同じシチュエーションの人気コーディネート</h2>
+                <h2 class="sub-title">関連コーディネート</h2>
+                <?php if($product_query->have_posts()) { ?>
                 <ul class="product-list">
                 <?php while($product_query->have_posts()) : $product_query->the_post(); ?>
                     <li>
@@ -261,9 +289,9 @@ get_header();
                             if( $product_cats ) :
                                 foreach($product_cats as $product_cat) :
                                     $parent_term = get_term( $product_cat->parent );
-                                    if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                    if( $parent_term->slug == 'situation' ) :
                             ?>
-                            <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                            <h4 class="product-cat"><a href="<?php echo HOME; ?>product/?situation[0]=<?php echo $product_cat->slug; ?>"><?php echo $product_cat->name; ?></a></h4>
                             <?php endif; ?>
                             <?php endforeach;
                             endif; ?>
@@ -271,7 +299,9 @@ get_header();
                     </li>
                     <?php endwhile; ?>
                 </ul>
-                <?php endif; ?>
+                <?php } else { ?>
+                <div class="noitem">同じ状況、同じジャンルの商品が存在しません。</div>
+                <?php } ?>
             </div>
         </section>
    

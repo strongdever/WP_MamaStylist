@@ -8,21 +8,21 @@
     
     // Back to top button
     $(window).scroll(function () {
-        if ($(this).scrollTop() > 768) {
-            if(!$('header.header').hasClass('scrolled')) {
-                $('header.header').addClass('scrolled');
-            }
-        } else {
-            if($('header.header').hasClass('scrolled')) {
-                $('header.header').removeClass('scrolled');
-            }
-        }
+        // if ($(this).scrollTop() > -10) {
+        //     if(!$('header.header.front-page').hasClass('scrolled')) {
+        //         $('header.header.front-page').addClass('scrolled');
+        //     }
+        // } else {
+        //     if($('header.header.front-page').hasClass('scrolled')) {
+        //         $('header.header.front-page').removeClass('scrolled');
+        //     }
+        // }
 
-        if ($(this).scrollTop() > 150) {
-            $('.mobile-header').height('8rem');
-        } else {
-            $('.mobile-header').height('10rem');
-        }
+        // if ($(this).scrollTop() > 150) {
+        //     $('.mobile-header').height('8rem');
+        // } else {
+        //     $('.mobile-header').height('10rem');
+        // }
     });
 
     $('.back-to-top').click(function () {

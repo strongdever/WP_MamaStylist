@@ -2,13 +2,13 @@
 
 /*
 Theme Name: 草津不動産売却テラス
-Author: Lazy
+Author: Nin2.com
 Author URI: https://wordpress.org/
-Description: 私たちの「草津不動産売却テラス」テーマは、ブロックエディターの力を披露するように設計されています。 すべてのデフォルトブロックのカスタムスタイルを備えており、エディターに表示されるものがWebサイトに表示されるものと同じように表示されるように構築されています。
+Description: 中学生男子の服,高校生男子の服,男友達と遊びに行くとき,学校行事の私服のとき,女子もいる遊びのとき,デートのとき,綺麗めカジュアル系,モード系,ストリート系,キャラクター系
 Requires at least: 4.9.6
 Requires PHP: 5.2.4
 Version: 1.0
-Text Domain: trustrate
+Text Domain: https://mamastylist.com/
 */
 
 
@@ -26,4 +26,32 @@ Text Domain: trustrate
 
 #wpadminbar {
   display: none;
+}
+
+.page-id-18 .header .header-nav .nav-menu > li:first-child .menu-link::before {
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.page-id-20 .header .header-nav .nav-menu > li:nth-child(2) .menu-link::before {
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.page-id-22 .header .header-nav .nav-menu > li:nth-child(3) .menu-link::before {
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+
+.post-type-archive-blog .header .header-nav .nav-menu > li:nth-child(4) .menu-link::before {
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
 }

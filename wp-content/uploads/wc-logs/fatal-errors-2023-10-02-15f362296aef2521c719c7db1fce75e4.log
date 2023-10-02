@@ -1,0 +1,18 @@
+2023-10-02T00:41:20+00:00 CRITICAL syntax error, unexpected token "else" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php on line 301
+
+2023-10-02T00:41:29+00:00 CRITICAL syntax error, unexpected token "{", expecting "(" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php on line 301
+
+2023-10-02T03:36:51+00:00 CRITICAL Cannot redeclare change_product_post_label() (previously declared in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:517) in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 525
+
+2023-10-02T03:36:52+00:00 CRITICAL Cannot redeclare change_product_post_label() (previously declared in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:517) in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 525
+
+2023-10-02T03:36:56+00:00 CRITICAL Cannot redeclare change_product_post_label() (previously declared in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:517) in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 525
+
+2023-10-02T03:55:42+00:00 CRITICAL Cannot redeclare change_woocommerce_labels() (previously declared in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:516) in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 535
+
+2023-10-02T03:55:43+00:00 CRITICAL Cannot redeclare change_woocommerce_labels() (previously declared in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php:516) in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 535
+
+2023-10-02T04:06:13+00:00 CRITICAL Maximum execution time of 120 seconds exceeded in E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\packages\woocommerce-blocks\src\Utils\CartCheckoutUtils.php on line 109
+
+2023-10-02T04:42:18+00:00 CRITICAL syntax error, unexpected identifier "gettext", expecting ")" in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\functions.php on line 524
+

@@ -321,7 +321,7 @@
     min-width: 24.0rem;
     padding: 2.0rem 5.6rem;
     border-radius: 10rem;
-    background: #40C2BF;
+    background: #13A4A0;
     font-family: "DNP ShueiMGoStd";
     font-weight: 500;
     font-size: 1.6rem;
@@ -568,7 +568,7 @@ header.header {
         align-items: flex-end;
   }
 
-  .header.scrolled .nav-social .search-social {
+  .header.scrolled .nav-social .searchsearch-social {
     margin-bottom: 1.6rem;
     width: 100%;
     -webkit-transition: all 0.4s ease-in-out;
@@ -588,7 +588,7 @@ header.header {
     position: absolute;
     top: 18px;
     right: -80px;
-    color: #333;
+    color: #13A4A0;
     text-align: center;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
@@ -658,10 +658,10 @@ header.header {
     width: fit-content;
     font-family: "DNP ShueiMGoStd";
     font-weight: 800;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     line-height: 2.8rem;
     letter-spacing: 0.08em;
-    color: #333333;
+    color: #264C56;
     margin: 0;
     white-space: nowrap;
     text-decoration: none;
@@ -698,7 +698,7 @@ header.header {
     display: block;
     width: 100%;
     height: 1px;
-    background: #333333;
+    background: #264C56;
     -webkit-transform-origin: right center;
             transform-origin: right center;
     -webkit-transform: scale(0, 1);
@@ -730,12 +730,13 @@ header.header {
     -webkit-box-align: center;
     -ms-flex-align: center;
         align-items: center;
+    margin-bottom: 1.2rem;
   }
 
   .search-social .search-bar {
     margin-right: 12rem;
     width: 100%;
-    height: 5rem;
+    height: 4.6rem;
   }
 
   .social {
@@ -1383,7 +1384,7 @@ header.header {
     position: absolute;
     bottom: -4rem;
     right: 0;
-    color: #333333;
+    color: #13A4A0;
     font-family: "DNP ShueiMGoStd";
     font-weight: 800;
     font-size: 2.0rem;
@@ -1404,7 +1405,7 @@ header.header {
       -ms-flex-align: center;
         align-items: center;
     border-radius: 0.6rem;
-    border: 1px solid #40C2BF;
+    border: 1px solid #13A4A0;
   }
 
   .search-bar .input-box {
@@ -1421,10 +1422,10 @@ header.header {
   }
 
   .search-bar .input-box input {
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 2.4rem;
     text-align: left;
     border: 0;
@@ -1436,12 +1437,14 @@ header.header {
     font-size: 1.6rem;
     margin: auto 1.6rem;
   }
-
+  #front-page .search-bar button {
+    height: 4.6rem;
+  }
   .search-bar button {
     border-radius: 0 0.4rem 0.4rem 0;
-    background-color: #40C2BF;
+    background-color: #13A4A0;
     width: 5rem;
-    height: 5rem;
+    height: 100%;
   }
 
   .search-bar button i {
@@ -1478,7 +1481,7 @@ header.header {
       width: -moz-fit-content;
         width: fit-content;
     font-family: "Noto Sans CJK JP";
-    font-size: 4.8rem;
+    font-size: 3.2rem;
     font-weight: 800;
     letter-spacing: 0.125em;
     color: #13A4A0;
@@ -1543,7 +1546,7 @@ header.header {
     font-size: 2.4rem;
     font-weight: 600;
     letter-spacing: 0.06em;
-    color: #333333;
+    color: #264C56;
   }
 
   @media only screen and (max-width: 768px) {
@@ -1551,7 +1554,7 @@ header.header {
       font-size: 2.2rem;
       font-weight: 600;
       letter-spacing: 0.06em;
-      color: #333333;
+      color: #264C56;
     }
   }
 
@@ -1605,7 +1608,7 @@ header.header {
   }
 
   .product .price-wrap .pre-text {
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-weight: 500;
     font-size: 1.4rem;
@@ -1613,7 +1616,7 @@ header.header {
   }
 
   .product .price-wrap .price {
-    color: #333;
+    color: #264C56;
     font-family: "DIN 2014 Bold";
     font-weight: 500;
     font-size: 3.2rem;
@@ -1646,7 +1649,8 @@ header.header {
     color: #fff;
     font-family: "DNP ShueiMGoStd";
     font-weight: 800;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    border-radius: 4px;
     padding: 0.6rem 0.8rem;
     background-color: #F4983D;
     width: -webkit-fit-content;
@@ -1866,11 +1870,11 @@ header.header {
   }
 
   .mark.order4 {
-    background-color: #333333;
+    background-color: #264C56;
   }
 
   .mark.order5 {
-    background-color: #333333;
+    background-color: #264C56;
   }
 
   .cheering-section {
@@ -1893,7 +1897,7 @@ header.header {
     height: -webkit-fit-content;
       height: -moz-fit-content;
         height: fit-content;
-    margin: 0 auto 2.4rem auto;
+    margin: 0 auto 4.0rem auto;
     position: relative;
     display: -webkit-box;
       display: -ms-flexbox;
@@ -1931,7 +1935,7 @@ header.header {
 
   .cheering-section .main-title {
     position: relative;
-    margin: 0 auto 6.4rem auto;
+    margin: 0 auto 3.6rem auto;
   }
 
   .cheering-section .cheering-part {
@@ -1941,6 +1945,8 @@ header.header {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    width: calc(100% + 3.2rem);
+    margin-left: -1.6rem;
   }
 
   @media only screen and (max-width: 768px) {
@@ -1973,7 +1979,9 @@ header.header {
   .cheering-part li a .thumb {
     position: relative;
     width: 100%;
-    height: auto;
+    aspect-ratio: 365 / 236;
+    -o-object-fit: cover;
+    object-fit: cover;
     border-radius: 0.8rem 0.8rem 0 0;
   }  
 
@@ -1999,7 +2007,7 @@ header.header {
     font-weight: 600;
     font-size: 1.6rem;
     line-height: 2.4rem;
-    color: #333;
+    color: #264C56;
   }
 
   /* @media print, screen and (max-width: 1440px) {
@@ -2097,13 +2105,14 @@ header.header {
     grid-column-gap: 3.2rem; 
   }
 
-  .latest-section .noitem {
+  .noitem {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     display: block;
     margin: 0 auto;
     font-size: 2.4rem;
+    font-family: "DNP ShueiMGoStd";
   }
 
   @media only screen and (max-width: 768px) {
@@ -2181,7 +2190,7 @@ header.header {
         width: fit-content;
     margin-right: auto;
     margin-left: auto;
-    color: #333;
+    color: #264C56;
     text-align: center;
     font-family: DNP ShueiMGoStd;
     font-size: 1.3rem;
@@ -2223,7 +2232,7 @@ header.header {
     font-style: normal;
     font-weight: 600;
     line-height: 1.4rem; /* 100% */
-    color: #333;
+    color: #264C56;
   }
 
   .status-bar .nav-status a {
@@ -2274,7 +2283,7 @@ header.header {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 6.4rem;
-    color: #333;
+    color: #264C56;
     text-align: center;
     font-family: "DNP ShueiMGoStd";
     font-size: 3.2rem;
@@ -2313,7 +2322,7 @@ header.header {
 
   .mamasta .content .title {
     position: relative;
-    color: #333;
+    color: #264C56;
     text-align: center;
     font-family: "DNP ShueiMGoStd";
     font-size: 3.2rem;
@@ -2361,7 +2370,7 @@ header.header {
     position: relative;
     margin: 4rem auto;
     text-align: center;
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
     font-style: normal;
@@ -2428,7 +2437,7 @@ header.header {
 
   .search-wrapper .search-result {
     margin-bottom: 2.0rem;
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
     font-style: normal;
@@ -2444,11 +2453,11 @@ header.header {
 
   .search-keywords {
     padding: 1.8rem 2.4rem;
-    background: #FEF5EC;
+    background: rgba(64, 194, 191, 0.08);
   }
 
   .search-keywords .label {
-    color: #333;
+    color: #264C56;
     text-align: center;
     font-family: "DNP ShueiMGoStd";
     font-size: 16px;
@@ -2522,7 +2531,7 @@ header.header {
 
   .students-product .search-part .search-label {
     position: relative;
-    color: #333;
+    color: #264C56;
     text-align: center;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
@@ -2587,7 +2596,7 @@ header.header {
   }
 
   .students-product .sortby .sortby-tabs li .sortby-item {
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
     font-style: normal;
@@ -2601,7 +2610,7 @@ header.header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    
+    font-family: "DNP ShueiMGoStd";
   }
 
   @media only screen and (min-width:768px) {
@@ -2634,7 +2643,7 @@ header.header {
     margin-left: auto;
     border-radius: 4px;
     border: 1px solid #9D9D9D;
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
     font-style: normal;
@@ -2673,7 +2682,7 @@ header.header {
   }
   
   .pager .pager__num {
-    color: #333;
+    color: #264C56;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.6rem;
     font-style: normal;
@@ -2709,7 +2718,7 @@ header.header {
     border-radius: 4px;
     width: 2.8rem;
     height: 3.2rem;
-    color: #333;
+    color: #264C56;
     background-color: #fff;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.4rem;
@@ -2856,8 +2865,8 @@ header.header {
     height: 6.4rem;
     padding: 2.4rem 4.8rem;
     background-color: white;
-    border: 1px solid #323232;
-    color: #323232;
+    border: 1px solid #264C56;
+    color: #264C56;
     text-align: center;
     font-family: "DNP ShueiMGoStd";
     font-size: 1.5rem;
@@ -2868,15 +2877,19 @@ header.header {
     text-align: center;
     text-decoration: none;
     outline: none;
-    -webkit-transition: all 0.6s cubic-bezier(0.8, 0, 0.2, 1);
-    transition: all 0.6s cubic-bezier(0.8, 0, 0.2, 1);
-    border-radius: 1.2rem;
+    -webkit-transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.8, 0, 0.2, 1);
+    border-radius: 90px;
     cursor: pointer;
     z-index: 0;
   }
+
+  #search .cat-list .cat-item {
+    border-radius: 12px;
+  }
   
-  .cat-item.active {
-    background-color: #323232;
+  .cat-list .cat-item.active {
+    background-color: #264C56;
     color: white;
   }
 
@@ -2924,7 +2937,9 @@ header.header {
   }
   
   .cat-list .cat-item:hover {
-    color:#323232;
+    background-color: #13A4A0;
+    color: #FFF;
+    border: 1px solid #13A4A0;
   }
 
   .cat-list .cat-item.active:hover {
@@ -2951,6 +2966,8 @@ header.header {
 
 .search-wrap .sub-title {
   margin-bottom: 6.4rem;
+  font-size: 3.2rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -2960,7 +2977,7 @@ header.header {
 }
 
 .search-wrap .wrap-title {
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 2rem;
   font-style: normal;
@@ -2987,7 +3004,7 @@ header.header {
 .search-wrap .grade-wrap li {
   position: relative;
   margin-right: 4rem;
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 1.5rem;
   font-style: normal;
@@ -3320,6 +3337,16 @@ header.header {
   margin-bottom: 2.0rem;
 }
 
+.product-detail .detail-wraper .content-wrapper .title {
+  color: #264C56;
+  font-family: "DNP ShueiMGoStd";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 100% */
+  margin-bottom: 0;
+}
+
 @media only screen and (max-width: 768px) {
   .product-detail .detail-wraper .title {
     font-size: 2.4rem;
@@ -3424,24 +3451,34 @@ header.header {
 }
 
 .detail-section .detail-wraper .sub-title {
+  font-family: "DNP ShueiMGoStds";
   font-size: 2.0rem;
   margin: 0;
 }
 
 .detail-section .detail-wraper .save-text {
   width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  color: #FF3020;
-  font-family: "DNP ShueiMGoStd";
-  font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.6rem; /* 114.286% */
-  text-underline-position: below;
-  margin-bottom: 2.8rem;
-  border-bottom: 1px solid #FF3020;
-  padding-bottom: 0.4rem;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: #fff;
+    background: #ED5145;
+    font-family: "DNP ShueiMGoStd";
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.6rem;
+    margin-bottom: 0.8rem;
+    padding: 0 1.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 2.8rem;
 }
 
 .detail-section .detail-wraper .total-buy {
@@ -3473,7 +3510,7 @@ header.header {
 }
 
 .detail-section .detail-wraper .total-buy .price-text {
-  color: #333;
+  color: #264C56;
   font-family: "DIN 2014";
   font-size: 3.2rem;
   font-style: normal;
@@ -3483,7 +3520,7 @@ header.header {
 }
 
 .detail-section .detail-wraper .total-buy span {
-  color: #333;
+  color: #264C56;
   font-family: DNP "ShueiMGoStd";
   font-size: 1.4rem;
   font-style: normal;
@@ -3503,7 +3540,7 @@ header.header {
 
 .detail-section .detail-wraper .title {
   margin-bottom: 1.2rem;
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 16px;
   font-style: normal;
@@ -3533,15 +3570,17 @@ header.header {
   -webkit-box-pack: justify;
     -ms-flex-pack: justify;
       justify-content: space-between;
-  border-bottom: 1px solid #B9B9B9;;
+  border-bottom: 1px solid #B9B9B9;
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .name {
   width: 36%;
+  font-family: "DNP ShueiMGoStd";
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .price {
   width: 30%;
+  font-family: "DNP ShueiMGoStd";
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .btn {
@@ -3552,14 +3591,28 @@ header.header {
   height: 4rem;
   min-width: 16.6rem;
   background-color: #fff;
-  color: #40C2BF;
-  border: 2px solid #40C2BF;
+  color: #13A4A0;
+  border: 2px solid #13A4A0;
   text-align: center;
   font-family: "DNP ShueiMGoStd";
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: initial;
+}
+
+.detail-section .detail-wraper .separate-buy .cats-wrapper {
+  margin-bottom: 5.2rem;
+}
+
+.detail-section .detail-wraper .separate-buy .cats-label {
+  color: #264C56;
+  font-family: "DNP ShueiMGoStd";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px; /* 100% */
+  margin-bottom: 1.2rem;
 }
 
 .detail-section .detail-wraper .separate-buy .cats-list {
@@ -3573,24 +3626,15 @@ header.header {
 }
 
 .detail-section .detail-wraper .separate-buy .cat-item {
-  padding: 0.9rem 1.6rem;
-  display: -webkit-box;
-    display: -ms-flexbox;
-      display: flex;
-  -webkit-box-align: center;
-    -ms-flex-align: center;
-      align-items: center;
-  -webkit-box-pack: center;
-    -ms-flex-pack: center;
-      justify-content: center;
-  background-color: #FEF5EC;
-  color: #F4983D;
-  text-align: center;
-  font-family: DNP ShueiMGoStd;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 14px; /* 100% */
+  color: #fff;
+  font-family: "DNP ShueiMGoStd";
+  font-weight: 800;
+  font-size: 1.4rem;
+  padding: 0.6rem 0.8rem;
+  background-color: #F4983D;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-right: 1.6rem;
 }
 
@@ -3599,7 +3643,7 @@ header.header {
 }
 
 .detail-section .detail-wraper .desc-wraper .desc {
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 1.6rem;
   font-style: normal;
@@ -3668,6 +3712,10 @@ header.header {
   }
 }
 
+.detail-section .social-items {
+  margin-top: 7.2rem;
+}
+
 .cheering-page {
   padding: 8rem 14rem;
 }
@@ -3680,6 +3728,8 @@ header.header {
 
 .cheering-page .sub-title {
   margin-bottom: 4.8rem;
+  font-size: 3.2rem;
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {
@@ -3721,8 +3771,9 @@ header.header {
       width: fit-content;
   height: 4rem;
   border-radius: 90px;
-  background: #F3A897;
-  color: #FFF;
+  background: #FFF;
+  color: #F3A897;
+  border: 1px solid #F3A897;
   text-align: center;
   font-family: "DNP ShueiMGoStd";
   font-size: 1.6rem;
@@ -3731,8 +3782,10 @@ header.header {
   line-height: 1.4rem; /* 87.5% */
 }
 
-.cheering-page .cats-list li a:hover {
-  opacity: 0.8;
+.cheering-page .cats-list li a:hover,
+.cheering-page .cats-list li a.active {
+  color: #FFF;
+  background: #F3A897;
 }
 
 @media only screen and (max-width: 768px) {
@@ -3795,7 +3848,7 @@ header.header {
 
 .spslider .slick-next, .spslider .slick-prev {
   position: absolute;
-  top: calc(50% - 0);
+  top: 50%;
   display: block;
   width: 3.2rem;
   height: 3.2rem;
@@ -3970,7 +4023,7 @@ input[type=checkbox]:before {
 .single-cheering .cheering-title {
   margin-bottom: 4rem;
   display: block;
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 2.4rem;
   font-style: normal;
@@ -3985,7 +4038,7 @@ input[type=checkbox]:before {
 
 .desc {
   display: block;
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 1.6rem;
   font-style: normal;
@@ -3997,7 +4050,7 @@ input[type=checkbox]:before {
   display: block;
   margin-left: 3.2rem;
   position: relative;
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 2.0rem;
   font-style: normal;
@@ -4024,7 +4077,7 @@ input[type=checkbox]:before {
   width: -moz-fit-content;
   width: fit-content;
   position: relative;
-  color: #333;
+  color: #264C56;
   font-family: "DNP ShueiMGoStd";
   font-size: 18px;
   font-style: normal;
@@ -4122,8 +4175,9 @@ input[type=checkbox]:before {
 }
 
 .rule .title-label,
-.privacy .title-label {
-  color: #333;
+.privacy .title-label,
+.company .title-label {
+  color: #264C56;
   font-family: "Murecho";
   font-size: 3.2rem;
   font-style: normal;
@@ -4142,6 +4196,74 @@ input[type=checkbox]:before {
   line-height: 24px;
   letter-spacing: 0.96px;
   margin: 0;
+}
+
+.company-content {
+  padding: 8rem 0;
+}
+
+.company-content .title-label {
+  text-align: center;
+}
+
+.company-content .container {
+  width: 80%;
+  max-width: 86rem;
+}
+
+.company-content table {
+  width: 100%;
+  position: relative;
+}
+
+.company-content table tbody {
+  position: relative;
+  width: 100%;
+}
+
+.company-content table tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #D1D1D1;
+  color: #264C56;
+  font-family: "DNP ShueiMGoStd";
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px; /* 100% */
+}
+
+.company-content table tr:first-child {
+  border-top: 1px solid #D1D1D1;
+}
+
+.company-content table tr th {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 28%;
+  padding: 1.8rem 0;
+  background: rgba(19, 164, 160, 0.20);
+}
+
+.company-content table tr td {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.8rem 3.2rem;
+  background: #F8F8F8;
+  line-height: 2.2rem;
 }
 
 .addtoany_shortcode .a2a_dd {

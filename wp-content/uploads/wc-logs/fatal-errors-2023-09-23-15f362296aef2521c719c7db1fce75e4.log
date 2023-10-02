@@ -1,0 +1,2 @@
+2023-09-23T09:34:38+00:00 CRITICAL Out of memory (allocated 50331648) (tried to allocate 32768 bytes) in E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\src\Internal\Admin\WCAdminAssets.php on line 1
+
