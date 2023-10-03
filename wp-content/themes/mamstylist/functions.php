@@ -521,9 +521,11 @@ function wps_translate_words_array( $translated ) {
      $words = array(
                 // 'word to translate' = > 'translation'
                'Products' => 'コーディネートのポイント',
-            //    'All Products' => 'コーディネートのポイント一覧',
+               'すべての商品' => 'コーディネートのポイント一覧',
                'Add New' => '新規追加',
                'Edit product' => 'コーディネートのポイント編集',
+               '商品を編集' => 'コーディネートのポイント編集',
+               '商品' => 'コーディネートのポイント編集',
                'Description' => 'お支払いurl',
      );
      $translated = str_ireplace(  array_keys($words),  $words,  $translated );
