@@ -1,0 +1,9 @@
+#product_cat_thumbnail > img {
+    aspect-ratio: 250 / 365 !important;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
+    width: 250px;
+    height: 365px;
+}

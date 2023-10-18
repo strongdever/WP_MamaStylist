@@ -24,7 +24,7 @@ get_header();
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <i class="fa fa-angle-right"></i>
-                <h4>○○のトレーナー、ジーンズ、全3点</h4>
+                <h4><?php the_title(); ?></h4>
             </div>
         </section>
         
@@ -107,7 +107,7 @@ get_header();
                             <h2 class="sub-title"><?php the_title(); ?></h2>
                         </div>
                         <p class="save-text">
-                            単品購入より¥<?php echo number_format(($total_price - $sum_price)); ?>お得
+                            単品購入より¥<?php echo number_format(($sum_price - $total_price)); ?>お得
                         </p>
                         <div class="total-buy">
                             <div class="price-text">
@@ -176,24 +176,8 @@ get_header();
                                 </ul>
                             </div>
                         </div>
-                        <!-- <div class="title">コーディネートのポイント</div>
-                        <div class="desc-wraper">
-                            <p class="desc">
-                                ストレッチが効いたデニムを使用した、程よくリラックスしたデニムブルゾンです。
-                            </p>
-                            <p class="desc">
-                                大きめの胸のポケットが印象的なアウターです。
-                            </p>
-                            <p class="desc">
-                                カラーはデニムの濃淡とホワイトの3色展開★デニムの濃淡はカジュアル感が強く、チノパンツなど相性抜群です。
-                            </p>
-                            <p class="desc">
-                                ホワイトは爽やかな印象なので、清潔感があります♪春、秋と大活躍出来る商品に仕上げました。
-                            </p>
-                            <p class="desc">
-                                <span>モデル身長：155cm<span></span>着用サイズ：160cm</span>
-                            </p>
-                        </div> -->
+                        <div class="title">コーディネートのポイント</div>
+                        <br>
                         <div class="content-wrapper">
                         <?php the_content(); ?>
                         </div>
@@ -219,30 +203,22 @@ get_header();
                     $tax_query = [];
 
                     if( $curr_cats ) {
-                        $situation_cats = [];
-                        $genre_cats = [];
+                        $cat_terms = [];
                         foreach($curr_cats as $curr_cat) {
                             $parent_cat = get_term($curr_cat->parent);
                             
                             if($parent_cat->slug == 'situation') {
-                                $situation_cats[] =  $curr_cat->slug;
+                                $cat_terms[] =  $curr_cat->slug;
                             }
                             if($parent_cat->slug == 'genre') {
-                                $genre_cats[] =  $curr_cat->slug;
+                                $cat_terms[] =  $curr_cat->slug;
                             }
                         }
-                        if($situation_cats) {
+                        if($cat_terms) {
                             $tax_query[] = [
                                 'taxonomy' => 'product_cat',
                                 'field' => 'slug',
-                                'terms' => $situation_cats,
-                            ];
-                        }
-                        if($genre_cats) {
-                            $tax_query[] = [
-                                'taxonomy' => 'product_cat',
-                                'field' => 'slug',
-                                'terms' => $genre_cats,
+                                'terms' => $cat_terms,
                             ];
                         }
                     }
@@ -291,7 +267,7 @@ get_header();
                                     $parent_term = get_term( $product_cat->parent );
                                     if( $parent_term->slug == 'situation' ) :
                             ?>
-                            <h4 class="product-cat"><a href="<?php echo HOME; ?>product/?situation[0]=<?php echo $product_cat->slug; ?>"><?php echo $product_cat->name; ?></a></h4>
+                            <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
                             <?php endif; ?>
                             <?php endforeach;
                             endif; ?>
@@ -300,7 +276,7 @@ get_header();
                     <?php endwhile; ?>
                 </ul>
                 <?php } else { ?>
-                <div class="noitem">同じ状況、同じジャンルの商品が存在しません。</div>
+                <div class="noitem">同じシチュエーション、または同じジャンルの商品がありません</div>
                 <?php } ?>
             </div>
         </section>

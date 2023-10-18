@@ -182,7 +182,7 @@ $sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
                                     }
                                     ?>
                                     <h3 class="price">
-                                    ¥<?php echo $price; ?>
+                                    ¥<?php echo number_format($price); ?>
                                     </h3>
                                 </div>
                                 <?php

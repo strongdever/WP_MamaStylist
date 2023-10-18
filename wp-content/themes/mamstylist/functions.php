@@ -508,12 +508,6 @@ function handle_ajax_request() {
 add_action( 'wp_ajax_my_ajax_action', 'handle_ajax_request' );
 add_action( 'wp_ajax_nopriv_my_ajax_action', 'handle_ajax_request' );
 
-//add css style to the admin dashboard
-// function custom_dashboard_css() {
-//   wp_enqueue_style( 'custom-dashboard-css', T_DIRE_URI.'/assets/css/admin-dashboard.css' );
-// }
-// add_action( 'admin_enqueue_scripts', 'custom_dashboard_css' );
-
 //woocommerce product related product title and the menu title change
 add_filter(  'gettext',  'wps_translate_words_array'  );
 add_filter(  'ngettext',  'wps_translate_words_array'  );
@@ -521,12 +515,15 @@ function wps_translate_words_array( $translated ) {
      $words = array(
                 // 'word to translate' = > 'translation'
                'Products' => 'コーディネートのポイント',
-               'すべての商品' => 'コーディネートのポイント一覧',
+               'All Items' => '商品一覧',
                'Add New' => '新規追加',
-               'Edit product' => 'コーディネートのポイント編集',
-               '商品を編集' => 'コーディネートのポイント編集',
-               '商品' => 'コーディネートのポイント編集',
-               'Description' => 'お支払いurl',
+               'Edit product' => 'コーディネートのポイント',
+               '商品' => 'コーディネートのポイント',
+               'Description' => '商品ページURL',
+               '説明' => '商品ページURL',
+               'コーディネートのポイント商品ページURL' => 'コーディネートのポイント',
+               'すべてのコーディネートのポイント' => '商品一覧',
+               'コーディネートのポイントを編集' => '商品編集',
      );
      $translated = str_ireplace(  array_keys($words),  $words,  $translated );
      return $translated;
@@ -535,7 +532,7 @@ function wps_translate_words_array( $translated ) {
 function change_woocommerce_menu_name( $menu ) {
     foreach ( $menu as $key => $item ) {
         if ( $item[2] === 'edit.php?post_type=product' ) {
-            $menu[$key][0] = 'コーディネートのポイント';
+            $menu[$key][0] = '商品';
             break;
         }
     }
@@ -543,4 +540,22 @@ function change_woocommerce_menu_name( $menu ) {
 }
 add_filter( 'add_menu_classes', 'change_woocommerce_menu_name' );
 
+//adding font family
+function custom_editor_fonts($initArray) {
+    $initArray['font_formats'] = 'Arial=arial,helvetica,sans-serif;Verdana=verdana,geneva,sans-serif;DNP ShueiMGoStd=DNP ShueiMGoStd;DIN 2014 Demi=DIN 2014 Demi';
+    return $initArray;
+}
+add_filter('tiny_mce_before_init', 'custom_editor_fonts');
+
+//add javascript to the admin dashboard
+function enqueue_custom_scripts() {
+    wp_enqueue_script('custom-editor-script', get_template_directory_uri() . '/assets/js/custom-editor-script.js', array('jquery'), '1.0', true);
+  }
+add_action('admin_enqueue_scripts', 'enqueue_custom_scripts');
+
+// add css style to the admin dashboard
+function custom_dashboard_css() {
+  wp_enqueue_style( 'custom-dashboard-css', T_DIRE_URI.'/assets/css/admin-dashboard.css' );
+}
+add_action( 'admin_enqueue_scripts', 'custom_dashboard_css' );
 ?>

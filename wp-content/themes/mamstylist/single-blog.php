@@ -7,7 +7,7 @@
 
 get_header();
 ?>
-	<main id="blog-archive" class="cheering-page">
+	<main id="single-blog" class="cheering-page">
 
     <section class="status-bar">
         <div class="nav-status">
@@ -27,7 +27,7 @@ get_header();
                 if($post_cats) :
                     foreach($post_cats as $post_cat) :
                 ?>
-                <a href="<?php echo get_term_link($post_cat); ?>"><p class="category"><?php echo $post_cat->name; ?></p></a>
+                <a href="<?php echo get_term_link($post_cat); ?>"><span class="category"><?php echo $post_cat->name; ?></span></a>
                 <?php
                     endforeach;
                 endif;
@@ -43,8 +43,9 @@ get_header();
             <?php endif; ?>
             
             <br><br>
-            
+            <div class="content-wrapper">
             <?php the_content(); ?>
+            </div>
 
             <?php if (shortcode_exists('addtoany')) : ?>
                 <?php echo do_shortcode('[addtoany]'); ?>

@@ -10,7 +10,7 @@ get_header();
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $cat_slug = get_query_var('blog-category') ? get_query_var('blog-category') : "";
 ?>
-	<main id="main">
+	<main id="archive-blog">
 
     <section class="status-bar">
             <div class="nav-status">

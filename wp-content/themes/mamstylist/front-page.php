@@ -10,7 +10,8 @@ get_header();
 	<main id="front-page">
         <section class="mainvisual" id="mainvisual">
             <figure class="mainvisual_image">
-                <img src="<?php echo T_DIRE_URI; ?>/assets/img/mainvisual_image.webp" alt="洋服選">
+                <img class="pc" src="<?php echo T_DIRE_URI; ?>/assets/img/mainvisual_image.webp" alt="洋服選">
+                <img class="sp" src="<?php echo T_DIRE_URI; ?>/assets/img/mainvisual_image_sp.webp" alt="洋服選">
             </figure>
             <div class="search-bar">
                 <div class="input-box">
@@ -212,6 +213,23 @@ get_header();
                         $cat_slug = $product_cat->slug;
                         $cat_name = $product_cat->name;
                         if($parent_cat->slug == "situation") :
+                            $cat_id = $product_cat->term_id;
+                            $cat_thumbnail_id = get_term_meta($cat_id, 'thumbnail_id', true);
+                            $image_attributes = wp_get_attachment_image_src($cat_thumbnail_id, 'thumbnail');
+                            $cat_image_url = '';
+                            if($image_attributes) {
+                                $cat_image_url = $image_attributes[0];
+                            }
+                            if($cat_image_url) {
+                        ?>
+                     <li>
+                        <a href="<?= esc_url(home_url('/product/?situation[0]=' . $cat_slug)); ?>">
+                            <img class="thumb" src="<?php echo $cat_image_url; ?>">
+                            <h3 class="situation"><?php echo $cat_name; ?></h3>
+                        </a>
+                    </li>
+                    <?php
+                            } else {
                     $args = [
                         'post_type' => 'product',
                         'post_status' => 'publish',
@@ -244,6 +262,9 @@ get_header();
                     </li>
                     <?php endwhile; ?>
                     <?php endif; ?>
+                            <?php
+                            }
+                            ?>
                     <?php endif; ?>
                     <?php endforeach; ?>
                     <?php endif; ?>
@@ -387,37 +408,36 @@ get_header();
                 <div class="header">
                     <h3 class="desc">
                         男の子ママ必見のお役立ち情報について発信中！
-                        <img src="<?php echo T_DIRE_URI; ?>/assets/img/stars.png" alt="星">
                     </h3>
                 </div>
-                <ul class="cheering-part spslider">
-                    <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
-                    <li>
-                        <a href="<?php the_permalink(); ?>">
-                            <?php if( has_post_thumbnail() ): ?>
-                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
-                            <?php else: ?>
-                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
-                            <?php endif; ?>
-                            <div class="text-wrapper">
-                                <h3 class="title"><?php the_title(); ?></h3>
-                                <div class="last-text">
-                                    <?php
-                                    $post_cats = get_the_terms(get_the_ID(), 'blog-category');
-                                    if( $post_cats ) :
-                                        foreach($post_cats as $post_cat) :
-                                    ?>
-                                    <div class="method"><?php echo $post_cat->name; ?></div>
-                                    <?php endforeach;
-                                    endif; ?>
-                                    <div class="date"><?php the_time('Y.m.d'); ?></div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <?php endwhile; ?>
-                </ul>
             </div>
+            <ul class="cheering-part spslider">
+                <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+                <li>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if( has_post_thumbnail() ): ?>
+                            <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                        <?php else: ?>
+                            <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                        <?php endif; ?>
+                        <div class="text-wrapper">
+                            <h3 class="title"><?php the_title(); ?></h3>
+                            <div class="last-text">
+                                <?php
+                                $post_cats = get_the_terms(get_the_ID(), 'blog-category');
+                                if( $post_cats ) :
+                                    foreach($post_cats as $post_cat) :
+                                ?>
+                                <div class="method"><?php echo $post_cat->name; ?></div>
+                                <?php endforeach;
+                                endif; ?>
+                                <div class="date"><?php the_time('Y.m.d'); ?></div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <?php endwhile; ?>
+            </ul>
         </section>
         <?php endif; ?>
 

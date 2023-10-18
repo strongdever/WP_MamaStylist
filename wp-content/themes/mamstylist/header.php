@@ -24,12 +24,11 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
     でも今の流行りなんてわからない…！" />
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-    <meta property="og:title" content="施設 - MAMA STYLIST | ママはスタイリスト
-    【公式】" />
+    <meta property="og:title" content="ママはスタイリスト | 男の子ママのための洋服選び" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="" />
     <meta property="og:image" content="" />
-    <meta property="og:site_name" content="Mama Stylist | ママはスタイリスト【公式】" />
+    <meta property="og:site_name" content="ママはスタイリスト | 男の子ママのための洋服選び" />
     <meta property="og:description" content="普段はカジュアルなもので良くても、
     イベントの時には少しくらいはかっこつけさせたい。
     でも今の流行りなんてわからない…！" />
@@ -42,9 +41,9 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
   	</title>
 
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<link rel="icon" href="<?= get_template_directory_uri(); ?>/assets/img/logo.png" sizes="32x32" />
-	<link rel="icon" href="<?= get_template_directory_uri(); ?>/assets/img/logo.png" sizes="192x192" />
-	<link rel="apple-touch-icon" href="<?= get_template_directory_uri(); ?>/assets/img/logo.png" />
+	<link rel="icon" href="<?= get_template_directory_uri(); ?>/assets/img/favicon.png" sizes="32x32" />
+	<link rel="icon" href="<?= get_template_directory_uri(); ?>/assets/img/favicon.png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="<?= get_template_directory_uri(); ?>/assets/img/favicon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&family=M+PLUS+1:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
 	<meta name="msapplication-TileImage" content="<?= get_template_directory_uri(); ?>/images/icon-270x270.webp" />
@@ -54,7 +53,7 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-    <header class="header scrolled">
+    <header class="header <?php if(is_front_page()) echo 'front-page'; else echo 'scrolled'; ?>">
         <h1 class="header-logo">
             <a href="<?= esc_url(home_url('/')); ?>">
                 <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.png" alt="">
@@ -76,11 +75,6 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
                     <li>
                         <a href="<?= esc_url(home_url('/highschool')); ?>" class="menu-link">
                             <span>高校生男子の服</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= esc_url(home_url('/special')); ?>" class="menu-link">
-                            <span>特集記事</span>
                         </a>
                     </li>
                     <li>
@@ -159,11 +153,6 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
                 <li>
                     <a href="<?= esc_url(home_url('/highschool')); ?>" class="menu-link">
                         <span>高校生男子の服</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= esc_url(home_url('/special')); ?>" class="menu-link">
-                        <span>特集記事</span>
                     </a>
                 </li>
                 <li>

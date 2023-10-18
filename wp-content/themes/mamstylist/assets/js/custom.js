@@ -58,4 +58,11 @@
     //     $lightbox.css({ display: 'none' });
     //     $lightboxImage.css({ opacity: 0.0 });
     // });
+
+    //margin-bottom for safari browser
+    $(document).ready(function() {
+        if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+          $('.product .price-wrap .price').css('margin-bottom', '-0.3rem'); // Adjust the margin for Safari
+        }
+    });
 })(jQuery);
