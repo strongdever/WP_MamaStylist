@@ -134,7 +134,15 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
             <a href="<?= esc_url(home_url('/')); ?>">
                 <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.png" alt="">
             </a>
-        </h1>        
+        </h1>
+        <div class="search-bar ">
+            <div class="input-box">
+                <input type="text" name="keyboard" placeholder="キーワード検索" class="search-key-header" value="<?php if($search_key) echo $search_key; ?>">
+                <!-- <i class="fa fa-angle-down" aria-hidden="true" style="color: #888888"></i> -->
+            </div>
+            <button type="button" class="btn-search-header"><i class="fas fa-search" style="color: #ffffff;"></i></button>
+            <a href="<?= esc_url(home_url('/search')); ?>" class="goto-search">詳細検索</a>
+        </div>
     </header>
 
     <div id="mobile-nav">
