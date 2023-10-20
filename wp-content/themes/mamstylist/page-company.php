@@ -19,7 +19,6 @@ get_header();
         <section class="company-content">
             <div class="container">
                 <div class="title-label">運営会社</div>
-                <br><br><br>
                 <?php the_content(); ?>
             </div>
         </section>

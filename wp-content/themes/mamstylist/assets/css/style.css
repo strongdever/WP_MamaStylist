@@ -871,8 +871,8 @@ header.header.scrolled {
     -ms-flex-direction: column;
     flex-direction: column;
     -webkit-row-gap: 1.2rem;
-      -moz-row-gap: 1.2rem;
-      row-gap: 1.2rem;
+    -moz-row-gap: 1.2rem;
+    row-gap: 1.2rem;
     top: 0;
     left: 0;
     width: 100%;
@@ -943,7 +943,8 @@ header.header.scrolled {
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 600;
-    line-height: 14px; /* 100% */
+    line-height: 14px;
+    /* 100% */
   }
 
   .header {
@@ -2144,6 +2145,10 @@ screen and (max-width: 1440px) {
   border-radius: 0.8rem 0.8rem 0 0;
 }
 
+#archive-blog .cheering-part li a .thumb {
+  border-radius: 0.8rem;
+}
+
 .cheering-part li a .text-wrapper {
   position: relative;
   padding: 2.4rem 2.0rem;
@@ -2227,7 +2232,7 @@ screen and (max-width: 1440px) {
   font-family: "DNP ShueiMGoStd";
   font-weight: 600;
   font-size: 1.4rem;
-  line-height: 2.4rem;
+  line-height: 100%;
   text-align: left;
   letter-spacing: 0.08em;
   margin-right: 1.2rem;
@@ -2427,7 +2432,7 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .status-bar {
-    margin-top: 10rem;
+    margin-top: 12.2rem;
     padding: 0.8rem 0;
   }
 
@@ -2476,13 +2481,14 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .mamasta .top-header {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     line-height: 4.0rem;
-    margin-bottom: 4.8rem;
+    margin-bottom: 4.0rem;
+    letter-spacing: normal;
   }
 
   .mamasta .top-header span {
-    font-size: 3.2rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -2513,10 +2519,119 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .mamasta .content .title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     line-height: 4.0rem;
     letter-spacing: 0.01em;
   }
+}
+
+.mamasta .first-view.sp .circles {
+  display: block;
+  width: 28.6rem;
+  position: relative;
+}
+
+.mamasta .first-view.sp .circles span {
+  border: solid 5px #EEE;
+  border-radius: 100%;
+}
+
+.mamasta .first-view.sp .circles span:first-child {
+  width: 28.6rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #264C56;
+  text-align: center;
+  font-family: "DNP ShueiMGoStd";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.mamasta .first-view.sp .circles span:nth-child(2) {
+  display: block;
+  width: 4.8rem;
+  height: 2.9rem;
+  margin-top: -0.7rem;
+}
+
+.mamasta .first-view.sp .type1 .circles {
+  margin-left: auto;
+}
+
+.mamasta .first-view.sp .type1 .circles span:nth-child(2) {
+  margin-left: 4.8rem;
+  margin-right: auto;
+}
+
+.mamasta .first-view.sp .type2 .circles span:nth-child(2) {
+  margin-right: 4.0rem;
+  margin-left: auto;
+}
+
+.mamasta .first-view.sp .type1 .circles span:last-child {
+  margin-left: 2.4rem;
+  margin-right: auto;
+}
+
+.mamasta .first-view.sp .type2 .circles span:last-child {
+  margin-right: 2.8rem;
+  margin-left: auto;
+}
+
+.mamasta .first-view.sp .circles span:last-child {
+  display: block;
+  width: 2.9rem;
+  height: 1.8rem;
+}
+
+.mamasta .first-view.sp .type:first-child .circles span:first-child {
+  padding: 2.2rem 1.8rem 1.2rem 1.8rem;
+}
+
+.mamasta .first-view.sp .type:nth-child(2) .circles span:first-child {
+  padding: 4.1rem 1.8rem 4.2rem 1.8rem;
+}
+
+.mamasta .first-view.sp .type:last-child .circles span:first-child {
+  padding: 4.1rem 1.8rem 1.2rem 1.8rem;
+}
+
+.mamasta .first-view.sp .type:first-child img {
+  position: absolute;
+  width: 7.1rem;
+  bottom: -2.6rem;
+}
+
+.mamasta .first-view.sp .type:nth-child(2) img {
+  position: absolute;
+  width: 8.4rem;
+  bottom: -2.6rem;
+  right: 0;
+}
+
+.mamasta .first-view.sp .type:last-child img {
+  position: absolute;
+  width: 10.2rem;
+  bottom: -6.6rem;
+}
+
+.mamasta .first-view.sp .type {
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-bottom: 3rem;
 }
 
 .mamasta .content .title p:not(:first-child) {
@@ -2537,18 +2652,19 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .mamasta .content .title p:not(:first-child) {
-    margin-top: 0.4rem;
+    margin-top: 1.6rem;
     text-wrap: nowrap;
+    line-height: 100%;
   }
 
   .mamasta .content .title img {
-    width: 26rem;
+    width: 22rem;
   }
 }
 
 .mamasta .content .desc {
   position: relative;
-  margin: 4rem auto;
+  margin: 3.2rem auto;
   text-align: center;
   color: #264C56;
   font-family: "DNP ShueiMGoStd";
@@ -2560,7 +2676,7 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .mamasta .content .desc {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -2591,6 +2707,10 @@ screen and (max-width: 1440px) {
     flex-direction: column;
     -ms-flex-direction: column;
   }
+
+  .btns li:first-child {
+    margin-right: 0;
+  }
 }
 
 .btns .btn:first-child {
@@ -2609,6 +2729,12 @@ screen and (max-width: 1440px) {
 
 .students-product .sub-title {
   margin-bottom: 5.6rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .students-product .sub-title {
+    margin-bottom: 3.6rem;
+  }
 }
 
 .search-wrapper {
@@ -2630,6 +2756,16 @@ screen and (max-width: 1440px) {
   font-size: 3.2rem;
   font-weight: 600;
   line-height: 32px;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-wrapper {
+    margin-bottom: 0;
+  }
+
+  .search-wrapper .search-result span {
+    font-size: 2.4rem;
+  }
 }
 
 .search-keywords {
@@ -2936,8 +3072,8 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .students-product .product-list {
-    -ms-grid-columns: (minmax(0px, 1fr))[3];
-    grid-template-columns: repeat(3, minmax(0px, 1fr));
+    -ms-grid-columns: (minmax(0px, 1fr))[2];
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
     grid-column-gap: 1.2rem;
     grid-row-gap: 2.4rem;
   }
@@ -3109,6 +3245,12 @@ screen and (max-width: 1440px) {
   z-index: 3;
 }
 
+@media only screen and (max-width: 768px) {
+  .cat-list .cat-item span {
+    font-size: 1.4rem;
+  }
+}
+
 .cat-list .cat-item::before {
   content: "";
   position: absolute;
@@ -3165,6 +3307,7 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .search-wrap .sub-title {
+    font-size: 2.4rem;
     margin-bottom: 3.6rem;
   }
 }
@@ -3184,6 +3327,7 @@ screen and (max-width: 1440px) {
 @media only screen and (max-width: 768px) {
   .search-wrap .wrap-title {
     font-size: 1.8rem;
+    margin-bottom: 2.0rem;
   }
 }
 
@@ -3234,12 +3378,26 @@ screen and (max-width: 1440px) {
     -ms-grid-columns: (minmax(0px, 1fr))[1];
     grid-template-columns: repeat(1, minmax(0px, 1fr));
     grid-column-gap: 2rem;
-    grid-row-gap: 1.2rem;
+    grid-row-gap: 1.6rem;
+  }
+
+  .search-wrap .genreby .cat-list,
+  .search-wrap .priceby .cat-list {
+    -ms-grid-columns: (minmax(0px, 1fr))[2];
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
+    grid-column-gap: 1.6rem;
+    grid-row-gap: 1.6rem;
   }
 }
 
 .search-wrap .wraper {
   margin-bottom: 5.6rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-wrap .wraper {
+    margin-bottom: 3.2rem;
+  }
 }
 
 .parameter-list {
@@ -3714,6 +3872,7 @@ screen and (min-width: 769px) {
 
   .detail-section .detail-wraper .total-buy .price-text {
     margin-bottom: 1.6rem;
+    font-weight: 500 !important;
   }
 }
 
@@ -3785,7 +3944,7 @@ screen and (min-width: 769px) {
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .name {
-  width: 36%;
+  width: 42%;
   font-family: "DNP ShueiMGoStd";
 }
 
@@ -3811,6 +3970,25 @@ screen and (min-width: 769px) {
   font-style: normal;
   font-weight: 600;
   line-height: initial;
+}
+
+@media only screen and (max-width: 768px) {
+  .detail-section .detail-wraper .separate-buy .price-list li .btn {
+    font-size: 1.4rem;
+    width: 14.6rem;
+    min-width: 14.6rem;
+    padding: 1.2rem 2.4rem;
+  }
+
+  .detail-section .detail-wraper .separate-buy .price-list li .name {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .detail-section .detail-wraper .separate-buy .price-list li .price {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
 }
 
 .detail-section .detail-wraper .separate-buy .cats-wrapper {
@@ -4007,16 +4185,25 @@ screen and (min-width: 769px) {
 
 @media only screen and (max-width: 768px) {
   .cheering-page .cats-list {
-    margin-left: 0;
-    margin-bottom: 1.4rem;
+    width: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(0px, 1fr))[2];
+    grid-template-columns: repeat(2, minmax(0px, 1fr));
+    grid-column-gap: 1.6rem;
+    grid-row-gap: 1.4rem;
+    margin-bottom: 2.4rem;
   }
 
-  .cheering-page .cats-list li:not(:last-child) {
-    margin-right: 0.8rem;
-    margin-bottom: 1.6rem;
+  .cheering-page .cats-list li {
+    width: 100%;
+    height: 4.6rem;
+    margin: 0 !important;
   }
 
   .cheering-page .cats-list li a {
+    width: 100%;
+    font-size: 1.4rem;
     padding: 0.8rem 2.4rem;
   }
 }
@@ -4213,6 +4400,12 @@ input[type=checkbox]:before {
   padding: 4.8rem 16rem 8.0rem 16rem;
 }
 
+@media only screen and (max-width: 768px) {
+  .single-cheering {
+    padding: 4.6rem 0 8.0rem 0;
+  }
+}
+
 .single-cheering .cat-date {
   margin-bottom: 2.4rem;
   display: -webkit-box;
@@ -4271,6 +4464,21 @@ input[type=checkbox]:before {
   font-weight: 600;
   line-height: 24px;
   /* 100% */
+}
+
+@media only screen and (max-width: 768px) {
+  .single-cheering .cat-date .date {
+    font-size: 1.5rem;
+  }
+
+  .single-cheering .cheering-title {
+    font-size: 2.0rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .single-cheering .cat-date {
+    margin-bottom: 1.6rem;
+  }
 }
 
 .single-cheering .cheering-thumb {
@@ -4500,6 +4708,12 @@ input[type=checkbox]:before {
   letter-spacing: 1.92px;
 }
 
+@media only screen and (max-width: 768px) {
+  .company .title-label {
+    font-size: 2.4rem;
+  }
+}
+
 .rule .sub-title,
 .privacy .sub-title {
   color: #264C56;
@@ -4518,6 +4732,20 @@ input[type=checkbox]:before {
 
 .company-content .title-label {
   text-align: center;
+  margin-bottom: 7.6rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .company-content .title-label {
+    font-family: "Noto Sans CJK JP";
+    margin-bottom: 3.2rem;
+  }
+
+  .company-content .container {
+    width: 100% !important;
+    margin: 0;
+    padding: 0 1.6rem;
+  }
 }
 
 .company-content .container {
@@ -4580,6 +4808,27 @@ input[type=checkbox]:before {
   padding: 1.8rem 3.2rem;
   background: #F8F8F8;
   line-height: 2.2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .company-content table tr {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .company-content table tr th {
+    width: 100%;
+  }
+
+  .company-content table tr td {
+    padding: 1.6rem 2.4rem;
+    text-align: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
 }
 
 .addtoany_shortcode .a2a_dd {
