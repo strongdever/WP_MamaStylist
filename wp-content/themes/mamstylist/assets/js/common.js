@@ -281,7 +281,7 @@
                     breakpoint: 9999,
                     settings: {
                         infinite: true,
-                        slidesToShow: 3,
+                        slidesToShow: 2,
                         slidesToScroll: 1,
                         arrows: true,
                         dots: false,

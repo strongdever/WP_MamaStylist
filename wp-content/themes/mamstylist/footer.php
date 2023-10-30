@@ -33,8 +33,15 @@
     <script type="text/javascript">
         $(document).ready(function() {
         // Attach a change` event handler to the select element with id "mySelect"
-            $(".btn-search-header").click(function() {
-                var search_key = $('.search-key-header').val();
+            //pc header search bar
+            $(".pc-header .btn-search-header").click(function() {
+                var search_key = $('.pc-header .search-key-header').val();
+                var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
+                window.location.href = url;
+            })
+            //sp header search bar
+            $(".mobile-header .btn-search-header").click(function() {
+                var search_key = $('.mobile-header .search-key-header').val();
                 var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
                 window.location.href = url;
             })
@@ -44,6 +51,7 @@
                 var url = "<?php echo HOME; ?>product/?search_key=" + search_key;
                 window.location.href = url;
             })
+            
         })
     </script>
 </body>

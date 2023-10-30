@@ -126,20 +126,21 @@ $total_post = $product_query->found_posts;
             var genre = [];
             var price = [];
             var key_list = [];
-            $('.grade').change(function() {
-                if( $(this).val() == '中学生男子' ) {
-                    if(middleschool == null) {
-                        middleschool = 1;
-                    } else {
-                        middleschool =null;
-                    }
+
+            $('#middle').change(function() {
+                if($(this).prop('checked')) {   //when change the middleschool checkbox
+                    middleschool = 1;
+                } else {
+                    middleschool = null;
                 }
-                if( $(this).val() == '高校生男子' ) {
-                    if(highschool == null) {
-                        highschool = 1;
-                    } else {
-                        highschool =null;
-                    }
+                async_Request();
+            })
+
+            $('#high').change(function() {
+                if($(this).prop('checked')) {   //when change the highschool checkbox
+                    highschool = 1;
+                } else {
+                    highschool = null;
                 }
                 async_Request();
             })
@@ -321,7 +322,7 @@ $total_post = $product_query->found_posts;
                 if(genre) {
                     for(var i = 0; i < genre.length; i++) {
                         if( i == 0 ) {
-                            if(middleschool || highschool || situation) {
+                            if(middleschool || highschool || situation.length != 0) {
                                 url = url + '&genre[' + i + ']=' + genre[i];
                             }
                             else {
@@ -336,7 +337,7 @@ $total_post = $product_query->found_posts;
                 if(price) {
                     for(var i = 0; i < price.length; i++) {
                         if( i == 0 ) {
-                            if(middleschool || highschool || situation || genre) {
+                            if(middleschool || highschool || situation.length != 0 || genre.length !=0) {
                                 url = url + '&price[' + i + ']=' + price[i];
                             }
                             else {

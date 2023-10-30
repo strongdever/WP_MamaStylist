@@ -53,10 +53,10 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-    <header class="header <?php if(is_front_page()) echo 'front-page'; else echo 'scrolled'; ?>">
+    <header class="header <?php if(is_front_page()) echo 'front-page'; else echo 'scrolled'; ?> pc-header">
         <h1 class="header-logo">
             <a href="<?= esc_url(home_url('/')); ?>">
-                <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.png" alt="">
+                <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.svg" alt="">
             </a>
         </h1>
         <div class="nav-social">
@@ -132,7 +132,7 @@ $search_key = get_query_var('search_key') ? get_query_var('search_key') : '';
     <header class="mobile-header">
         <h1 class="header-logo">
             <a href="<?= esc_url(home_url('/')); ?>">
-                <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.png" alt="">
+                <img src="<?php echo T_DIRE_URI; ?>/assets/img/logo.svg" alt="">
             </a>
         </h1>
         <div class="search-bar ">

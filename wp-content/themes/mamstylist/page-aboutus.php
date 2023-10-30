@@ -67,7 +67,7 @@ get_header();
                 <div class="content">
                     <div class="title">
                         <p>そんなママの洋服選びのお手伝いをするのが、<br></p>
-                        <p><img class="logo" src="<?php echo T_DIRE_URI; ?>/assets/img/logo.png">です！</p>
+                        <p><img class="logo" src="<?php echo T_DIRE_URI; ?>/assets/img/logo.svg">です！</p>
                     </div>
                     <div class="desc">
                         男の子ママのための洋服選び「ママはスタイリスト」は、そんなお母さんのために洋服を<br>

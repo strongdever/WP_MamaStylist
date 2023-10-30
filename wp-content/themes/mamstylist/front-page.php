@@ -411,6 +411,7 @@ get_header();
                     </h3>
                 </div>
             </div>
+            <!-- <ul class="cheering-part spslider"> -->
             <ul class="cheering-part spslider">
                 <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
                 <li>

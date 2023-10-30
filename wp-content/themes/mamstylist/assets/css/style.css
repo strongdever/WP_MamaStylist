@@ -85,7 +85,7 @@ textarea {
   box-sizing: border-box;
   padding: 0.8rem 0.8rem;
   width: 100%;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 500;
   font-size: 1.3rem;
   line-height: 2.4rem;
@@ -329,7 +329,7 @@ figure img,
   padding: 2.0rem 5.6rem;
   border-radius: 10rem;
   background: #13A4A0;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 2.6rem;
@@ -606,7 +606,7 @@ header.header.scrolled {
   right: -8rem;
   color: #13A4A0;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -666,8 +666,8 @@ header.header.scrolled {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  font-family: "DNP ShueiMGoStd";
-  font-weight: 800;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-weight: bold;
   font-size: 1.5rem;
   line-height: 2.8rem;
   letter-spacing: 0.08em;
@@ -929,6 +929,15 @@ header.header.scrolled {
     flex-shrink: 0;
     height: 3.2rem;
     border-radius: 0 6px 6px 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
 
   .mobile-header .search-bar button i {
@@ -939,7 +948,7 @@ header.header.scrolled {
     white-space: nowrap;
     margin-left: 1.6rem;
     color: #13A4A0;
-    font-family: "DNP ShueiMGoStd";
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 600;
@@ -1056,7 +1065,7 @@ screen and (max-width: 991px) {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 2.8rem;
@@ -1198,8 +1207,8 @@ screen and (min-width: 769px) {
 
 .mobile-nav-toggle {
   position: fixed;
-  width: 52px;
-  height: 52px;
+  width: 50px;
+  height: 50px;
   padding: 14px 12px;
   background: transparent;
   display: none;
@@ -1210,7 +1219,7 @@ screen and (min-width: 769px) {
   margin: 0;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  top: 12px;
+  top: 18px;
   right: 10px;
 }
 
@@ -1233,7 +1242,7 @@ screen and (min-width: 769px) {
   position: absolute;
   left: 0;
   width: 100%;
-  height: 2.8px;
+  height: 2.0px;
   background: #9e9e9e;
   border-radius: 3.2px;
   -webkit-transition: all 0.4s ease-in-out;
@@ -1247,7 +1256,7 @@ screen and (min-width: 769px) {
 }
 
 .mobile-nav-toggle .toggle-icon span:nth-child(2) {
-  top: calc(50% - 1.2px);
+  top: calc(50% - 1.0px);
 }
 
 .mobile-nav-toggle .toggle-icon span:nth-child(3) {
@@ -1262,7 +1271,7 @@ screen and (min-width: 769px) {
 
 .mobile-nav-toggle.toggle-active .toggle-icon span:nth-child(1) {
   -webkit-transform: translateY(10.5px) rotate(-45deg);
-  transform: translateY(10.5px) rotate(-45deg);
+  transform: translateY(10px) rotate(-45deg);
 }
 
 .mobile-nav-toggle.toggle-active .toggle-icon span:nth-child(2) {
@@ -1272,7 +1281,7 @@ screen and (min-width: 769px) {
 
 .mobile-nav-toggle.toggle-active .toggle-icon span:nth-child(3) {
   -webkit-transform: translateY(-10.5px) rotate(45deg);
-  transform: translateY(-10.5px) rotate(45deg);
+  transform: translateY(-10px) rotate(45deg);
 }
 
 #mobile-nav {
@@ -1319,7 +1328,7 @@ screen and (min-width: 769px) {
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -1373,7 +1382,7 @@ screen and (min-width: 769px) {
   position: relative;
   display: block;
   width: 100%;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: normal;
   font-size: 14px;
   line-height: 24px;
@@ -1453,7 +1462,7 @@ body {
   bottom: -4rem;
   right: 0;
   color: #13A4A0;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 800;
   font-size: 2.0rem;
   line-height: 2.4rem;
@@ -1463,6 +1472,7 @@ body {
 @media only screen and (max-width: 768px) {
   .mainvisual .search-bar .goto-search {
     font-size: 1.5rem;
+    z-index: 200;
   }
 }
 
@@ -1497,7 +1507,7 @@ body {
 .search-bar .input-box input {
   height: 4.6rem;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 500;
   font-size: 1.5rem;
   line-height: 2.4rem;
@@ -1582,7 +1592,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 .recommend-style .container .middleschool {
@@ -1623,11 +1633,11 @@ body {
 }
 
 #front-page .sub-title {
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 .sub-title {
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -1709,7 +1719,7 @@ body {
 
 .product .price-wrap .pre-text {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 500;
   font-size: 1.4rem;
   margin-right: 0.4rem;
@@ -1762,8 +1772,8 @@ body {
 
 .product .product-cat {
   color: #fff;
-  font-family: "DNP ShueiMGoStd";
-  font-weight: 800;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-weight: 500;
   font-size: 1.3rem;
   border-radius: 4px;
   padding: 0.6rem 0.8rem;
@@ -1866,8 +1876,8 @@ body {
   position: absolute;
   top: 0;
   text-wrap: nowrap;
-  font-family: "DNP ShueiMGoStd";
-  font-weight: 800;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-weight: bold;
   font-size: 2.0rem;
   color: #fff;
   line-height: 2.4rem;
@@ -2000,7 +2010,7 @@ screen and (max-width: 1440px) {
 @media only screen and (max-width: 768px) {
   .popular-product .product-list li .mark {
     width: 3.2rem;
-    height: 3.7rem;
+    height: 3.2rem;
     border-radius: 100%;
   }
 }
@@ -2062,7 +2072,7 @@ screen and (max-width: 1440px) {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 400;
   font-size: 2.0rem;
   line-height: 2.6rem;
@@ -2168,7 +2178,7 @@ screen and (max-width: 1440px) {
   width: -moz-fit-content;
   width: fit-content;
   height: 4.8rem;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -2229,7 +2239,7 @@ screen and (max-width: 1440px) {
   border-radius: 90px;
   background: #F3A897;
   color: #fff;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 100%;
@@ -2240,7 +2250,7 @@ screen and (max-width: 1440px) {
 
 .cheering-part li a .last-text .date {
   position: relative;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 600;
   font-size: 1.4rem;
   line-height: 2.4rem;
@@ -2284,7 +2294,7 @@ screen and (max-width: 1440px) {
   display: block;
   margin: 0 auto;
   font-size: 2.4rem;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 @media only screen and (max-width: 768px) {
@@ -2336,7 +2346,7 @@ screen and (max-width: 1440px) {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
   color: #264C56;
@@ -2370,11 +2380,17 @@ screen and (max-width: 1440px) {
   margin-left: auto;
   color: #264C56;
   text-align: center;
-  font-family: DNP ShueiMGoStd;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.3rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
+}
+
+@media only screen and (max-width: 768px) {
+  .copyright {
+    font-weight: normal;
+  }
 }
 
 .status-bar {
@@ -2406,10 +2422,10 @@ screen and (max-width: 1440px) {
 
 .status-bar .nav-status a,
 .status-bar .nav-status h4 {
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.4rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4rem;
   /* 100% */
   color: #264C56;
@@ -2465,7 +2481,7 @@ screen and (max-width: 1440px) {
   margin-bottom: 6.4rem;
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 3.2rem;
   font-style: normal;
   font-weight: 600;
@@ -2507,7 +2523,7 @@ screen and (max-width: 1440px) {
   position: relative;
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 3.2rem;
   font-style: normal;
   font-weight: 600;
@@ -2552,10 +2568,10 @@ screen and (max-width: 1440px) {
   justify-content: center;
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.4rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 24px;
 }
 
@@ -2610,21 +2626,24 @@ screen and (max-width: 1440px) {
 
 .mamasta .first-view.sp .type:first-child img {
   position: absolute;
-  width: 7.1rem;
+  width: auto;
+  height: 13.6rem;
   bottom: -2.6rem;
 }
 
 .mamasta .first-view.sp .type:nth-child(2) img {
   position: absolute;
-  width: 8.4rem;
+  width: auto;
+  height: 13.6rem;
   bottom: -2.6rem;
-  right: 0;
+  right: -1.4rem;
 }
 
 .mamasta .first-view.sp .type:last-child img {
   position: absolute;
-  width: 10.2rem;
-  bottom: -6.6rem;
+  width: auto;
+  height: 13.6rem;
+  bottom: -5.6rem;
 }
 
 .mamasta .first-view.sp .type {
@@ -2667,10 +2686,10 @@ screen and (max-width: 1440px) {
   margin: 3.2rem auto;
   text-align: center;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: normal;
 }
 
@@ -2744,7 +2763,7 @@ screen and (max-width: 1440px) {
 .search-wrapper .search-result {
   margin-bottom: 2.0rem;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -2760,7 +2779,7 @@ screen and (max-width: 1440px) {
 
 @media only screen and (max-width: 768px) {
   .search-wrapper {
-    margin-bottom: 0;
+    margin-bottom: 2.4rem;
   }
 
   .search-wrapper .search-result span {
@@ -2776,7 +2795,7 @@ screen and (max-width: 1440px) {
 .search-keywords .label {
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -2815,7 +2834,7 @@ screen and (max-width: 1440px) {
   justify-content: center;
   color: #13A4A0;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
@@ -2852,7 +2871,7 @@ screen and (max-width: 1440px) {
   position: relative;
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -2919,7 +2938,7 @@ screen and (max-width: 1440px) {
 
 .students-product .sortby .sortby-tabs li .sortby-item {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -2933,7 +2952,7 @@ screen and (max-width: 1440px) {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 @media only screen and (min-width:768px) {
@@ -2967,7 +2986,7 @@ screen and (max-width: 1440px) {
   border-radius: 4px;
   border: 1px solid #9D9D9D;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -3007,7 +3026,7 @@ screen and (max-width: 1440px) {
 
 .pager .pager__num {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -3045,7 +3064,7 @@ screen and (max-width: 1440px) {
   height: 3.2rem;
   color: #264C56;
   background-color: #fff;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
@@ -3194,7 +3213,7 @@ screen and (max-width: 1440px) {
   border: 1px solid #264C56;
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
@@ -3216,7 +3235,7 @@ screen and (max-width: 1440px) {
 }
 
 .cat-list .cat-item.active {
-  background-color: #264C56;
+  background-color: #264C56 !important;
   color: white;
 }
 
@@ -3232,7 +3251,7 @@ screen and (max-width: 1440px) {
 
 .cat-list .cat-item span {
   position: relative;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
@@ -3277,6 +3296,14 @@ screen and (max-width: 1440px) {
   border: 1px solid #13A4A0;
 }
 
+@media only screen and (max-width: 768px) {
+  .cat-list .cat-item:hover {
+    background-color: #FFF;
+    color: #264C56;
+    border: 1px solid #264C56;
+  }
+}
+
 .cat-list .cat-item.active:hover {
   color: #FFF;
 }
@@ -3314,7 +3341,7 @@ screen and (max-width: 1440px) {
 
 .search-wrap .wrap-title {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 2rem;
   font-style: normal;
   font-weight: 600;
@@ -3343,7 +3370,7 @@ screen and (max-width: 1440px) {
   position: relative;
   margin-right: 4rem;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
@@ -3444,7 +3471,7 @@ screen and (max-width: 1440px) {
 .parameter-list .parameter-item span {
   color: #F4983D;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -3704,7 +3731,7 @@ screen and (min-width: 769px) {
 
 .product-detail .detail-wraper .title {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -3723,7 +3750,7 @@ screen and (min-width: 769px) {
 .product-detail .detail-wraper .content-wrapper {
   position: relative;
   font-weight: 500;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.5rem;
   line-height: 1.8;
   letter-spacing: 0.08em;
@@ -3817,7 +3844,7 @@ screen and (min-width: 769px) {
 }
 
 .detail-section .detail-wraper .sub-title {
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 2.0rem;
   margin: 0;
 }
@@ -3828,7 +3855,7 @@ screen and (min-width: 769px) {
   width: fit-content;
   color: #fff;
   background: #ED5145;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
@@ -3889,7 +3916,7 @@ screen and (min-width: 769px) {
 
 .detail-section .detail-wraper .total-buy span {
   color: #264C56;
-  font-family: DNP "ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
@@ -3909,7 +3936,7 @@ screen and (min-width: 769px) {
 
 .detail-section .detail-wraper .title {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 16px;
   letter-spacing: 1.6px;
   font-weight: bold;
@@ -3945,7 +3972,7 @@ screen and (min-width: 769px) {
 
 .detail-section .detail-wraper .separate-buy .price-list li .name {
   width: 42%;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .price {
@@ -3965,7 +3992,7 @@ screen and (min-width: 769px) {
   color: #13A4A0;
   border: 2px solid #13A4A0;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -3997,7 +4024,7 @@ screen and (min-width: 769px) {
 
 .detail-section .detail-wraper .separate-buy .cats-label {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: bold;
@@ -4019,7 +4046,7 @@ screen and (min-width: 769px) {
 
 .detail-section .detail-wraper .separate-buy .cat-item {
   color: #fff;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-weight: 800;
   font-size: 1.4rem;
   padding: 0.6rem 0.8rem;
@@ -4037,7 +4064,7 @@ screen and (min-width: 769px) {
 
 .detail-section .detail-wraper .desc-wraper .desc {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -4169,7 +4196,7 @@ screen and (min-width: 769px) {
   color: #F3A897;
   border: 1px solid #F3A897;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -4435,7 +4462,7 @@ input[type=checkbox]:before {
   background-color: #F3A897;
   color: #FFF;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
@@ -4446,7 +4473,7 @@ input[type=checkbox]:before {
 .single-cheering .cat-date .date {
   color: #909090;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -4458,7 +4485,7 @@ input[type=checkbox]:before {
   margin-bottom: 4rem;
   display: block;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 2.4rem;
   font-style: normal;
   font-weight: 600;
@@ -4491,7 +4518,7 @@ input[type=checkbox]:before {
   margin-left: 3.2rem;
   position: relative;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 2.0rem;
   font-style: normal;
   font-weight: 600;
@@ -4519,7 +4546,7 @@ input[type=checkbox]:before {
   width: fit-content;
   position: relative;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -4539,7 +4566,7 @@ input[type=checkbox]:before {
 #single-blog .single-cheering .content-wrapper {
   display: block;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -4550,7 +4577,7 @@ input[type=checkbox]:before {
 .desc {
   display: block;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -4558,12 +4585,18 @@ input[type=checkbox]:before {
   /* 175% */
 }
 
+@media only screen and (max-width: 768px) {
+  .desc {
+    font-weight: normal;
+  }
+}
+
 .star-subtitle {
   display: block;
   margin-left: 3.2rem;
   position: relative;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 2.0rem;
   font-style: normal;
   font-weight: 600;
@@ -4591,7 +4624,7 @@ input[type=checkbox]:before {
   width: fit-content;
   position: relative;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -4617,7 +4650,7 @@ input[type=checkbox]:before {
   margin-bottom: 1.6rem;
   color: #000;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -4655,7 +4688,7 @@ input[type=checkbox]:before {
   margin-bottom: 2.4rem;
   color: #264C56;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -4682,7 +4715,7 @@ input[type=checkbox]:before {
   background: #40C2BF;
   color: #FFF;
   text-align: center;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -4709,15 +4742,19 @@ input[type=checkbox]:before {
 }
 
 @media only screen and (max-width: 768px) {
+  .rule .title-label,
+  .privacy .title-label,
   .company .title-label {
+    font-family: "Noto Sans CJK JP";
     font-size: 2.4rem;
+    font-weight: bold;
   }
 }
 
 .rule .sub-title,
 .privacy .sub-title {
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
@@ -4769,7 +4806,7 @@ input[type=checkbox]:before {
   display: flex;
   border-bottom: 1px solid #D1D1D1;
   color: #264C56;
-  font-family: "DNP ShueiMGoStd";
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;

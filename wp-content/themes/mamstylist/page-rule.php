@@ -19,7 +19,7 @@ get_header();
         <section class="middleschool students-product">
             <div class="container">
                 <div class="title-label">利用規約</div>
-                <br><br><br>
+                <br><br><br class="pc">
                 <?php the_content(); ?>
             </div>
         </section>
