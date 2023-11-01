@@ -479,7 +479,7 @@ get_header();
                 </li>
                 <?php endwhile; ?>
             </ul>
-            <?php if( $blog_count > 2 ) : ?>
+            <?php if( $blog_count > 3 ) : ?>
             <a class="btn pc" href="<?php echo HOME . 'blog'; ?>">
                 もっと見る<i class="fa fa-angle-right bounce"></i>
             </a>
