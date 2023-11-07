@@ -308,21 +308,6 @@ function custom_product_popularity_ranking_key() {
 }
 add_filter('custom_product_popularity_ranking_key', 'custom_product_popularity_ranking_key');
 
-// Update popularity ranking based on sales
-function update_product_popularity_ranking_bysales($order_id) {
-    $order = wc_get_order($order_id);
-    $items = $order->get_items();
-
-    foreach ($items as $item) {
-        $product_id = $item->get_product_id();
-        $ranking_value = (int) get_post_meta($product_id, 'popularity_ranking', true);
-        $ranking_value += 2;
-        update_post_meta($product_id, 'popularity_ranking', $ranking_value);
-    }
-}
-add_action('woocommerce_order_status_completed', 'update_product_popularity_ranking_bysales');
-
-
 function update_product_popularity_ranking_byviews() {
     $product_id = get_the_ID();
     // Update popularity ranking based on product views
@@ -330,21 +315,6 @@ function update_product_popularity_ranking_byviews() {
         $ranking_value = (int) get_post_meta($product_id, 'popularity_ranking', true);
         $ranking_value += 1;
         update_post_meta($product_id, 'popularity_ranking', $ranking_value);
-
-        $product = get_post($product_id);
-        // var_export($product);
-        // exit;
-
-        if ($product) {
-            $product_title = $product->post_title;
-            $product_content = $product->post_content;
-        } else {
-            $product_title = "";
-            $product_content = "";
-        }
-        update_post_meta($product_id, 'product_title', $product_title);
-        update_post_meta($product_id, 'product_content', $product_content);
-
     }
 
     // Store recently visited product IDs in a cookie
@@ -392,6 +362,33 @@ function update_price_meta_key($cat_slug) {
         endwhile;
     }
 }
+
+function set_custom_meta_key($post_id) {    //when click the publish button
+    // Check if the post is not an auto-save or revision
+    if ( ! wp_is_post_autosave($post_id) && ! wp_is_post_revision($post_id) ) {
+        // Set the value for your custom meta key
+        $product = get_post($post_id);
+
+        //meta keys of product_title and product_content
+        if ($product) {
+            $product_title = $product->post_title;
+            $product_content = $product->post_content;
+        } else {
+            $product_title = "";
+            $product_content = "";
+        }
+        update_post_meta($post_id, 'product_title', $product_title);
+        update_post_meta($post_id, 'product_content', $product_content);
+
+        //initializing the meta key for 人気順
+        $ranking_value = (int) get_post_meta($post_id, 'popularity_ranking', true);
+        if( !($ranking_value > 0) ) {
+            update_post_meta($post_id, 'popularity_ranking', 0);
+        }
+
+    }
+}
+    add_action('save_post', 'set_custom_meta_key');
 
 //pagination
 function custom_pagination($total_pages, $current_page = 1, $total_counts = 0) {
@@ -524,6 +521,9 @@ function wps_translate_words_array( $translated ) {
                'コーディネートのポイント商品ページURL' => 'コーディネートのポイント',
                'すべてのコーディネートのポイント' => '商品一覧',
                'コーディネートのポイントを編集' => '商品編集',
+               'コーディネートのポイントデータ' => '商品のデータ',
+               '属性' => '各アイテムの名前',
+               'バリエーション' => '各アイテムの価格とURL',
      );
      $translated = str_ireplace(  array_keys($words),  $words,  $translated );
      return $translated;
@@ -558,4 +558,76 @@ function custom_dashboard_css() {
   wp_enqueue_style( 'custom-dashboard-css', T_DIRE_URI.'/assets/css/admin-dashboard.css' );
 }
 add_action( 'admin_enqueue_scripts', 'custom_dashboard_css' );
+
+function remove_product_column( $columns ) { // Remove the desired column by unset() function
+    unset( $columns['sku'] ); //hide 'SKU' column item from the product list on the wordpress dashboard
+    unset( $columns['is_in_stock'] ); //hide '在庫' column item from the product list on the wordpress dashboard
+    unset( $columns['product_tag'] ); //hide 'タグ' column item from the product list on the wordpress dashboard
+    return $columns;
+}
+add_filter( 'manage_product_posts_columns', 'remove_product_column', 99 );
+
+function change_product_column_text( $columns ) { // Change the text of the desired column
+    $columns['price'] = '価格帯'; // Replace 'column_name' with the actual column you want to change
+    return $columns;
+}
+add_filter( 'manage_product_posts_columns', 'change_product_column_text', 20 );
+
+function add_set_column( $columns ) {
+    
+    $columns['set_price'] = '金額'; // Add the new column
+    var_export($columns);
+    return $columns;
+}
+add_filter( 'manage_posts_columns', 'add_set_column', 10, 1 );
+
+function customize_column_item_sortable($columns) {
+    $columns['set_price'] = 'set_price';  // Add the new column item to the sortable columns array
+    return $columns;  // Return the modified sortable columns array
+}
+add_filter('manage_edit-product_sortable_columns', 'customize_column_item_sortable');
+
+function rearrange_columns($columns) {
+    // Define the desired column order
+    $new_columns = array(
+        'cb' => $columns['cb'],
+        'thumb' => $columns['thumb'],
+        'title' => $columns['name'],
+        'set_price' => $columns['set_price'],
+        'price' => $columns['price'],
+        'product_cat' => $columns['product_cat'],
+        'featured' => $columns['featured'],
+        'date' => $columns['date'],
+    );
+    return $new_columns;  // Return the rearranged columns array
+}
+add_filter('manage_edit-product_columns', 'rearrange_columns');
+
+function populate_set_column( $column, $post_id ) {
+    if ( $column === 'set_price' ) {
+        $product = wc_get_product($post_id); // Get the product object
+        if ($product->is_type('variable')) { // Check if the product has variations
+            $variations = $product->get_available_variations(); // Get all variations
+            $variation_id = $variations[0]['variation_id'];
+            $variation_product = wc_get_product($variation_id);
+            $price = number_format($variation_product->get_price());
+        }
+        echo '¥' . $price; // Display a dash if the attribute value is not 'all'
+    }
+}
+add_action( 'manage_product_posts_custom_column', 'populate_set_column', 10, 2 );
+
+function handle_column_item_sort($query) {
+    if (!is_admin()) {
+        return;
+    }
+  
+    $orderby = $query->get('orderby');
+  
+    if ('set_price' === $orderby) {
+        $query->set('meta_key', 'price');
+        $query->set('orderby', 'meta_value');
+    }
+}
+add_action('pre_get_posts', 'handle_column_item_sort');
 ?>

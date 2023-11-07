@@ -163,14 +163,27 @@ $sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
                             <?php else: ?>
                                 <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
                             <?php endif; ?>
+
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
+
+                                <h3 class="product-name"><?php the_title(); ?></h3>
+
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
                                     <?php
                                     $product_id = get_the_ID(); // Get the current product ID or specify the product ID
-
                                     // Get the product object
                                     $product = wc_get_product($product_id);
-
                                     // Check if the product has variations
                                     if ($product->is_type('variable')) {
                                         // Get all variations
@@ -185,17 +198,6 @@ $sortby = get_query_var('sortby') ? get_query_var('sortby') : '';
                                     ¥<?php echo number_format($price); ?>
                                     </h3>
                                 </div>
-                                <?php
-                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
-                                if( $product_cats ) :
-                                    foreach($product_cats as $product_cat) :
-                                        $parent_term = get_term( $product_cat->parent );
-                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
-                                ?>
-                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
-                                <?php endif; ?>
-                                <?php endforeach;
-                                endif; ?>
                             </a>
                         </li>
                         <?php endwhile; ?>

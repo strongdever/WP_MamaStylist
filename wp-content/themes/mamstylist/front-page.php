@@ -65,6 +65,21 @@ get_header();
                             <?php else: ?>
                                 <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
                             <?php endif; ?>
+                                
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
+                                
+                                <h3 class="product-name"><?php the_title(); ?></h3>
+                            
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
                                     <?php
@@ -99,17 +114,6 @@ get_header();
                                     ¥<?php echo $price; ?>
                                     </h3>
                                 </div>
-                                <?php
-                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
-                                if( $product_cats ) :
-                                    foreach($product_cats as $product_cat) :
-                                        $parent_term = get_term( $product_cat->parent );
-                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
-                                ?>
-                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
-                                <?php endif; ?>
-                                <?php endforeach;
-                                endif; ?>
                             </a>
                         </li>
                         <?php endwhile; ?>
@@ -155,6 +159,21 @@ get_header();
                             <?php else: ?>
                                 <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
                             <?php endif; ?>
+
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
+
+                                <h3 class="product-name"><?php the_title(); ?></h3>
+
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
                                     <?php
@@ -172,21 +191,8 @@ get_header();
                                         $price = number_format($variation_product->get_price());
                                     }
                                     ?>
-                                    <h3 class="price">
-                                    ¥<?php echo $price; ?>
-                                    </h3>
+                                    <h3 class="price">¥<?php echo $price; ?></h3>
                                 </div>
-                                <?php
-                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
-                                if( $product_cats ) :
-                                    foreach($product_cats as $product_cat) :
-                                        $parent_term = get_term( $product_cat->parent );
-                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
-                                ?>
-                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
-                                <?php endif; ?>
-                                <?php endforeach;
-                                endif; ?>
                             </a>
                         </li>
                         <?php endwhile; ?>
@@ -346,6 +352,21 @@ get_header();
                             <?php else: ?>
                                 <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
                             <?php endif; ?>
+                            
+                                <?php
+                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                                if( $product_cats ) :
+                                    foreach($product_cats as $product_cat) :
+                                        $parent_term = get_term( $product_cat->parent );
+                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                                ?>
+                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                                <?php endif; ?>
+                                <?php endforeach;
+                                endif; ?>
+                                
+                                <h3 class="product-name"><?php the_title(); ?></h3>
+
                                 <div class="price-wrap">
                                     <div class="pre-text">全部で</div>
                                     <?php
@@ -367,17 +388,6 @@ get_header();
                                     ¥<?php echo $price; ?>
                                     </h3>
                                 </div>
-                                <?php
-                                $product_cats = get_the_terms(get_the_ID(), 'product_cat');
-                                if( $product_cats ) :
-                                    foreach($product_cats as $product_cat) :
-                                        $parent_term = get_term( $product_cat->parent );
-                                        if( $parent_term->name == 'シチュエーションから選ぶ' ) :
-                                ?>
-                                <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
-                                <?php endif; ?>
-                                <?php endforeach;
-                                endif; ?>
                             </a>
                             <div class="mark order<?php echo $i; ?>"><?php echo $i; ?></div>
                         </li>
@@ -514,6 +524,21 @@ get_header();
                         <?php else: ?>
                             <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
                         <?php endif; ?>
+
+                            <?php
+                            $product_cats = get_the_terms(get_the_ID(), 'product_cat');
+                            if( $product_cats ) :
+                                foreach($product_cats as $product_cat) :
+                                    $parent_term = get_term( $product_cat->parent );
+                                    if( $parent_term->name == 'シチュエーションから選ぶ' ) :
+                            ?>
+                            <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
+                            <?php endif; ?>
+                            <?php endforeach;
+                            endif; ?>
+                            
+                            <h3 class="product-name"><?php the_title(); ?></h3>
+
                             <div class="price-wrap">
                                 <div class="pre-text">全部で</div>
                                 <?php
@@ -535,17 +560,6 @@ get_header();
                                 ¥<?php echo $price; ?>
                                 </h3>
                             </div>
-                            <?php
-                            $product_cats = get_the_terms(get_the_ID(), 'product_cat');
-                            if( $product_cats ) :
-                                foreach($product_cats as $product_cat) :
-                                    $parent_term = get_term( $product_cat->parent );
-                                    if( $parent_term->name == 'シチュエーションから選ぶ' ) :
-                            ?>
-                            <h4 class="product-cat"><?php echo $product_cat->name; ?></h4>
-                            <?php endif; ?>
-                            <?php endforeach;
-                            endif; ?>
                         </a>
                     </li>
                     <?php endwhile; ?>
