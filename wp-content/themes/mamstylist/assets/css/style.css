@@ -1463,7 +1463,7 @@ body {
   right: 0;
   color: #13A4A0;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 2.0rem;
   line-height: 2.4rem;
   text-align: left;
@@ -1546,9 +1546,9 @@ body {
 }
 
 .recommend-style .container {
-  width: 100%;
-  max-width: 100%;
-  margin: 7.3rem 14rem;
+  width: 80%;
+  max-width: 116rem;
+  margin: 7.3rem auto;
   padding: 9.6rem 11rem;
   background-color: #F8F8F8;
   border-radius: 2.4rem;
@@ -1556,6 +1556,7 @@ body {
 
 @media only screen and (max-width: 768px) {
   .recommend-style .container {
+    width: 100%;
     margin: 8.0rem 0 0 0;
     border-radius: 0;
     padding: 4.8rem 1.6rem 4.1rem 1.6rem;
@@ -1675,14 +1676,6 @@ body {
     grid-template-columns: repeat(2, minmax(0px, 1fr));
     grid-row-gap: 2.4rem;
     grid-column-gap: 2.4rem;
-  }
-}
-
-@media only screen and (min-width:1440px) {
-  .product-list {
-    -ms-grid-columns: (minmax(0px, 1fr))[4];
-    grid-template-columns: repeat(4, minmax(0px, 1fr));
-    grid-column-gap: 8rem;
   }
 }
 
@@ -1806,7 +1799,12 @@ body {
   padding: 8rem 14rem;
 }
 
-@media only screen and (max-width: 768rem) {
+.situation-choose .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media only screen and (max-width: 768px) {
   .situation-choose {
     padding: 4.8rem 0 4.6rem 0;
   }
@@ -1917,9 +1915,19 @@ screen and (max-width: 1440px) {
   background-color: #fff;
 }
 
+.choosing-section .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
 @media only screen and (max-width: 768px) {
   .choosing-section {
     padding: 4.8rem 0;
+  }
+
+  .choosing-section .container {
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
   }
 }
 
@@ -2054,6 +2062,12 @@ screen and (max-width: 1440px) {
 .cheering-section {
   padding: 8rem 14rem;
   background-color: #F8F8F8;
+}
+
+.cheering-section .container {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: 118.6rem;
 }
 
 @media only screen and (max-width: 768px) {
@@ -2292,10 +2306,20 @@ screen and (max-width: 1440px) {
   padding: 12.8rem 14rem;
 }
 
+.latest-section .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 @media only screen and (max-width: 768px) {
   .latest-section {
     position: relative;
     padding: 4.0rem 0;
+  }
+
+  .latest-section .container {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
   }
 }
 
@@ -2320,8 +2344,10 @@ screen and (max-width: 1440px) {
   width: fit-content;
   display: block;
   margin: 0 auto;
-  font-size: 2.4rem;
+  font-size: 1.6rem;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-weight: 400;
+  color: #264C56;
 }
 
 @media only screen and (max-width: 768px) {
@@ -3776,12 +3802,12 @@ screen and (min-width: 769px) {
 
 .product-detail .detail-wraper .content-wrapper {
   position: relative;
-  font-weight: 500;
+  font-weight: 400;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.5rem;
   line-height: 1.8;
   letter-spacing: 0.08em;
-  color: #3E3A39;
+  color: #264C56;
 }
 
 .product-detail .detail-wraper .dark-btn {
@@ -4000,12 +4026,14 @@ screen and (min-width: 769px) {
 .detail-section .detail-wraper .separate-buy .price-list li .name {
   width: 42%;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  color: #264C56;
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .price {
   width: 30%;
   font-family: "DIN 2014 Demi";
   font-size: 2rem;
+  color: #264C56;
 }
 
 .detail-section .detail-wraper .separate-buy .price-list li .btn {

@@ -514,16 +514,23 @@ function wps_translate_words_array( $translated ) {
                'Products' => 'コーディネートのポイント',
                'All Items' => '商品一覧',
                'Add New' => '新規追加',
-               'Edit product' => 'コーディネートのポイント',
-               '商品' => 'コーディネートのポイント',
+               'Edit product' => '商品一覧',
+               '商品' => '商品一覧',
+               '商品一覧名' => 'コーディネートのポイント',
                'Description' => '商品ページURL',
-               '説明' => '商品ページURL',
-               'コーディネートのポイント商品ページURL' => 'コーディネートのポイント',
+               '商品一覧説明' => 'コーディネートのポイント',
+               '商品一覧の簡単な説明' => 'コーディネートのポイントの簡単な商品ページURL',
                'すべてのコーディネートのポイント' => '商品一覧',
-               'コーディネートのポイントを編集' => '商品編集',
-               'コーディネートのポイントデータ' => '商品のデータ',
+               '商品一覧を編集' => '商品編集',
+               '商品一覧データ' => '商品のデータ',
                '属性' => '各アイテムの名前',
                'バリエーション' => '各アイテムの価格とURL',
+               '新商品一覧を追加' => '商品を追加',
+               '商品一覧画像' => 'サムネイル',
+               '商品一覧カテゴリー' => 'カテゴリー',
+               '商品一覧タグ' => 'タグ',
+               '商品一覧ギャラリー' => '商品画像',
+               'すべての商品一覧' => '商品一覧',
      );
      $translated = str_ireplace(  array_keys($words),  $words,  $translated );
      return $translated;
@@ -574,12 +581,10 @@ function change_product_column_text( $columns ) { // Change the text of the desi
 add_filter( 'manage_product_posts_columns', 'change_product_column_text', 20 );
 
 function add_set_column( $columns ) {
-    
     $columns['set_price'] = '金額'; // Add the new column
-    var_export($columns);
     return $columns;
 }
-add_filter( 'manage_posts_columns', 'add_set_column', 10, 1 );
+add_filter( 'manage_product_posts_columns', 'add_set_column', 10, 1 );
 
 function customize_column_item_sortable($columns) {
     $columns['set_price'] = 'set_price';  // Add the new column item to the sortable columns array

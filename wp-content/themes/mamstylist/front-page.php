@@ -421,79 +421,80 @@ get_header();
                         男の子ママ必見のお役立ち情報について発信中！
                     </h3>
                 </div>
+
+                <!-- <ul class="cheering-part spslider"> -->
+                <ul class="cheering-part spslider sp">
+                    <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
+                            <div class="text-wrapper">
+                                <h3 class="title"><?php the_title(); ?></h3>
+                                <div class="last-text">
+                                    <?php
+                                    $post_cats = get_the_terms(get_the_ID(), 'blog-category');
+                                    if( $post_cats ) :
+                                        foreach($post_cats as $post_cat) :
+                                    ?>
+                                    <div class="method"><?php echo $post_cat->name; ?></div>
+                                    <?php endforeach;
+                                    endif; ?>
+                                    <div class="date"><?php the_time('Y.m.d'); ?></div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
+                <?php
+                    $args = [
+                        'post_type' => 'blog',
+                        'post_status' => 'publish',
+                        'paged' => $paged,
+                        'posts_per_page' => 3,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                    ];
+                    
+                    $blog_query = new WP_Query( $args );
+                ?>
+                <ul class="cheering-part pc">
+                    <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
+                    <li>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if( has_post_thumbnail() ): ?>
+                                <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
+                            <?php else: ?>
+                                <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
+                            <?php endif; ?>
+                            <div class="text-wrapper">
+                                <h3 class="title"><?php the_title(); ?></h3>
+                                <div class="last-text">
+                                    <?php
+                                    $post_cats = get_the_terms(get_the_ID(), 'blog-category');
+                                    if( $post_cats ) :
+                                        foreach($post_cats as $post_cat) :
+                                    ?>
+                                    <div class="method"><?php echo $post_cat->name; ?></div>
+                                    <?php endforeach;
+                                    endif; ?>
+                                    <div class="date"><?php the_time('Y.m.d'); ?></div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <?php endwhile; ?>
+                </ul>
+                <?php if( $blog_count > 3 ) : ?>
+                <a class="btn pc" href="<?php echo HOME . 'blog'; ?>">
+                    もっと見る<i class="fa fa-angle-right bounce"></i>
+                </a>
+                <?php endif; ?>
             </div>
-            <!-- <ul class="cheering-part spslider"> -->
-            <ul class="cheering-part spslider sp">
-                <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
-                <li>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php if( has_post_thumbnail() ): ?>
-                            <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
-                        <?php else: ?>
-                            <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
-                        <?php endif; ?>
-                        <div class="text-wrapper">
-                            <h3 class="title"><?php the_title(); ?></h3>
-                            <div class="last-text">
-                                <?php
-                                $post_cats = get_the_terms(get_the_ID(), 'blog-category');
-                                if( $post_cats ) :
-                                    foreach($post_cats as $post_cat) :
-                                ?>
-                                <div class="method"><?php echo $post_cat->name; ?></div>
-                                <?php endforeach;
-                                endif; ?>
-                                <div class="date"><?php the_time('Y.m.d'); ?></div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <?php endwhile; ?>
-            </ul>
-            <?php
-                $args = [
-                    'post_type' => 'blog',
-                    'post_status' => 'publish',
-                    'paged' => $paged,
-                    'posts_per_page' => 3,
-                    'orderby' => 'date',
-                    'order' => 'DESC',
-                ];
-                
-                $blog_query = new WP_Query( $args );
-            ?>
-            <ul class="cheering-part pc">
-                <?php while( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
-                <li>
-                    <a href="<?php the_permalink(); ?>">
-                        <?php if( has_post_thumbnail() ): ?>
-                            <img class="thumb" src="<?php echo get_the_post_thumbnail_url(); ?>">
-                        <?php else: ?>
-                            <img class="thumb" src="<?php echo catch_that_image(); ?>"></a>
-                        <?php endif; ?>
-                        <div class="text-wrapper">
-                            <h3 class="title"><?php the_title(); ?></h3>
-                            <div class="last-text">
-                                <?php
-                                $post_cats = get_the_terms(get_the_ID(), 'blog-category');
-                                if( $post_cats ) :
-                                    foreach($post_cats as $post_cat) :
-                                ?>
-                                <div class="method"><?php echo $post_cat->name; ?></div>
-                                <?php endforeach;
-                                endif; ?>
-                                <div class="date"><?php the_time('Y.m.d'); ?></div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <?php endwhile; ?>
-            </ul>
-            <?php if( $blog_count > 3 ) : ?>
-            <a class="btn pc" href="<?php echo HOME . 'blog'; ?>">
-                もっと見る<i class="fa fa-angle-right bounce"></i>
-            </a>
-            <?php endif; ?>
         </section>
         <?php endif; ?>
 
