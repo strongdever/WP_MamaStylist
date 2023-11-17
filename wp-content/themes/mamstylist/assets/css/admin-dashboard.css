@@ -7,3 +7,8 @@
     width: 250px;
     height: 365px;
 }
+
+.error-msg {
+    color: red;
+    margin-top: 5px;
+}

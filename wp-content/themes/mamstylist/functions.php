@@ -517,7 +517,7 @@ function wps_translate_words_array( $translated ) {
                'Edit product' => '商品一覧',
                '商品' => '商品一覧',
                '商品一覧名' => '商品名',
-               'Description' => '商品ページURL',
+               '説明' => '商品ページURL',
                '商品一覧説明' => 'コーディネートのポイント',
                '商品一覧の簡単な説明' => 'コーディネートのポイントの簡単な商品ページURL',
                'すべてのコーディネートのポイント' => '商品一覧',
@@ -614,10 +614,15 @@ function populate_set_column( $column, $post_id ) {
         if ($product->is_type('variable')) { // Check if the product has variations
             $variations = $product->get_available_variations(); // Get all variations
             $variation_id = $variations[0]['variation_id'];
-            $variation_product = wc_get_product($variation_id);
-            $price = number_format($variation_product->get_price());
+            if( $variation_id === null ) {
+                $price = '-';
+                echo $price; // Display a dash if the attribute value is not 'all'
+            } else {
+                $variation_product = wc_get_product($variation_id);
+                $price = number_format($variation_product->get_price());
+                echo '¥' . $price; // Display a dash if the attribute value is not 'all'
+            }
         }
-        echo '¥' . $price; // Display a dash if the attribute value is not 'all'
     }
 }
 add_action( 'manage_product_posts_custom_column', 'populate_set_column', 10, 2 );
@@ -635,4 +640,6 @@ function handle_column_item_sort($query) {
     }
 }
 add_action('pre_get_posts', 'handle_column_item_sort');
+
+
 ?>
