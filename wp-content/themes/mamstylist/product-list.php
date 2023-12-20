@@ -1,5 +1,8 @@
 <?php
 /**
+ * Template Name: Search Result
+ */
+/**
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Gramercy-Village
@@ -30,7 +33,7 @@ if (isset($_GET['price'])) {
             <div class="nav-status">
                 <a href="<?= esc_url(home_url('/')); ?>">トップ </a>
                 <i class="fa fa-angle-right"></i>
-                <h4>商品一覧</h4>
+                <h4>検索結果</h4>
             </div>
         </section>
 
@@ -144,12 +147,10 @@ if (isset($_GET['price'])) {
                     中学生男子の服
                 </h2> -->
                 <div class="search-wrapper">
-                    <div class=search-result>
-                        <span><?php echo $product_query->found_posts; ?></span>&nbsp;件見つかりました
-                    </div>
+                    <div class="search-label">検索結果</div>
                     <?php if( $search_key || $middleschool || $highschool || $situation_params || $genre_params || $price_params) : ?>
+                    <div class="condition-label">検索条件</div>
                     <div class="search-keywords">
-                        <div class="label">選択中の条件</div>
                         <div class="keywords-list">
                             <?php if($search_key) : ?>
                                 <?php foreach ( $s_keys as $s_key ) : ?>
@@ -235,26 +236,9 @@ if (isset($_GET['price'])) {
                 </div>
 
                 <div class="products">
-                    <!-- <div class="sortby">
-                        <ul class="sortby-tabs">
-                            <li>
-                                <a class="sortby-item" href="">
-                                    人気順
-                                </a>
-                            </li>
-                            <li>
-                                <a class="sortby-item" href="">
-                                    価格の安い順
-                                </a>
-                            </li>
-                            <li>
-                                <a class="sortby-item" href="">
-                                    新着順
-                                </a>
-                            </li>
-                        </ul>
-                    </div> -->
-                    
+                    <div class=search-result>
+                        <span><?php echo $product_query->found_posts; ?></span>&nbsp;件見つかりました
+                    </div>
                     <div class="pagination">
                         <?php
                         $total_counts = $product_query->found_posts;

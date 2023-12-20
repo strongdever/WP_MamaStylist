@@ -75,8 +75,18 @@ get_header();
                     // Get the product object
                     $product = wc_get_product($product_id);
 
+                    $f_hasAll = true;
                     // Check if the product has variations
                     if ($product->is_type('variable')) {
+                        //getting the first label of the attribute
+                        $variation_attributes = $product->get_variation_attributes();
+                        $first_Values = $variation_attributes['set'];
+                        if( $first_Values[0] == 'all' ) {
+                            $f_hasAll = true;
+                        } else {
+                            $f_hasAll = false;
+                        }
+                        
                         // Get all variations
                         $variations = $product->get_available_variations();
                         $variation_id = $variations[0]['variation_id'];
@@ -106,6 +116,7 @@ get_header();
                             <img src="<?php echo T_DIRE_URI; ?>/assets/img/stars.png">
                             <h2 class="sub-title"><?php the_title(); ?></h2>
                         </div>
+                        <?php if( $f_hasAll ) : ?>
                         <p class="save-text">
                             単品購入より¥<?php echo number_format(($sum_price - $total_price)); ?>お得
                         </p>
@@ -118,6 +129,7 @@ get_header();
                                 買いに行く<i class="fa fa-angle-right bounce"></i>
                             </a>
                         </div>
+                        <?php endif; ?>
                         <div class="title">
                             単品で購入する
                         </div>
@@ -132,7 +144,13 @@ get_header();
                                 $variation_product = wc_get_product($variation_id);
 
                                 // Get the price
-                                if($i != 0) {
+                                if( $f_hasAll ) {
+                                    if( $i == 0 ) {
+                                        $i++;
+                                        continue;
+                                    }
+                                }
+                                // if($i != 0) {
                             ?>
                                     <li>
                                         <div class="name"><?php echo $variation_product->get_variation_attributes()['attribute_set']; ?></div>
@@ -142,7 +160,7 @@ get_header();
                                         </a>
                                     </li>
                             <?php
-                                }
+                                // }
                                 $i++;
                             }
                             ?>

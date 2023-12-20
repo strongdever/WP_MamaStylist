@@ -531,6 +531,7 @@ function wps_translate_words_array( $translated ) {
                '商品一覧タグ' => 'タグ',
                '商品一覧ギャラリー' => '商品画像',
                'すべての商品一覧' => '商品一覧',
+               '商品一覧商品ページURL' => 'コーディネートのポイント',
      );
      $translated = str_ireplace(  array_keys($words),  $words,  $translated );
      return $translated;

@@ -179,7 +179,7 @@ $total_post = $product_query->found_posts;
                 if( $(this).attr('data-parent') == 'genre' ) {
                     if($(this).hasClass('active')) {
                         for( var i = 0; i < genre.length; i++) {
-                            if( $(this).attr('data-cat') == genre ) {
+                            if( $(this).attr('data-cat') == genre[i] ) {
                                 genre.splice(i, 1);
                                 break;
                             }

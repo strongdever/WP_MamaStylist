@@ -1788,7 +1788,8 @@ body {
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 128.571% */
+  line-height: 18px;
+  /* 128.571% */
   margin-bottom: 1.0rem;
 }
 
@@ -1849,7 +1850,7 @@ body {
   background-color: #000;
   opacity: 0.4;
   z-index: 100;
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 .situation-choose .product-in-situation li a:hover::before {
@@ -1868,7 +1869,6 @@ body {
 .situation-choose .product-in-situation li .thumb {
   position: relative;
   width: 100%;
-  border-radius: 12px;
   aspect-ratio: 260 / 285;
   -o-object-fit: cover;
   object-fit: cover;
@@ -2813,8 +2813,42 @@ screen and (max-width: 1440px) {
   margin-bottom: 4.8rem;
 }
 
-.search-wrapper .search-result {
-  margin-bottom: 2.0rem;
+.search-wrapper .search-label {
+  color: #333;
+  font-family: "Noto Sans JP";
+  font-size: 2.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  /* 100% */
+  letter-spacing: 1.68px;
+  margin-bottom: 5.6rem;
+}
+
+.search-wrapper .condition-label {
+  color: #333;
+  font-family: "Noto Sans JP";
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+  /* 100% */
+  margin-bottom: 1.4rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .search-wrapper .search-label {
+    font-size: 2.2rem;
+    margin-bottom: 3.6rem;
+  }
+
+  .search-wrapper .condition-label {
+    font-size: 1.6rem;
+  }
+}
+
+.products .search-result {
+  margin-bottom: 2.4rem;
   color: #264C56;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
   font-size: 1.6rem;
@@ -2824,7 +2858,7 @@ screen and (max-width: 1440px) {
   /* 100% */
 }
 
-.search-wrapper .search-result span {
+.products .search-result span {
   font-size: 3.2rem;
   font-weight: 600;
   line-height: 32px;
@@ -2835,7 +2869,7 @@ screen and (max-width: 1440px) {
     margin-bottom: 2.4rem;
   }
 
-  .search-wrapper .search-result span {
+  .products .search-result span {
     font-size: 2.4rem;
   }
 }
@@ -4797,6 +4831,7 @@ input[type=checkbox]:before {
 }
 
 @media only screen and (max-width: 768px) {
+
   .rule .title-label,
   .privacy .title-label,
   .company .title-label {
@@ -4937,7 +4972,6 @@ input[type=checkbox]:before {
   cursor: zoom-in;
 }
 
-.scaled-image:hover,
 .scaled-image.is-mouse-over {
   transform: scale(1.8);
 }

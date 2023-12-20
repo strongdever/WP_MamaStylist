@@ -48,8 +48,6 @@
                     }
                 })
 
-                console.log("\\\\\\" + pricesEmpty);
-                console.log("\\\\\\" + urlsEmpty);
                 if ( pricesEmpty || urlsEmpty ) {  //adding error message to empty 通常価格 (¥) and 商品ページURL parts
                     e.preventDefault(); // Prevent the default publish event
                     $('.value-empty').parent().append(error_element);

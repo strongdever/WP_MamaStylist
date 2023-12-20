@@ -1,0 +1,132 @@
+2023-12-20T09:15:23+00:00 CRITICAL Maximum execution time of 120 seconds exceeded: E:\xampp\htdocs\mamastylist\wp-includes\class-wpdb.php の行2459
+
+2023-12-20T09:48:52+00:00 CRITICAL Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\blocks.php:841
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\blocks.php(841): str_contains(Array, '<!--')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(5209): filter_block_content(Array, 'post', Array)
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): wp_pre_kses_block_attributes(Array, 'post', Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(946): apply_filters('pre_kses', Array, 'post', Array)
+#5 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(754): wp_kses_hook(Array, 'post', Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(2157): wp_kses(Array, 'post')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(312): wp_kses_post(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\includes\wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Array, Array, '')
+#10 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php(83): wc_attribute_label(Array)
+#11 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#12 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#13 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#14 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-includes\blocks.php の行841
+
+2023-12-20T09:49:35+00:00 CRITICAL Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\blocks.php:841
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\blocks.php(841): str_contains(Array, '<!--')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(5209): filter_block_content(Array, 'post', Array)
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): wp_pre_kses_block_attributes(Array, 'post', Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(946): apply_filters('pre_kses', Array, 'post', Array)
+#5 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(754): wp_kses_hook(Array, 'post', Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(2157): wp_kses(Array, 'post')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(312): wp_kses_post(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\includes\wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Array, Array, '')
+#10 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php(83): wc_attribute_label(Array)
+#11 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#12 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#13 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#14 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-includes\blocks.php の行841
+
+2023-12-20T09:50:04+00:00 CRITICAL Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\blocks.php:841
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\blocks.php(841): str_contains(Array, '<!--')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(5209): filter_block_content(Array, 'post', Array)
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): wp_pre_kses_block_attributes(Array, 'post', Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(946): apply_filters('pre_kses', Array, 'post', Array)
+#5 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(754): wp_kses_hook(Array, 'post', Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(2157): wp_kses(Array, 'post')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(312): wp_kses_post(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\includes\wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Array, Array, '')
+#10 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php(83): wc_attribute_label(Array)
+#11 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#12 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#13 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#14 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-includes\blocks.php の行841
+
+2023-12-20T10:10:31+00:00 CRITICAL Uncaught Error: Call to a member function get_first_value() on null in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php:83
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php の行83
+
+2023-12-20T10:10:56+00:00 CRITICAL Uncaught Error: Call to a member function get_first_value() on null in E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php:83
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include()
+#1 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#2 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#3 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php の行83
+
+2023-12-20T10:13:51+00:00 CRITICAL Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\blocks.php:841
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\blocks.php(841): str_contains(Array, '<!--')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(5209): filter_block_content(Array, 'post', Array)
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): wp_pre_kses_block_attributes(Array, 'post', Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(946): apply_filters('pre_kses', Array, 'post', Array)
+#5 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(754): wp_kses_hook(Array, 'post', Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(2157): wp_kses(Array, 'post')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(312): wp_kses_post(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\includes\wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Array, Array, '')
+#10 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php(83): wc_attribute_label(Array)
+#11 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#12 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#13 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#14 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-includes\blocks.php の行841
+
+2023-12-20T10:14:06+00:00 CRITICAL Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\blocks.php:841
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\blocks.php(841): str_contains(Array, '<!--')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(5209): filter_block_content(Array, 'post', Array)
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): wp_pre_kses_block_attributes(Array, 'post', Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(946): apply_filters('pre_kses', Array, 'post', Array)
+#5 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(754): wp_kses_hook(Array, 'post', Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(2157): wp_kses(Array, 'post')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(312): wp_kses_post(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\includes\wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Array, Array, '')
+#10 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php(83): wc_attribute_label(Array)
+#11 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#12 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#13 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#14 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-includes\blocks.php の行841
+
+2023-12-20T10:14:47+00:00 CRITICAL Uncaught TypeError: str_contains(): Argument #1 ($haystack) must be of type string, array given in E:\xampp\htdocs\mamastylist\wp-includes\blocks.php:841
+Stack trace:
+#0 E:\xampp\htdocs\mamastylist\wp-includes\blocks.php(841): str_contains(Array, '<!--')
+#1 E:\xampp\htdocs\mamastylist\wp-includes\formatting.php(5209): filter_block_content(Array, 'post', Array)
+#2 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(310): wp_pre_kses_block_attributes(Array, 'post', Array)
+#3 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#4 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(946): apply_filters('pre_kses', Array, 'post', Array)
+#5 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(754): wp_kses_hook(Array, 'post', Array)
+#6 E:\xampp\htdocs\mamastylist\wp-includes\kses.php(2157): wp_kses(Array, 'post')
+#7 E:\xampp\htdocs\mamastylist\wp-includes\class-wp-hook.php(312): wp_kses_post(Array)
+#8 E:\xampp\htdocs\mamastylist\wp-includes\plugin.php(205): WP_Hook->apply_filters(Array, Array)
+#9 E:\xampp\htdocs\mamastylist\wp-content\plugins\woocommerce\includes\wc-attribute-functions.php(211): apply_filters('woocommerce_att...', Array, Array, '')
+#10 E:\xampp\htdocs\mamastylist\wp-content\themes\mamstylist\single-product.php(83): wc_attribute_label(Array)
+#11 E:\xampp\htdocs\mamastylist\wp-includes\template-loader.php(106): include('E:\\xampp\\htdocs...')
+#12 E:\xampp\htdocs\mamastylist\wp-blog-header.php(19): require_once('E:\\xampp\\htdocs...')
+#13 E:\xampp\htdocs\mamastylist\index.php(17): require('E:\\xampp\\htdocs...')
+#14 {main}
+  thrown: E:\xampp\htdocs\mamastylist\wp-includes\blocks.php の行841
+

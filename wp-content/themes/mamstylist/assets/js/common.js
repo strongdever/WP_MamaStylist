@@ -324,10 +324,12 @@
       });
     
       // Add mouseenter and mouseleave event handlers to the image container
-      $('.woocommerce-image-container').mouseenter(function() {
-        $(this).find('.scaled-image').addClass('is-mouse-over');
-      }).mouseleave(function() {
-        $(this).find('.scaled-image').removeClass('is-mouse-over');
+      $('.scaled-image').click(function() {
+        if($(this).hasClass('is-mouse-over')) {
+            $(this).removeClass('is-mouse-over');    
+        } else {
+            $(this).addClass('is-mouse-over');
+        }
       });
 
 })(jQuery);
